@@ -1,0 +1,20 @@
+@use "/src/scss/variables" as *;
+
+.icon-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: $s-2 $s-3;
+  border-radius: $br-1;
+  transition: all 0.2s ease;
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: $s-2;
+  }
+
+  &:hover {
+    background-color: $c-gray-5;
+  }
+}

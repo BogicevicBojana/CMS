@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@use "scss/variables" as *;
+@use "scss/variables" as *;
+@use "/src/scss/components/buttons";
+@use "scss/ng-select-bug-fix";
+@use "scss/utility";
+
+@use "./scss/reset";

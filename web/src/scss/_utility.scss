@@ -1,0 +1,161 @@
+// This file contains common reusable utility classes
+
+@use "src/scss/variables" as *;
+
+// Text colors
+
+.text-gray-1 {
+  color: $c-gray-1;
+}
+
+.text-gray-2 {
+  color: $c-gray-2;
+}
+
+.text-gray-3 {
+  color: $c-gray-3;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-size-0 {
+  font-size: $fs-0;
+}
+
+.font-size-1 {
+  font-size: $fs-1;
+}
+
+// Margins
+
+.mt-1 {
+  margin-top: $s-1;
+}
+
+.mt-2 {
+  margin-top: $s-2;
+}
+
+.mt-3 {
+  margin-top: $s-3;
+}
+
+.mt-4 {
+  margin-top: $s-4;
+}
+
+.mt-5 {
+  margin-top: $s-5;
+}
+
+.mt-6 {
+  margin-top: $s-6;
+}
+
+.mb-3 {
+  margin-bottom: $s-3 !important;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-3 {
+  margin-right: $s-3;
+}
+
+.mr-4 {
+  margin-right: $s-4;
+}
+
+.mr-5 {
+  margin-right: $s-5;
+}
+
+.mr-6 {
+  margin-right: $s-6;
+}
+
+// Font sizes
+
+.fs-0 {
+  font-size: $fs-0;
+}
+
+// Layout
+
+.d-inline {
+  display: inline;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.border-none {
+  border: none !important;
+}
+
+.border-bottom-1 {
+  border-bottom: 1px solid $c-gray-1;
+}
+
+.custom-table {
+  text-align: left;
+  width: 100%;
+  // border-collapse: collapse;
+  border-spacing: 0;
+  font-size: $fs-0;
+
+  thead {
+    th {
+      padding: 12px 4px;
+      font-size: $fs-0;
+      font-weight: $fw-default;
+      color: $c-gray-2;
+    }
+
+    th:last-child {
+      padding-right: 0;
+    }
+  }
+
+  tbody {
+    font-weight: $fw-light;
+
+    tr:nth-child(odd) {
+      background-color: rgb(237, 237, 237);
+    }
+
+    td,
+    th {
+      padding: 8px 6px;
+    }
+
+    td:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+.line-height-m {
+  line-height: 1.7;
+}
