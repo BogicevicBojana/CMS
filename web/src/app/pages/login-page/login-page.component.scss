@@ -7,9 +7,9 @@
     height: 100vh;
     background-color: #f4f4f4;
     backdrop-filter: blur(10px);
-
-    background: linear-gradient(0deg, rgba(54, 118, 230, 0.9), rgba(76, 76, 76, 0.6)),
-        url("https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80");
+    background: linear-gradient(0deg, rgb(43, 99, 195), rgba(58, 163, 248, 1));
+    // background: linear-gradient(0deg, rgb(171, 171, 171)rgb(238, 238, 238)1);
+    // url("https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80");
     background-size: cover;
     background-position: center center;
     user-select: none;
@@ -18,8 +18,8 @@
         // width: 40rem;
         text-align: center;
         margin-top: -100px;
-        background-color: rgba(255, 255, 255, 0.55);
-        padding: 30px;
+        background-color: rgba(255, 255, 255, 1);
+        padding: 36px;
         display: flex;
         flex-direction: column;
         // gap: 35px;
@@ -30,7 +30,6 @@
         position: relative;
 
         backdrop-filter: blur(3px);
-        // opacity: 0.55;
 
         .user-box {
             position: absolute;
@@ -41,8 +40,12 @@
             transform: translateY(-50%);
             border-radius: 7px;
             padding: 20px;
-            box-shadow: 0 7px 30px 0 rgba(0, 0, 0, 0.07);
-            // border: 3px solid $accent-color;
+            box-shadow: 0 7px 30px 0 rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+
+            &:hover {
+                box-shadow: 0 7px 30px 0 rgba(61, 140, 251, 0.458);
+            }
 
             svg {
                 stroke: $accent-color;
@@ -52,7 +55,7 @@
         }
 
         .logo {
-            margin-top: 3.5rem;
+            margin-top: 3.2rem;
             z-index: 2;
             color: #343434;
             font-size: 2.7rem;

@@ -20,6 +20,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -40,9 +41,14 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     VacationsPageComponent,
   ],
   imports: [
-    BrowserModule, RouterModule, HttpClientModule, AngularSvgIconModule.forRoot(), AppRoutingModule
+    BrowserModule,
+    RouterModule,
+    HttpClientModule,
+    AngularSvgIconModule.forRoot(),
+    AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
