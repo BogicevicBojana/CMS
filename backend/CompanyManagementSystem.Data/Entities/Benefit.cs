@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using CompanyManagementSystem.Data.Enums;
 using CompanyManagementSystem.Data.Extensions;
 
-namespace CompanyManagementSystem.Data.Models
+namespace CompanyManagementSystem.Data.Entities
 {
     public class Benefit : TimeStamp
     {
@@ -22,6 +22,7 @@ namespace CompanyManagementSystem.Data.Models
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
+        public bool IsDeleted { get; set; }
         public ICollection<UserBenefit> UserBenefits { get; set; }
 
         // * Operators used to allow implicit conversion between Enum type data and regular classes

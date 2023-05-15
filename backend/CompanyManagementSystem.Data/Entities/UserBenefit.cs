@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace CompanyManagementSystem.Data.Models
+namespace CompanyManagementSystem.Data.Entities
 {
     public class UserBenefit : TimeStamp
     {

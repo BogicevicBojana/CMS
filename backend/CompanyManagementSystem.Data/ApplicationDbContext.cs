@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using CompanyManagementSystem.Data.Enums;
-using CompanyManagementSystem.Data.Models;
+using CompanyManagementSystem.Data.Entities;
 using CompanyManagementSystem.Data.Extensions;
 
 namespace CompanyManagementSystem.Data
@@ -19,17 +19,17 @@ namespace CompanyManagementSystem.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            //Relationship definition User -> UserRole
+            //Relationship definition User -> Role
             builder
                 .Entity<User>()
-                .HasOne(user => user.UserRole)
-                .WithMany(userRole => userRole.Users)
+                .HasOne(user => user.Role)
+                .WithMany(role => role.Users)
                 .HasForeignKey(user => user.RoleId);
 
-            //Relationship definition User -> UserWorkingPosition
+            //Relationship definition User -> WorkingPosition
             builder
                 .Entity<User>()
-                .HasOne(user => user.UserWorkingPosition)
+                .HasOne(user => user.WorkingPosition)
                 .WithMany(position => position.Users)
                 .HasForeignKey(user => user.WorkingPositionId);
 
@@ -43,48 +43,6 @@ namespace CompanyManagementSystem.Data
             //Definition of unique property in User entity
             builder.Entity<User>().HasIndex(user => user.Email).IsUnique();
 
-            //Relationship definition ProjectDeveloper -> User
-            builder
-                .Entity<ProjectDeveloper>()
-                .HasOne(projectDev => projectDev.User)
-                .WithMany(user => user.ProjectDevelopers)
-                .HasForeignKey(projectDev => projectDev.UserId);
-
-            //Relationship definition ProjectDeveloper -> Project
-            builder
-                .Entity<ProjectDeveloper>()
-                .HasOne(projectDev => projectDev.Project)
-                .WithMany(project => project.ProjectDevelopers)
-                .HasForeignKey(projectDev => projectDev.ProjectId);
-
-            //Relationship definition ProjectSkill -> Project
-            builder
-                .Entity<ProjectSkill>()
-                .HasOne(projectSkill => projectSkill.Project)
-                .WithMany(project => project.ProjectSkills)
-                .HasForeignKey(projectSkill => projectSkill.ProjectId);
-
-            //Relationship definition ProjectSkill -> Skill
-            builder
-                .Entity<ProjectSkill>()
-                .HasOne(projectSkill => projectSkill.Skill)
-                .WithMany(skill => skill.ProjectSkills)
-                .HasForeignKey(projectSkill => projectSkill.SkillId);
-
-            //ProjectDeveloperSkill->Relation between project developer and project skills
-            //ProjectDeveloperSkill ->ProjectDeveloper
-            builder
-                .Entity<ProjectDeveloperSkill>()
-                .HasOne(projectDeveloperSkill => projectDeveloperSkill.ProjectDeveloper)
-                .WithMany(projectDeveloper => projectDeveloper.DeveloperSkills)
-                .HasForeignKey(projectDeveloperSkill => projectDeveloperSkill.ProjectDeveloperId);
-
-            //ProjectDeveloperSkill->ProjectSkill
-            builder
-                .Entity<ProjectDeveloperSkill>()
-                .HasOne(projectDeveloperSkill => projectDeveloperSkill.ProjectSkill)
-                .WithMany(projectSkills => projectSkills.DeveloperSkills)
-                .HasForeignKey(projectDeveloperSkill => projectDeveloperSkill.ProjectSkillId);
             //Relationship definition UserSkill -> User
             builder
                 .Entity<UserSkill>()
@@ -99,12 +57,6 @@ namespace CompanyManagementSystem.Data
                 .WithMany(skill => skill.UserSkills)
                 .HasForeignKey(userSkill => userSkill.SkillId);
 
-            //Relationship definition UserSkill -> SkillRating
-            builder
-                .Entity<UserSkill>()
-                .HasOne(userSkill => userSkill.Skill)
-                .WithMany(skillRating => skillRating.UserSkills)
-                .HasForeignKey(userSkill => userSkill.SkillRatingId);
 
             // * RELATION: USER BENEFITS and USER
             builder
@@ -160,19 +112,19 @@ namespace CompanyManagementSystem.Data
                 .WithOne(userStatus => userStatus.UserStatus)
                 .HasForeignKey(u => u.StatusId);
 
-            // * DEFINING USER WORKING POSITION 1 to Many relation with user
+            // * DEFINING WORKING POSITION 1 to Many relation with user
             builder
-                .Entity<UserWorkingPosition>()
+                .Entity<WorkingPosition>()
                 .HasMany<User>(u => u.Users)
-                .WithOne(u => u.UserWorkingPosition)
+                .WithOne(u => u.WorkingPosition)
                 .HasForeignKey(u => u.WorkingPositionId);
 
             // * DEFINING User Role
 
             builder
-                .Entity<UserRole>()
+                .Entity<Role>()
                 .HasMany<User>(u => u.Users)
-                .WithOne(u => u.UserRole)
+                .WithOne(u => u.Role)
                 .HasForeignKey(u => u.RoleId);
 
             // ? RELATION: VACATION REQUEST and USER (Requested)
@@ -206,27 +158,14 @@ namespace CompanyManagementSystem.Data
                 .WithOne(requestStatus => requestStatus.RequestStatus)
                 .HasForeignKey(requestStatus => requestStatus.RequestStatusId);
 
-            // * Relation: Note and User (CreatedBy)
-            builder.Entity<Note>()
-                .HasOne(note => note.CreatedBy)
-                .WithMany(user => user.CreatedNotes)
-                .HasForeignKey(note => note.CreatedById);
-
-            // * Relation: Note and User (AssignedTo)
-            builder.Entity<Note>()
-                .HasOne(note => note.AssignedTo)
-                .WithMany(user => user.AssignedNotes)
-                .HasForeignKey(note => note.AssignedToId);
-
             // * Enum Seeding
             builder.SeedEnum<Benefit, Benefits>(e => e);
             builder.SeedEnum<Language, Languages>(e => e);
             builder.SeedEnum<Skill, Skills>(e => e);
-            builder.SeedEnum<SkillRating, Ratings>(e => e);
             builder.SeedEnum<RequestStatus, RequestStatuses>(e => e);
-            builder.SeedEnum<UserRole, Roles>(e => e);
+            builder.SeedEnum<Role, Roles>(e => e);
             builder.SeedEnum<UserStatus, UserStatuses>(e => e);
-            builder.SeedEnum<UserWorkingPosition, WorkingPositions>(e => e);
+            builder.SeedEnum<WorkingPosition, WorkingPositions>(e => e);
 
         }
 
@@ -260,14 +199,6 @@ namespace CompanyManagementSystem.Data
 
         public DbSet<Language> Languages { get; set; }
 
-        public DbSet<Project> Projects { get; set; }
-
-        public DbSet<ProjectDeveloper> ProjectDevelopers { get; set; }
-
-        public DbSet<ProjectDeveloperSkill> ProjectDeveloperSkills { get; set; }
-
-        public DbSet<ProjectSkill> ProjectSkills { get; set; }
-
         public DbSet<PublicHoliday> PublicHolidays { get; set; }
 
         public DbSet<ReligiousHoliday> ReligiousHolidays { get; set; }
@@ -275,8 +206,6 @@ namespace CompanyManagementSystem.Data
         public DbSet<RequestStatus> RequestStatuses { get; set; }
 
         public DbSet<Skill> Skills { get; set; }
-
-        public DbSet<SkillRating> SkillRatings { get; set; }
 
         public DbSet<User> Users { get; set; }
 
@@ -286,17 +215,16 @@ namespace CompanyManagementSystem.Data
 
         public DbSet<UserReligiousHoliday> UserReligiousHolidays { get; set; }
 
-        public DbSet<UserRole> UserRoles { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
         public DbSet<UserSkill> UserSkills { get; set; }
 
         public DbSet<UserStatus> UserStatuses { get; set; }
 
-        public DbSet<UserWorkingPosition> UserWorkingPositions { get; set; }
+        public DbSet<WorkingPosition> WorkingPositions { get; set; }
 
         public DbSet<Vacation> Vacations { get; set; }
 
         public DbSet<VacationRequest> VacationRequests { get; set; }
-        public DbSet<Note> Notes { get; set; }
     }
 }

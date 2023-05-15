@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CompanyManagementSystem.Data.Models
+namespace CompanyManagementSystem.Data.Entities
 {
     public class VacationRequest : TimeStamp
     {

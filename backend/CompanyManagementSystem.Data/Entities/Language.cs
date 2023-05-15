@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using CompanyManagementSystem.Data.Enums;
 using CompanyManagementSystem.Data.Extensions;
 
-namespace CompanyManagementSystem.Data.Models
+namespace CompanyManagementSystem.Data.Entities
 {
     public class Language : TimeStamp
     {

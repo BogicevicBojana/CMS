@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using CompanyManagementSystem.Data.Enums;
 using CompanyManagementSystem.Data.Extensions;
 
-namespace CompanyManagementSystem.Data.Models
+namespace CompanyManagementSystem.Data.Entities
 {
     public class Skill : TimeStamp
     {
@@ -19,7 +19,6 @@ namespace CompanyManagementSystem.Data.Models
 
         public Skill()
         {
-            this.ProjectSkills = new HashSet<ProjectSkill>();
             this.UserSkills = new HashSet<UserSkill>();
         }
         public int Id { get; set; }
@@ -27,7 +26,6 @@ namespace CompanyManagementSystem.Data.Models
         public string Name { get; set; }
         public bool IsDeleted { get; set; }
 
-        public ICollection<ProjectSkill> ProjectSkills { get; set; }
         public ICollection<UserSkill> UserSkills { get; set; }
 
         // * Operators used to allow implicit conversion between Enum type data and regular classes

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 using System;
 
-namespace CompanyManagementSystem.Data.Models
+namespace CompanyManagementSystem.Data.Entities
 {
     public class UserSkill : TimeStamp
     {
@@ -19,9 +19,5 @@ namespace CompanyManagementSystem.Data.Models
         [InverseProperty("UserSkills")]
         public Skill Skill { get; set; }
 
-        public int SkillRatingId { get; set; }
-        [ForeignKey("SkillRatingId")]
-        [InverseProperty("UserSkills")]
-        public SkillRating SkillRating { get; set; }
     }
 }
