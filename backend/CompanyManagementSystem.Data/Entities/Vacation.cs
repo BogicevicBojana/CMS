@@ -13,9 +13,9 @@ namespace CompanyManagementSystem.Data.Entities
 
         public int Id { get; set; }
         [Required]
-        public DateTime StartDate { get; set; }
+        public DateOnly StartDate { get; set; }
         [Required]
-        public DateTime EndDate { get; set; }
+        public DateOnly EndDate { get; set; }
 
         // * Navigation Properties
         public ICollection<VacationRequest> VacationRequests { get; set; }

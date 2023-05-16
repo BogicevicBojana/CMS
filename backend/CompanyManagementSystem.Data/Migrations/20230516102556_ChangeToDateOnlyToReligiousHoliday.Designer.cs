@@ -3,6 +3,7 @@ using System;
 using CompanyManagementSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CompanyManagementSystem.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230516102556_ChangeToDateOnlyToReligiousHoliday")]
+    partial class ChangeToDateOnlyToReligiousHoliday
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,80 +54,80 @@ namespace CompanyManagementSystem.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6200),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6200),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2280),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2280),
                             IsDeleted = false,
                             Name = "Private health insurance"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6220),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6220),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2300),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2300),
                             IsDeleted = false,
                             Name = "Foreign language lessons"
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6240),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6240),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2320),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2320),
                             IsDeleted = false,
                             Name = "Remote work"
                         },
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6260),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6260),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2330),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2330),
                             IsDeleted = false,
                             Name = "Employee learning and advancement"
                         },
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6290),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6290),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2350),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2350),
                             IsDeleted = false,
                             Name = "Paid courses and literature for professional development"
                         },
                         new
                         {
                             Id = 6,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6310),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6310),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2370),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2370),
                             IsDeleted = false,
                             Name = "Additional day off for one year of experience (+1 day)"
                         },
                         new
                         {
                             Id = 7,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6320),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6320),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2380),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2380),
                             IsDeleted = false,
                             Name = "Additional days off for more than three years of experience (+2 days)"
                         },
                         new
                         {
                             Id = 8,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6340),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6340),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2400),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2400),
                             IsDeleted = false,
                             Name = "Paid sports activities"
                         },
                         new
                         {
                             Id = 9,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6350),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6350),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2410),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2410),
                             IsDeleted = false,
                             Name = "Parents day off (+1 day)"
                         },
                         new
                         {
                             Id = 10,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6370),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6370),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2440),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2440),
                             IsDeleted = false,
                             Name = "Courses for team-leader positions"
                         });
@@ -159,80 +162,80 @@ namespace CompanyManagementSystem.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6520),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6520),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2610),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2610),
                             IsDeleted = false,
                             Name = "English"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6540),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6540),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2630),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2630),
                             IsDeleted = false,
                             Name = "German"
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6560),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6560),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2640),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2640),
                             IsDeleted = false,
                             Name = "Russian"
                         },
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6570),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6570),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2660),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2660),
                             IsDeleted = false,
                             Name = "French"
                         },
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6590),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6590),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2670),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2670),
                             IsDeleted = false,
                             Name = "Turkish"
                         },
                         new
                         {
                             Id = 6,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6600),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6600),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2690),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2690),
                             IsDeleted = false,
                             Name = "Italian"
                         },
                         new
                         {
                             Id = 7,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6620),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6620),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2700),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2700),
                             IsDeleted = false,
                             Name = "Spanish"
                         },
                         new
                         {
                             Id = 8,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6640),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6640),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2720),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2720),
                             IsDeleted = false,
                             Name = "Polish"
                         },
                         new
                         {
                             Id = 9,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6650),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6650),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2730),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2730),
                             IsDeleted = false,
                             Name = "Dutch"
                         },
                         new
                         {
                             Id = 10,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6670),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6670),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2750),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2750),
                             IsDeleted = false,
                             Name = "Serbian"
                         });
@@ -246,11 +249,11 @@ namespace CompanyManagementSystem.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateOnly>("EndDate")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateOnly>("StartDate")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
@@ -265,8 +268,8 @@ namespace CompanyManagementSystem.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateOnly>("Date")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("timestamp with time zone");
@@ -376,240 +379,240 @@ namespace CompanyManagementSystem.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6810),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6810),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2950),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2950),
                             IsDeleted = false,
                             Name = "JavaScript"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6820),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6820),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2960),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2970),
                             IsDeleted = false,
                             Name = "AngularJS"
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6840),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6840),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2980),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2980),
                             IsDeleted = false,
                             Name = "TypeScript"
                         },
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6850),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6850),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(2990),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3000),
                             IsDeleted = false,
                             Name = "Angular"
                         },
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6870),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6870),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3010),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3010),
                             IsDeleted = false,
                             Name = "ReactJS"
                         },
                         new
                         {
                             Id = 6,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6880),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6880),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3030),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3030),
                             IsDeleted = false,
                             Name = "CSS"
                         },
                         new
                         {
                             Id = 7,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6900),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6900),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3040),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3040),
                             IsDeleted = false,
                             Name = "Ruby (Ruby on Rails)"
                         },
                         new
                         {
                             Id = 8,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6930),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6930),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3060),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3060),
                             IsDeleted = false,
                             Name = "Python"
                         },
                         new
                         {
                             Id = 9,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6940),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6940),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3070),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3070),
                             IsDeleted = false,
                             Name = "Java"
                         },
                         new
                         {
                             Id = 10,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6960),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6960),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3090),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3090),
                             IsDeleted = false,
                             Name = "SQL"
                         },
                         new
                         {
                             Id = 11,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6980),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6980),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3100),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3100),
                             IsDeleted = false,
                             Name = "PostgreSQL"
                         },
                         new
                         {
                             Id = 12,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6990),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(6990),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3120),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3120),
                             IsDeleted = false,
                             Name = "MongoDB"
                         },
                         new
                         {
                             Id = 13,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7010),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7010),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3130),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3130),
                             IsDeleted = false,
                             Name = "GitHub"
                         },
                         new
                         {
                             Id = 14,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7020),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7020),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3150),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3150),
                             IsDeleted = false,
                             Name = "Jira"
                         },
                         new
                         {
                             Id = 15,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7030),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7030),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3160),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3160),
                             IsDeleted = false,
                             Name = "Kotlin"
                         },
                         new
                         {
                             Id = 16,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7050),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7050),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3180),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3180),
                             IsDeleted = false,
                             Name = "Object C"
                         },
                         new
                         {
                             Id = 17,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7060),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7060),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3190),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3190),
                             IsDeleted = false,
                             Name = "Swift"
                         },
                         new
                         {
                             Id = 18,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7080),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7080),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3210),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3210),
                             IsDeleted = false,
                             Name = "Xmpp"
                         },
                         new
                         {
                             Id = 19,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7090),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7090),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3220),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3220),
                             IsDeleted = false,
                             Name = "Flutter"
                         },
                         new
                         {
                             Id = 20,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7110),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7110),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3240),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3240),
                             IsDeleted = false,
                             Name = "C#"
                         },
                         new
                         {
                             Id = 21,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7120),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7120),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3250),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3250),
                             IsDeleted = false,
                             Name = "C"
                         },
                         new
                         {
                             Id = 22,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7140),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7140),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3260),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3260),
                             IsDeleted = false,
                             Name = "C++"
                         },
                         new
                         {
                             Id = 23,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7150),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7150),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3280),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3280),
                             IsDeleted = false,
                             Name = "Haskell"
                         },
                         new
                         {
                             Id = 24,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7170),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7170),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3290),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3290),
                             IsDeleted = false,
                             Name = "Hardware Design / Embedded"
                         },
                         new
                         {
                             Id = 25,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7180),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7180),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3310),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3310),
                             IsDeleted = false,
                             Name = "PHP"
                         },
                         new
                         {
                             Id = 26,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7200),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7200),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3320),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3320),
                             IsDeleted = false,
                             Name = "Dart"
                         },
                         new
                         {
                             Id = 27,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7210),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7210),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3340),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3340),
                             IsDeleted = false,
                             Name = "Selenium"
                         },
                         new
                         {
                             Id = 28,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7220),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7230),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3350),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3350),
                             IsDeleted = false,
                             Name = "Appium"
                         },
                         new
                         {
                             Id = 29,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7240),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7240),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3360),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3360),
                             IsDeleted = false,
                             Name = "TestNG"
                         },
                         new
                         {
                             Id = 30,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7260),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7260),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3380),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3380),
                             IsDeleted = false,
                             Name = "xUnit"
                         });
@@ -931,16 +934,16 @@ namespace CompanyManagementSystem.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7790),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7790),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3900),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3900),
                             IsDeleted = false,
                             Name = "Software developer"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7810),
-                            DateModified = new DateTime(2023, 5, 16, 10, 38, 11, 78, DateTimeKind.Utc).AddTicks(7810),
+                            DateCreated = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3910),
+                            DateModified = new DateTime(2023, 5, 16, 10, 25, 56, 413, DateTimeKind.Utc).AddTicks(3910),
                             IsDeleted = false,
                             Name = "Designer"
                         });

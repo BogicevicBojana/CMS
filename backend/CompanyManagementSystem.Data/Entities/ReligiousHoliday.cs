@@ -12,7 +12,7 @@ namespace CompanyManagementSystem.Data.Entities
         }
         public int Id { get; set; }
         [Required]
-        public DateTime Date { get; set; }
+        public DateOnly Date { get; set; }
 
         // * Navigation Properties
         public ICollection<UserReligiousHoliday> UserReligiousHolidays { get; set; }

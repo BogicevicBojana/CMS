@@ -37,10 +37,10 @@ namespace CompanyManagementSystem.Data.Entities
         [Required]
         public string Email { get; set; }
         [Required]
-        public DateTime EmploymentDate { get; set; }
+        public DateOnly EmploymentDate { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime? DateOfBirth { get; set; }
+        public DateOnly? DateOfBirth { get; set; }
         public string Address { get; set; }
         public string MobileNumber { get; set; }
         public int FreeDaysThisYear {get; set; }
