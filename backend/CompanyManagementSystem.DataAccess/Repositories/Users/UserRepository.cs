@@ -28,6 +28,8 @@ namespace CompanyManagementSystem.DataAccess.Repositories.Users
                                         .Include(user => user.UserStatus)
                                         .Include(user => user.RequestedVacationRequests)
                                             .ThenInclude(userRequested => userRequested.Vacation)
+                                        .Include(user => user.RequestedVacationRequests)
+                                            .ThenInclude(userRequested => userRequested.RequestStatus)
                                         .Include(user => user.ProcessedVacationRequests)
                                             .ThenInclude(userProcessed => userProcessed.Vacation);
 
@@ -49,10 +51,12 @@ namespace CompanyManagementSystem.DataAccess.Repositories.Users
                                         .Include(user => user.UserStatus)
                                         .Include(user => user.RequestedVacationRequests)
                                             .ThenInclude(userRequested => userRequested.Vacation)
+                                        .Include(user => user.RequestedVacationRequests)
+                                            .ThenInclude(userRequested => userRequested.RequestStatus)
                                         .Include(user => user.ProcessedVacationRequests)
                                             .ThenInclude(userProcessed => userProcessed.Vacation);
                                         
-            return users.Where(user => !user.IsDeleted).ToList();
+            return users.ToList();
         }
 
         public User? GetUserByEmail(string email)
@@ -70,6 +74,8 @@ namespace CompanyManagementSystem.DataAccess.Repositories.Users
                                         .Include(user => user.UserStatus)
                                         .Include(user => user.RequestedVacationRequests)
                                             .ThenInclude(userRequested => userRequested.Vacation)
+                                        .Include(user => user.RequestedVacationRequests)
+                                            .ThenInclude(userRequested => userRequested.RequestStatus)
                                         .Include(user => user.ProcessedVacationRequests)
                                             .ThenInclude(userProcessed => userProcessed.Vacation);
 
