@@ -11,6 +11,8 @@ namespace CompanyManagementSystem.API.Response
         [Description("Something went wrong")]
         SomethingWentWrong = 3,
         [Description("Configuration code is wrong or not present")]
-        ConfigCodeMissingOrWrong = 4
+        ConfigCodeMissingOrWrong = 4,
+        [Description("User with that email already exists")]
+        UserAlreadyExists = 5
     }
 }
