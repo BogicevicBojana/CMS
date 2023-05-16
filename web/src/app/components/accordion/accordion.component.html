@@ -1,0 +1,20 @@
+<div class="accordion">
+  <div class="top" (click)="onClick()">
+    <h2>{{ title }}</h2>
+    <svg-icon
+      class="icon"
+      src="assets/icons/chevron-down-icon.svg"
+      [ngClass]="{ rotate: this.expanded }"
+    ></svg-icon>
+  </div>
+  <div class="content" [ngClass]="{ 'show-content': this.expanded }">
+    <ul>
+      <div *ngFor="let item of items">
+        <app-configuration-item
+          [item]="item"
+          [type]="this.configurationItemType!"
+        ></app-configuration-item>
+      </div>
+    </ul>
+  </div>
+</div>

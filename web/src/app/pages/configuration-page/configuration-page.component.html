@@ -1,0 +1,23 @@
+<div class="configuration-page">
+  <div class="page-info">
+    <h1 class="page-title">Configuration</h1>
+    <div class="page-description">
+      <svg-icon src="assets/icons/info-icon.svg"></svg-icon>
+      <p>Overview of available languages, skills, benefits and working positions.</p>
+    </div>
+  </div>
+  <div class="container">
+    <app-accordion
+      title="Languages"
+      [openedByDefault]="true"
+      [items]="this.languages"
+      [configurationItemType]="configurationType.LANGUAGE"
+    ></app-accordion>
+    <app-accordion title="Skills" [items]="this.skills"></app-accordion>
+    <app-accordion title="Benefits" [items]="this.benefits"></app-accordion>
+    <app-accordion
+      title="Working Positions"
+      [items]="this.workingPositions"
+    ></app-accordion>
+  </div>
+</div>

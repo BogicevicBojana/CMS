@@ -1,0 +1,108 @@
+// Define CSS variables like colors, typography, spacing etc. in this file
+
+//* GLOBAL STYLE GUIDELINES
+
+//* 01 TYPOGRAPHY SYSTEM
+
+// Font family
+$ff-default: "Inter", "sans-serif";
+
+// Font sizes (px): 10 / 12 / 14 / 16/ 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+// Font sizes (rem)
+$fs-0: 0.8rem;
+$fs-1: 1rem;
+$fs-2: 1.2rem;
+$fs-3: 1.4rem;
+$fs-4: 1.6rem;
+$fs-5: 1.8rem;
+$fs-6: 2rem;
+$fs-7: 2.4rem;
+$fs-8: 3rem;
+$fs-9: 3.6rem;
+$fs-10: 4.4rem;
+$fs-12: 5.2rem;
+$fs-13: 6.2rem;
+
+// Font weights
+$fw-light: 300;
+$fw-default: 400;
+$fw-medium: 500;
+$fw-semi-Bold: 600;
+$fw-bold: 700;
+
+// Line heights
+$lh-default: 1;
+$lh-small: 1.05;
+$lh-paragraph-default: 1.6;
+
+//* 02 COLORS
+
+// * 02.1 Primary colors
+$c-main: #313131;
+
+// Tints (lighter)
+$c-main-tint-1: #fa5252;
+$c-main-tint-2: #ff6b6b;
+$c-main-tint-3: #f8e1e1;
+
+// Shades (darker)
+$c-main-shade-1: #e03131;
+$c-main-shade-2: #c92a2a;
+
+// * 02.2 Accent colors (secondary):
+$c-accent-blue-tint: #4dabf7;
+$c-accent-blue: #339af0;
+$c-accent-blue-shade: #1c7ed6;
+
+$c-accent-green-tint-1: #69db7c;
+$c-accent-green-tint-2: #e0fbdc;
+$c-accent-green: #51cf66;
+$c-accent-green-shade: #37b24d;
+
+$c-accent-violet-tint: #9775fa;
+$c-accent-violet: #845ef7;
+$c-accent-violet-shade: #9775fa;
+
+$c-accent-yellow-tint: #ffd43b;
+$c-accent-yellow: #fcc419;
+$c-accent-yellow-shade-1: #f59f00;
+$c-accent-yellow-shade-2: #d98d00;
+
+// * 02.3 Greys:
+$c-gray-1: #232323;
+$c-gray-2: #333;
+$c-gray-3: #777;
+$c-gray-4: #ddd;
+$c-gray-5: #f4f4f4;
+$c-gray-6: #f6f6f6;
+$c-gray-7: #a0a0a0;
+$c-gray-8: #ededed;
+
+// * 03 BORDER-RADIUS
+$br-1: 9px;
+$br-2: 12px;
+$br-3: 50%;
+
+// * 04 WHITESPACE
+
+// Spacing system (px)
+// 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+$s-1: 0.2rem;
+$s-2: 0.4rem;
+$s-3: 0.8rem;
+$s-4: 1.2rem;
+$s-5: 1.6rem;
+$s-6: 2.4rem;
+$s-7: 4.8rem;
+$s-8: 6.4rem;
+$s-9: 8rem;
+$s-10: 9.6rem;
+$s-12: 12.8rem;
+$s-32: 3.2rem;
+
+// * 05 BREAKPOINTS
+$small-desktop: 1200px;
+
+$accent-color: #3593d6;

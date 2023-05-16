@@ -1,0 +1,43 @@
+@use "/src/scss/variables" as *;
+
+.sidebar-button {
+  font-size: 1.4rem;
+  padding: 15px 20px;
+  border-radius: 3px;
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s ease;
+  color: #333;
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  svg {
+    stroke: $accent-color;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.035);
+    transform: scale(1.03);
+  }
+
+  &.selected {
+    background-color: $accent-color;
+    color: #fff;
+    box-shadow: 0 2px 20px 0 rgba($accent-color, 0.5);
+
+    svg {
+      stroke: #fff;
+    }
+
+    &:hover {
+      background-color: $accent-color;
+      color: #fff;
+    }
+  }
+}
