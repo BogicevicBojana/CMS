@@ -1,0 +1,190 @@
+// This styling overwrites default ng-select styling which isn't particularly good
+
+.ng-select {
+  margin-top: -15px;
+  padding-bottom: 0 !important;
+}
+
+.ng-dropdown-panel {
+  margin-top: 12.5px;
+}
+
+.ng-select.ng-select-single .ng-select-container .ng-clear-wrapper {
+  bottom: 4px !important;
+}
+
+.ng-select.ng-select-single .ng-select-container .ng-value-container,
+.ng-select.ng-select-single .ng-select-container .ng-value-container .ng-value {
+  margin-top: 8.5px !important;
+  font-size: 12px !important;
+}
+
+.ng-select .ng-select-container .ng-value-container .ng-input > input {
+  font-family: "Poppins" !important;
+  font-size: 12px !important;
+  //   margin-top: -10px;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  font-size: 12px !important;
+  // margin-top: 10px;
+}
+
+.ng-select .ng-select-container .ng-value-container .ng-placeholder {
+  margin-top: 8.5px !important;
+  font-size: 12px !important;
+}
+
+// Multiselect bug fixes
+
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container {
+  margin-top: 15px !important;
+  font-size: 12px !important;
+}
+
+.ng-select .ng-select-container .ng-value-container .ng-input > input {
+  font-family: "Poppins" !important;
+  font-size: 12px !important;
+}
+
+.ng-select.ng-select-multiple
+  .ng-select-container
+  .ng-value-container
+  .ng-value
+  .ng-value-label {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  font-family: "Poppins";
+}
+
+.ng-select.ng-select-multiple
+  .ng-select-container
+  .ng-value-container
+  .ng-value
+  .ng-value-icon {
+  color: rgba(255, 255, 255, 0.54);
+  padding-right: 0 !important;
+  margin-top: 2px;
+}
+
+// Selected label
+
+.ng-select.ng-select-multiple
+  .ng-select-container
+  .ng-value-container
+  .ng-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background-color: #a8a8a8 !important;
+  padding-right: 7px !important;
+}
+.ng-select.ng-no-value .ng-select-container .ng-value-container .ng-value {
+  display: none;
+}
+.ng-select.ng-no-value .ng-select-container .ng-clear-wrapper {
+  display: none;
+}
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  display: flex !important;
+  gap: 5px !important;
+}
+
+.ng-select.ng-select-multiple
+  .ng-select-container.ng-has-value
+  .ng-value-container {
+  padding-bottom: 2.5px !important;
+}
+
+// Multiselect placeholder
+
+.ng-select.ng-select-multiple
+  .ng-select-container
+  .ng-value-container
+  .ng-placeholder {
+  margin-top: 3px !important;
+  font-size: 12px !important;
+}
+
+// Multiselect arrow btn
+
+.ng-select.ng-select-multiple
+  .ng-select-container.ng-has-value
+  .ng-clear-wrapper,
+.ng-select.ng-select-multiple
+  .ng-select-container.ng-has-value
+  .ng-arrow-wrapper {
+  bottom: -7.5px !important;
+}
+
+// Multiselect clear btn
+
+.ng-select .ng-clear-wrapper {
+  margin-top: 3px !important;
+}
+
+.ng-select.ng-select-multiple
+  .ng-select-container
+  .ng-value-container
+  .ng-value {
+  z-index: 999 !important;
+}
+
+// Colors
+
+.ng-select.ng-select-focused .ng-select-container:after {
+  border-color: rgba(0, 0, 0, 0.42) !important;
+}
+.ng-select.ng-select-focused .ng-select-container.ng-appearance-outline:after,
+.ng-select.ng-select-focused
+  .ng-select-container.ng-appearance-outline:hover:after {
+  border-color: rgba(0, 0, 0, 0.42) !important;
+}
+.ng-select.ng-select-focused
+  .ng-select-container
+  .ng-value-container
+  .ng-placeholder {
+  color: rgba(0, 0, 0, 0.54) !important;
+}
+
+// Arrow
+.ng-select.ng-select-focused .ng-select-container .ng-arrow-wrapper .ng-arrow {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected {
+  background: rgba(0, 0, 0, 0.12);
+  color: #000000de !important;
+}
+
+input[type="checkbox" i] {
+  accent-color: #e95a5a !important;
+}
+
+.ng-select .ng-select-container .ng-value-container .ng-placeholder {
+  position: absolute;
+  color: rgba(0, 0, 0, 0.54);
+  transform-origin: left 0;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.ng-select.ng-select-focused
+  .ng-select-container
+  .ng-value-container
+  .ng-placeholder {
+  transform: perspective(100px) translateZ(0.001px) !important;
+  color: #3f51b5;
+}
+
+.ng-select .ng-has-value .ng-placeholder,
+.ng-select.ng-select-opened .ng-placeholder {
+  transform: scale(0.75) perspective(100px) translateZ(0.001px) !important;
+}
+
+.ng-select .ng-has-value .ng-placeholder,
+.ng-select.ng-select-opened .ng-placeholder {
+  opacity: 0;
+}

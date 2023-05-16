@@ -1,0 +1,60 @@
+<div class="app-sidebar">
+  <h1 class="logo">Workforce <span>360</span></h1>
+  <nav>
+    <app-sidebar-button
+      iconSrc="assets/icons/user-icon.svg"
+      buttonText="My Profile"
+      routerLink="/app/my-profile"
+      [passedRoutes]="['/app/my-profile']"
+      *ngIf="true"
+    ></app-sidebar-button>
+
+    <app-sidebar-button
+      iconSrc="assets/icons/gear-icon.svg"
+      buttonText="Configuration"
+      routerLink="/app/configuration"
+      [passedRoutes]="['/app/configuration']"
+      *ngIf="isAdmin"
+    ></app-sidebar-button>
+
+    <app-sidebar-button
+      iconSrc="assets/icons/users-icon.svg"
+      buttonText="Users"
+      routerLink="/app/users"
+      [passedRoutes]="['/app/users']"
+      *ngIf="isAdmin"
+    ></app-sidebar-button>
+
+    <app-sidebar-button
+      iconSrc="assets/icons/register-user-icon.svg"
+      buttonText="Registration"
+      routerLink="/app/register-user"
+      [passedRoutes]="['/app/register-user']"
+      *ngIf="isAdmin"
+    ></app-sidebar-button>
+
+    <app-sidebar-button
+      iconSrc="assets/icons/vacations-icon.svg"
+      buttonText="Vacations"
+      [routerLink]="isAdmin ? '/app/vacations' : '/app/my-vacations'"
+      [passedRoutes]="['/app/vacations', '/app/my-vacations']"
+      *ngIf="true"
+    ></app-sidebar-button>
+
+    <app-sidebar-button
+      iconSrc="assets/icons/benefits-icon.svg"
+      buttonText="Benefits"
+      [routerLink]="isAdmin ? '/app/benefits' : '/app/my-benefits'"
+      [passedRoutes]="['/app/benefits', '/app/my-benefits']"
+      *ngIf="true"
+    ></app-sidebar-button>
+
+    <app-sidebar-button
+      iconSrc="assets/icons/reports-icon.svg"
+      buttonText="Reports"
+      routerLink="/app/reports"
+      passedRoute="/app/reports"
+      *ngIf="false"
+    ></app-sidebar-button>
+  </nav>
+</div>

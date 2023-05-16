@@ -1,0 +1,58 @@
+@use "/src/scss/_variables.scss" as *;
+
+.accordion {
+  background-color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 3px;
+  box-shadow: 0px 10px 22px 0px rgba(0, 0, 0, 0.03);
+
+  .top {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #444;
+      user-select: none;
+    }
+
+    .icon {
+      transition: all 0.3s ease;
+      svg {
+        fill: $accent-color;
+        transition: all 0.3s ease;
+      }
+
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .content {
+    overflow: hidden;
+    max-height: 0;
+    transition: all 0.2s ease;
+    visibility: hidden;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      font-size: 1.3rem;
+    }
+  }
+
+  .rotate {
+    transform: rotate(180deg);
+  }
+
+  .show-content {
+    padding-top: 0.7rem;
+    padding-bottom: 0.5rem;
+    visibility: visible;
+    max-height: 100px;
+  }
+}

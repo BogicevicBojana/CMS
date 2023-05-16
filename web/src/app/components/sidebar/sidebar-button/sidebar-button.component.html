@@ -1,0 +1,7 @@
+<div
+  class="sidebar-button"
+  [ngClass]="{ selected: passedRoutes?.includes(this.router.url) }"
+>
+  <svg-icon [src]="iconSrc" class="icon"></svg-icon>
+  <a>{{ buttonText }}</a>
+</div>
