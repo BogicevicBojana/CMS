@@ -11,3 +11,12 @@
 # Built Visual Studio Code Extensions
 *.vsix
 web/package-lock.json
+.vscode/settings.json
+backend/CompanyManagementSystem.API/appsettings.Development.json
+.vscode/tasks.json
+.vscode/settings.json
+.vscode/launch.json
+.vscode/settings.json
+backend/CompanyManagementSystem.API/appsettings.Development.json
+backend/CompanyManagementSystem.API/appsettings.Development.json
+.vscode/settings.json
