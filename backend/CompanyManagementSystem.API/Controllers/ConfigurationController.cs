@@ -10,12 +10,14 @@ using CompanyManagementSystem.API.Response;
 using CompanyManagementSystem.Data.Extensions;
 using CompanyManagementSystem.API.Utils.Auth;
 using CompanyManagementSystem.Data.Enums;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CompanyManagementSystem.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
+    [AllowAnonymous]
     public class ConfigurationController : ControllerBase
     {
         private IBenefitService benefitService;
@@ -35,6 +37,7 @@ namespace CompanyManagementSystem.API.Controllers
         }
 
         [HttpPost("insertion/{code}")]
+        [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
         public IActionResult InsertIntoConfiguration([FromBody] NameBaseDto nameBase, string code)
         {
             var response = new Object();
@@ -61,6 +64,7 @@ namespace CompanyManagementSystem.API.Controllers
         }
 
         [HttpGet("information/{code}")]
+        [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
         public IActionResult GetAll(string code)
         {
             if(code.ToLower() == ConfigurationCodes.Benefit.ToString().ToLower())
@@ -76,6 +80,7 @@ namespace CompanyManagementSystem.API.Controllers
         }
 
         [HttpGet("information/{code}/{id:int}")]
+        [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
         public IActionResult GetById(string code, int id)
         {
             var response = new Object();
@@ -100,6 +105,7 @@ namespace CompanyManagementSystem.API.Controllers
         }
 
         [HttpDelete("deletion/{code}/{id:int}")]
+        [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
         public IActionResult SoftDeleteLanguage(string code, int id)
         {
             var response = new Object();
