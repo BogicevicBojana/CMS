@@ -106,7 +106,7 @@ namespace CompanyManagementSystem.API.Controllers
 
         [HttpDelete("deletion/{code}/{id:int}")]
         [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
-        public IActionResult SoftDeleteLanguage(string code, int id)
+        public IActionResult SoftDelete(string code, int id)
         {
             var response = new Object();
             if(code.ToLower() == ConfigurationCodes.Benefit.ToString().ToLower())
