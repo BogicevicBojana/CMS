@@ -1,0 +1,31 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: 26.5rem 5fr;
+  grid-template-rows: 6rem 1fr;
+  min-height: 100vh;
+
+  app-header {
+    position: relative;
+    grid-row: 1 / 2;
+    grid-column: 2 / -1;
+    z-index: 2;
+  }
+
+  app-sidebar {
+    grid-row: 1 / -1;
+    grid-column: 1 / 2;
+    background-color: #fff;
+    height: 100%;
+    box-shadow: rgba(113, 122, 131, 0.12) 0px 7px 30px 2px;
+    position: sticky;
+    left: 0;
+    top: 0;
+  }
+
+  main {
+    padding: 20px;
+    background-color: #fafbfb;
+    grid-row: 2 / -1;
+    grid-column: 2 / -1;
+  }
+}
