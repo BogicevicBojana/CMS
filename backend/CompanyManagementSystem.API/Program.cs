@@ -45,12 +45,12 @@ builder.Services.AddAuthentication(options =>
             .AddJwtBearer();
 
 builder.Services.AddCors(options =>
-                       {
-                           options.AddPolicy(name: MyAllowSpecificOrigins,
-                             policy =>
+                        {
+                           options.AddPolicy("AllowAngularDevClient",
+                             builder =>
                              {
-                                 policy
-                                 .WithOrigins("http://localhost:5173")
+                                 builder
+                                 .WithOrigins("http://localhost:4200")
                                  .AllowAnyHeader()
                                  .AllowAnyMethod();
                              });
