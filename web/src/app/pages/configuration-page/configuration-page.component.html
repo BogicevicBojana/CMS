@@ -3,7 +3,9 @@
     <h1 class="page-title">Configuration</h1>
     <div class="page-description">
       <svg-icon src="assets/icons/info-icon.svg"></svg-icon>
-      <p>Overview of available languages, skills, benefits and working positions.</p>
+      <p>
+        Overview of available languages, skills, benefits and working positions.
+      </p>
     </div>
   </div>
   <div class="container">
@@ -12,12 +14,25 @@
       [openedByDefault]="true"
       [items]="this.languages"
       [configurationItemType]="configurationType.LANGUAGE"
+      (itemDeletedEvent)="reloadItem(configurationType.LANGUAGE)"
     ></app-accordion>
-    <app-accordion title="Skills" [items]="this.skills"></app-accordion>
-    <app-accordion title="Benefits" [items]="this.benefits"></app-accordion>
+    <app-accordion
+      title="Skills"
+      [items]="this.skills"
+      [configurationItemType]="configurationType.SKILL"
+      (itemDeletedEvent)="reloadItem(configurationType.SKILL)"
+    ></app-accordion>
+    <app-accordion
+      title="Benefits"
+      [items]="this.benefits"
+      [configurationItemType]="configurationType.BENEFIT"
+      (itemDeletedEvent)="reloadItem(configurationType.BENEFIT)"
+    ></app-accordion>
     <app-accordion
       title="Working Positions"
       [items]="this.workingPositions"
+      [configurationItemType]="configurationType.WORKING_POSITION"
+      (itemDeletedEvent)="reloadItem(configurationType.WORKING_POSITION)"
     ></app-accordion>
   </div>
 </div>

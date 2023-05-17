@@ -1,6 +1,6 @@
 export enum ConfigurationType {
-  BENEFIT = 'benefit',
-  LANGUAGE = 'language',
-  WORKING_POSITION = 'working-position',
-  SKILL = 'skill',
+  BENEFIT = 'Benefit',
+  LANGUAGE = 'Language',
+  WORKING_POSITION = 'Position',
+  SKILL = 'Skill',
 }
