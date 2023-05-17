@@ -45,26 +45,23 @@ builder.Services.AddAuthentication(options =>
             .AddJwtBearer();
 
 builder.Services.AddCors(options =>
-                        {
-                           options.AddPolicy("AllowAngularDevClient",
-                             builder =>
-                             {
-                                 builder
-                                 .WithOrigins("http://localhost:4200")
-                                 .AllowAnyHeader()
-                                 .AllowAnyMethod();
-                             });
-                       });
+    {
+        options.AddPolicy(name: MyAllowSpecificOrigins,
+            policy =>
+            {
+                policy
+                .WithOrigins("http://localhost:5173", "http://localhost:4200")
+                .AllowAnyMethod();
+            });
+    });
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
 builder.Services.AddTransient<IBenefitService, BenefitService>();
 builder.Services.AddTransient<ISkillService, SkillService>();
 builder.Services.AddTransient<IWorkingPositionService, WorkingPositionService>();
 builder.Services.AddTransient<ILanguageService, LanguageService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IRoleService, RoleService>();
-
 
 var app = builder.Build();
 
