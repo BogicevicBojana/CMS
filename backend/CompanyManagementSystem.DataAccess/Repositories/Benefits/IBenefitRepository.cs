@@ -7,5 +7,7 @@ namespace CompanyManagementSystem.DataAccess.Repositories.Benefits
         IEnumerable<Benefit> GetAllBenefits();
 
         Benefit? GetById(int id);
+
+        IEnumerable<Benefit> GetAllWithUser(int id);
     }
 }

@@ -16,5 +16,6 @@ namespace CompanyManagementSystem.API.Services.Benefits
         Response<Models.Benefit> GetById(int id);
 
         Response<Models.Benefit> SoftDelete(int id);
+        Response<List<Models.Benefit>> GetAllWithUser(int id);
     }
 }

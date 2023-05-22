@@ -6,6 +6,7 @@ using CompanyManagementSystem.Data.Entities;
 using Models = CompanyManagementSystem.API.Models;
 using CompanyManagementSystem.API.Response;
 using CompanyManagementSystem.Data.Extensions;
+using CompanyManagementSystem.API.Utils;
 
 namespace CompanyManagementSystem.API.Services.Benefits
 {
@@ -76,5 +77,17 @@ namespace CompanyManagementSystem.API.Services.Benefits
 
             return new Response<Models.Benefit>(ResponseMessages.OK.ToDescription(), null, (int)ResponseCodes.OK);
         }
+
+        public Response<List<Models.Benefit>> GetAllWithUser(int id)
+        {
+            var benefits = unitOfWork.benefitRepository.GetAllWithUser(id);
+            var benefitsDTO = new List<Models.Benefit>();
+            foreach (var item in benefits)
+            {
+                benefitsDTO.Add(Mappers.MapToBenefitDto(item));
+            }
+
+            return new Response<List<Models.Benefit>>(ResponseMessages.OK.ToDescription(), benefitsDTO, (int)ResponseCodes.OK);
+        }  
     }
 }
