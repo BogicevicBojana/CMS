@@ -7,5 +7,6 @@ namespace CompanyManagementSystem.DataAccess.Repositories.Users
         User? GetUserById(long id);
         IEnumerable<User>? GetAllUsers();
         User? GetUserByEmail(string email);
+        IEnumerable<User>? GetAllNonDeletedUsers();
     }
 }

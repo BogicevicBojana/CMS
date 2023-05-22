@@ -59,6 +59,29 @@ namespace CompanyManagementSystem.DataAccess.Repositories.Users
             return users.ToList();
         }
 
+        public IEnumerable<User>? GetAllNonDeletedUsers()
+        {
+             var users = context.Users.Include(user => user.Role)
+                                        .Include(user => user.WorkingPosition)
+                                        .Include(user => user.UserBenefits)
+                                            .ThenInclude(userBenefit => userBenefit.Benefit)
+                                        .Include(user => user.UserSkills)
+                                            .ThenInclude(userSkill => userSkill.Skill)
+                                        .Include(user => user.UserLanguages)
+                                            .ThenInclude(userLanguage => userLanguage.Language)
+                                        .Include(user => user.UserReligiousHolidays)
+                                            .ThenInclude(userHoliday => userHoliday.ReligiousHoliday)
+                                        .Include(user => user.UserStatus)
+                                        .Include(user => user.RequestedVacationRequests)
+                                            .ThenInclude(userRequested => userRequested.Vacation)
+                                        .Include(user => user.RequestedVacationRequests)
+                                            .ThenInclude(userRequested => userRequested.RequestStatus)
+                                        .Include(user => user.ProcessedVacationRequests)
+                                            .ThenInclude(userProcessed => userProcessed.Vacation);
+                                        
+            return users.Where(user => !user.IsDeleted).ToList();
+        }
+
         public User? GetUserByEmail(string email)
         {
              var users = context.Users.Include(user => user.Role)
