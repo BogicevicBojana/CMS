@@ -11,5 +11,11 @@ namespace CompanyManagementSystem.DataAccess.Repositories.UserSkills
         {
             this.context = _context;
         }
+
+        public UserSkill? GetByUserAndSkillId(int userId, int skillId)
+        {
+            return context.UserSkills.Where(userSkill => userSkill.UserId == userId 
+            && userSkill.SkillId == skillId).SingleOrDefault();
+        }
     }
 }

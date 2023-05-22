@@ -11,5 +11,11 @@ namespace CompanyManagementSystem.DataAccess.Repositories.UserLanguages
         {
             this.context = _context;
         }
+
+        public UserLanguage? GetByUserAndLanguageId(int userId, int languageId)
+        {
+            return context.UserLanguages.Where(userLanguage => userLanguage.UserId == userId 
+            && userLanguage.LanguageId == languageId).SingleOrDefault();
+        }
     }
 }
