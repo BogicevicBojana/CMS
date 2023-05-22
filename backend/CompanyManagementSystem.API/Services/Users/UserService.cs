@@ -45,6 +45,21 @@ namespace CompanyManagementSystem.API.Services.Users
             return new Response<List<Models.User>>(ResponseMessages.OK.ToDescription(), mappedList, (int)ResponseCodes.OK);
         }
 
+        public Response<List<Models.User>> GetAllNonDeletedUsers()
+        {
+            var users = unitOfWork.userRepository.GetAllNonDeletedUsers();
+            if(users.Count() == 0 || users is null)
+                new Response<Models.User>(ResponseMessages.SomethingWentWrong.ToDescription(), null, (int)ResponseCodes.BadRequest);
+
+            List<Models.User> mappedList = new List<Models.User>();
+            foreach (var item in users)
+            {
+                var mapped = Mappers.MapToUserDto(item);
+                mappedList.Add(mapped);
+            }
+            return new Response<List<Models.User>>(ResponseMessages.OK.ToDescription(), mappedList, (int)ResponseCodes.OK);
+        }
+
         public Response<Models.User> SoftDelete(int id)
         {
             if(unitOfWork.userRepository.GetUserById(id) is null)
@@ -69,6 +84,58 @@ namespace CompanyManagementSystem.API.Services.Users
             
             return new Response<Models.User>(ResponseMessages.OK.ToDescription(), Mappers.MapToUserDto(unitOfWork.userRepository.GetUserById(insertedUser.Id)), (int)ResponseCodes.Created);
             
+        }
+
+        public Response<Models.User> Update(Models.UserUpdate user)
+        {
+            if(unitOfWork.userRepository.GetUserById(user.Id) is null)
+                return  new Response<Models.User>(ResponseMessages.DoesNotExist.ToDescription(), null, (int)ResponseCodes.BadRequest);
+
+            try {
+                unitOfWork.userRepository.Update(Mappers.MapToUserEntity(user));
+                unitOfWork.Complete();
+            } catch(NullReferenceException)
+            {
+                return new Response<Models.User>(ResponseMessages.SomethingWentWrong.ToDescription(), null, (int)ResponseCodes.BadRequest);
+            }
+            
+            return new Response<Models.User>(ResponseMessages.OK.ToDescription(), Mappers.MapToUserDto(unitOfWork.userRepository.GetUserById(user.Id)), (int)ResponseCodes.Created);
+            
+        }
+
+        public Response<List<Models.Benefit>> UpdateUserBenefit(Models.UserBenefit userBenefitDTO, bool selected)
+        {
+            var benefitToUpdate = Mappers.MapToUserBenefitEntity(userBenefitDTO);
+            if (selected)
+            {
+                unitOfWork.userBenefitRepository.AddUserBenefit(benefitToUpdate);
+                if (benefitToUpdate.BenefitId == (int)Data.Enums.Benefits.ParentsDayOff)
+                {
+                    User user = unitOfWork.userRepository.GetUserById(benefitToUpdate.UserId);
+                    user.FreeDays += 1;
+                    unitOfWork.userRepository.Update(user);
+                    unitOfWork.userRepository.Save();
+                }
+            }
+            else
+            {
+                unitOfWork.userBenefitRepository.RemoveUserBenefit(benefitToUpdate);
+                if (benefitToUpdate.BenefitId == (int)Data.Enums.Benefits.ParentsDayOff)
+                {
+                    User user = unitOfWork.userRepository.GetUserById(benefitToUpdate.UserId);
+                    user.FreeDays -= 1;
+                    unitOfWork.userRepository.Update(user);
+                    unitOfWork.userRepository.Save();
+                }
+            }
+            var benefits = unitOfWork.benefitRepository.GetAllWithUser(userBenefitDTO.UserId);
+            var benefitsDTO = new List<Models.Benefit>();
+            foreach (var item in benefits)
+            {
+                benefitsDTO.Add(Mappers.MapToBenefitDto(item));
+            }
+
+            return new Response<List<Models.Benefit>>(ResponseMessages.OK.ToDescription(), benefitsDTO, (int)ResponseCodes.OK);
         }
     }
 }

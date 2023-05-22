@@ -45,6 +45,15 @@ namespace CompanyManagementSystem.API.Controllers
                 return Ok(response);
             return BadRequest(response);
         }
+        [HttpGet("information/active")]
+        [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
+        public IActionResult GetAllNonDeletedUsers()
+        {
+            var response = userService.GetAllNonDeletedUsers();
+            if(response.Code.Equals(200))
+                return Ok(response);
+            return BadRequest(response);
+        }
 
         [HttpDelete("deletion/{id:int}")]
         [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
@@ -64,6 +73,36 @@ namespace CompanyManagementSystem.API.Controllers
             if (response.Code.Equals(201))
                 return Ok(response);
             return BadRequest(response);
+        }
+
+        [HttpPut("update")]
+        [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
+        public IActionResult Update([FromBody] Models.UserUpdate user)
+        {
+            var response = userService.Update(user);
+            if (response.Code.Equals(201))
+                return Ok(response);
+            return BadRequest(response);
+        }
+
+        // [HttpPut("update/self")]
+        // [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
+        // public IActionResult UpdateSelf([FromBody] Models.UserSelfUpdate user)
+        // {
+        //     var response = userService.Update(user);
+        //     if (response.Code.Equals(201))
+        //         return Ok(response);
+        //     return BadRequest(response);
+        // }
+
+        [AuthorizeRoles(Roles.Administrator)]
+        [HttpPut("update/benefit/{selected:bool}")]
+        public IActionResult UpdateUserBenefit(
+            [FromBody] Models.UserBenefit userBenefitDTO,
+            bool selected
+        )
+        {
+            return Ok(userService.UpdateUserBenefit(userBenefitDTO, selected));
         }
     }
 }
