@@ -1,5 +1,6 @@
 using Models = CompanyManagementSystem.API.Models;
 using CompanyManagementSystem.Data.Entities;
+using CompanyManagementSystem.Data.Enums;
 
 namespace CompanyManagementSystem.API.Utils
 {
@@ -14,8 +15,6 @@ namespace CompanyManagementSystem.API.Utils
                 DateOfBirth = user.DateOfBirth,
                 MobileNumber = user.MobileNumber,
                 EmploymentDate = user.EmploymentDate,
-                FreeDaysLastYear = user.FreeDaysLastYear,
-                FreeDaysThisYear = user.FreeDaysThisYear,
                 Email = user.Email,
                 Address = user.Address,
                 Skills = new List<Models.Skill> (),
@@ -93,24 +92,56 @@ namespace CompanyManagementSystem.API.Utils
             User mapped = new User {
                 FirstName = user.FirstName,
                 LastName = user.LastName,
-                DateOfBirth = user.DateOfBirth,
-                MobileNumber = user.MobileNumber,
                 EmploymentDate = user.EmploymentDate,
                 Email = user.Email,
-                FreeDaysLastYear = 0,
-                FreeDaysThisYear = 20,
-                Address = user.Address,
                 UserSkills = new List<UserSkill> (),
                 UserLanguages = new List<UserLanguage>(),
                 UserBenefits = new List<UserBenefit>(),
                 RoleId = user.RoleId,
-                StatusId = user.UserStatusId,
+                FreeDays = 20,
+                StatusId = (int)UserStatuses.Active,
                 WorkingPositionId = user.WorkingPositionId,
                 RequestedVacationRequests = new List<VacationRequest>(),
                 ProcessedVacationRequests = new List<VacationRequest>(),
                 UserReligiousHolidays = new List<UserReligiousHoliday>()
             };
             
+            return mapped;
+        }
+        public static User MapToUserEntity(Models.UserUpdate user)
+        {
+            User mapped = new User {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                EmploymentDate = user.EmploymentDate,
+                Email = user.Email,
+                UserSkills = new List<UserSkill> (),
+                UserLanguages = new List<UserLanguage>(),
+                UserBenefits = new List<UserBenefit>(),
+                RoleId = user.RoleId,
+                FreeDays = user.FreeDays,
+                WorkingPositionId = user.WorkingPositionId,
+            };
+            
+            return mapped;
+        }
+
+        public static UserBenefit MapToUserBenefitEntity(Models.UserBenefit userBenefitDto)
+        {
+            UserBenefit mapped = new UserBenefit {
+                UserId = userBenefitDto.UserId,
+                BenefitId = userBenefitDto.BenefitId
+            };
+            return mapped;
+        }
+
+        public static Models.Benefit MapToBenefitDto(Benefit benefit)
+        {
+            Models.Benefit mapped  = new Models.Benefit {
+                Id = benefit.Id,
+                Name = benefit.Name
+            };
             return mapped;
         }
     }

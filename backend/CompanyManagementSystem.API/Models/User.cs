@@ -12,10 +12,6 @@ namespace CompanyManagementSystem.API.Models
         public string Address { get; set; }
         [JsonPropertyName("mobile_number")]
         public string MobileNumber { get; set; }
-        [JsonPropertyName("free_days_this_year")]
-        public int FreeDaysThisYear {get; set; }
-        [JsonPropertyName("free_days_last_year")]
-        public int FreeDaysLastYear {get; set; }
         [JsonPropertyName("skills")]
         public List<Skill> Skills { get; set; }
         [JsonPropertyName("benefits")]
@@ -34,6 +30,8 @@ namespace CompanyManagementSystem.API.Models
         public List<ReligiousHoliday> ReligiousHolidays { get; set; }
         [JsonPropertyName("email")]
         public string Email { get; set; }
+        [JsonPropertyName("free_days")]
+        public int FreeDays { get; set; }
 
     }
 }
