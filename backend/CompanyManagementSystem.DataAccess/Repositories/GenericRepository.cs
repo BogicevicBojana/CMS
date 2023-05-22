@@ -37,6 +37,11 @@ namespace CompanyManagementSystem.DataAccess.Repositories
 
         public void Update(T entity)
         {
+            var result = table.Find(entity.GetType().GetProperty("Id").GetValue(entity));
+            if(result != null)
+            {
+                table.Entry(result).State = EntityState.Detached;
+            }
             table.Attach(entity);
             context.Entry(entity).State = EntityState.Modified;
         }
