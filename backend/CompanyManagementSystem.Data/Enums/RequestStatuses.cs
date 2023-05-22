@@ -4,13 +4,11 @@ namespace CompanyManagementSystem.Data.Enums
 {
     public enum RequestStatuses
     {
-        [Description("Pending acceptance")]
-        PendingAcceptance = 1,
         [Description("Pending")]
-        Pending = 2,
+        Pending = 1,
         [Description("Rejected")]
-        Rejected = 3,
+        Rejected = 2,
         [Description("Accepted")]
-        Accepted = 4
+        Accepted = 3
     }
 }

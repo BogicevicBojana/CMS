@@ -41,12 +41,10 @@ namespace CompanyManagementSystem.Data.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateOnly? DateOfBirth { get; set; }
-        public string Address { get; set; }
-        public string MobileNumber { get; set; }
-        public int FreeDaysThisYear {get; set; }
-        public int FreeDaysLastYear {get; set; }
-
+        public string? Address { get; set; }
+        public string? MobileNumber { get; set; }
         public bool IsDeleted { get; set; }
+        public int FreeDays {get; set;}
 
         public ICollection<UserSkill> UserSkills { get; set; }
         public ICollection<UserBenefit> UserBenefits { get; set; }
