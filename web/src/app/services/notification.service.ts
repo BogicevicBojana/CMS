@@ -15,6 +15,17 @@ export class NotificationService {
     });
   }
 
+  showErrorMessageTopRight(
+    title: string,
+    message: string,
+    timeOut: number
+  ): void {
+    this.toastrService.error(message, title, {
+      timeOut: timeOut,
+      progressBar: true,
+    });
+  }
+
   showWarningMessage(title: string, message: string, timeOut: number): void {
     this.toastrService.warning(message, title, {
       timeOut: timeOut,
@@ -28,7 +39,7 @@ export class NotificationService {
     message: string,
     timeOut: number
   ): void {
-    if (responseBody.succeeded) {
+    if (responseBody.code >= 200 && responseBody.code <= 299) {
       this.toastrService.success(message, title, {
         timeOut: timeOut,
         progressBar: true,

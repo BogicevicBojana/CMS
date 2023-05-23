@@ -8,7 +8,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarButtonComponent } from './components/sidebar/sidebar-button/sidebar-button.component';
-import { BenefitsPageComponent } from './pages/benefits-page/benefits-page.component';
+import BenefitsPageComponent from './pages/benefits-page/benefits-page.component';
 import { ConfigurationPageComponent } from './pages/configuration-page/configuration-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { MyProfilePageComponent } from './pages/my-profile-page/my-profile-page.component';

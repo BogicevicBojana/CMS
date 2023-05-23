@@ -1,1 +1,32 @@
-<p>benefits-page works!</p>
+<div class="benefits-page">
+  <div class="page-info">
+    <h1 class="page-title">Benefits Management</h1>
+    <div class="page-description">
+      <svg-icon src="assets/icons/info-icon.svg"></svg-icon>
+      <p>
+        Manage benefits for each employee. Click on benefit to activate or
+        deactivate it.
+      </p>
+    </div>
+  </div>
+  <app-single-select
+    label="Employee"
+    [required]="true"
+    placeholder="Select employee"
+    [dataSource]="users"
+    propertyToDisplay="first_name"
+    propertyToSelect="id"
+    [(inputModel)]="selectedUserId"
+    (inputModelChange)="onUserChange()"
+  ></app-single-select>
+  <div class="benefits-container">
+    <div
+      *ngFor="let benefit of allBenefits"
+      class="benefit-box"
+      (click)="onClick(benefit)"
+      [ngClass]="{ active: isBenefitActive(benefit) }"
+    >
+      <p>{{ benefit.name }}</p>
+    </div>
+  </div>
+</div>

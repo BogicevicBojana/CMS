@@ -12,7 +12,6 @@
             [(ngModel)]="userFirstName"
             placeholder="Enter first name"
           />
-          <p class="error-info" *ngIf="emailError">{{ emailError }}</p>
         </div>
         <div class="input-group">
           <h3>Last Name<span>*</span></h3>
@@ -23,7 +22,6 @@
             [(ngModel)]="userLastName"
             placeholder="Enter last name"
           />
-          <p class="error-info" *ngIf="emailError">{{ emailError }}</p>
         </div>
       </div>
       <div class="input-group">
@@ -35,14 +33,10 @@
           [(ngModel)]="userEmail"
           placeholder="Enter email"
         />
-        <p class="error-info" *ngIf="emailError">{{ emailError }}</p>
       </div>
       <div class="input-group">
         <h3>Beginning of employment<span>*</span></h3>
         <input type="date" id="date" [(ngModel)]="selectedDate" />
-        <p class="error-info" *ngIf="employmentDateError">
-          {{ employmentDateError }}
-        </p>
       </div>
       <div style="position: relative">
         <app-single-select
@@ -54,9 +48,6 @@
           propertyToSelect="id"
           [(inputModel)]="selectedWorkingPositionId"
         ></app-single-select>
-        <p class="error-info" *ngIf="workingPositionError">
-          {{ workingPositionError }}
-        </p>
       </div>
       <div style="position: relative">
         <app-single-select
@@ -68,7 +59,6 @@
           propertyToSelect="id"
           [(inputModel)]="selectedUserRoleId"
         ></app-single-select>
-        <p class="error-info" *ngIf="userRoleError">{{ userRoleError }}</p>
       </div>
       <a class="button" (click)="registerUser()">Submit</a>
     </div>

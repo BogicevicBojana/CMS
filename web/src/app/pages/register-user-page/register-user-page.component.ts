@@ -20,13 +20,8 @@ export class RegisterUserPageComponent implements OnInit {
   userLastName!: string;
   selectedDate!: Date;
 
-  selectedWorkingPositionId!: number;
-  selectedUserRoleId!: number;
-
-  emailError?: string;
-  employmentDateError?: string;
-  workingPositionError?: string;
-  userRoleError?: string;
+  selectedWorkingPositionId!: number | undefined;
+  selectedUserRoleId!: number | undefined;
 
   constructor(
     private configurationService: ConfigurationService,
@@ -48,8 +43,6 @@ export class RegisterUserPageComponent implements OnInit {
   }
 
   registerUser() {
-    this.resetErrorMessages();
-
     const user = this.createNewUser();
 
     if (
@@ -57,7 +50,8 @@ export class RegisterUserPageComponent implements OnInit {
       !this.userLastName ||
       !this.userFirstName ||
       !this.selectedDate ||
-      !this.selectedWorkingPositionId
+      !this.selectedWorkingPositionId ||
+      !this.selectedUserRoleId
     ) {
       this.notificationService.showWarningMessage(
         'Invalid input',
@@ -79,11 +73,15 @@ export class RegisterUserPageComponent implements OnInit {
     }
 
     this.userService.registerUser(user).subscribe({
-      error: (responseBody) =>
-        this.handleError(responseBody.error.messages as String[]),
-      next: (responseBody) => {
-        this.notificationService.showSuccessMessageCheck(
-          responseBody,
+      error: (responseBody) => {
+        this.notificationService.showErrorMessageTopRight(
+          'Error occured',
+          responseBody.error.message || 'Internal server error',
+          4000
+        );
+      },
+      next: () => {
+        this.notificationService.showSuccessMessage(
           'Success',
           'User registered successfully',
           4000
@@ -93,82 +91,22 @@ export class RegisterUserPageComponent implements OnInit {
     });
   }
 
-  private handleError(errorsArray: String[]) {
-    if (!errorsArray) {
-      this.notificationService.showErrorMessage(
-        'Internal server error',
-        'An unexpected error has occurred. Please try again later.',
-        4000
-      );
-
-      return;
-    }
-
-    if (!this.selectedDate) {
-      this.employmentDateError = 'Employment date is required';
-    }
-
-    this.setErrorMessages(errorsArray);
-
-    this.notificationService.showWarningMessage(
-      'Invalid input',
-      'Please review validation errors and provide valid data',
-      4000
-    );
-  }
-
-  private setErrorMessages(errorsArray: String[]) {
-    const setErrorMessage = (error: String) => {
-      return error.substring(error.indexOf(':') + 1).trim();
-    };
-
-    errorsArray.forEach((error) => {
-      let statusCode: string = error.substring(0, error.indexOf(':') - 1);
-
-      if (
-        statusCode.includes('Email') ||
-        statusCode.includes('AlreadyExists')
-      ) {
-        this.emailError = setErrorMessage(error);
-      }
-
-      if (statusCode.includes('Date')) {
-        this.employmentDateError = setErrorMessage(error);
-      }
-
-      if (statusCode.includes('Working')) {
-        this.workingPositionError = setErrorMessage(error);
-      }
-
-      if (statusCode.includes('Role')) {
-        this.userRoleError = setErrorMessage(error);
-      }
-    });
-  }
-
-  private createNewUser() {
-    const user = new RegisterUserDTO(
+  createNewUser = () =>
+    new RegisterUserDTO(
       this.userFirstName,
       this.userLastName,
       this.userEmail,
       this.selectedDate,
-      this.selectedWorkingPositionId,
-      this.selectedUserRoleId
+      this.selectedWorkingPositionId!,
+      this.selectedUserRoleId!
     );
-    return user;
-  }
-
-  private resetErrorMessages() {
-    this.emailError = '';
-    this.workingPositionError = '';
-    this.userRoleError = '';
-    this.employmentDateError = '';
-  }
 
   private setInputDefaults() {
+    this.userFirstName = '';
+    this.userLastName = '';
     this.userEmail = '';
     this.selectedDate = new Date('0001-01-01');
-    this.selectedUserRoleId = 0;
-    this.selectedWorkingPositionId = 0;
+    this.selectedUserRoleId = undefined;
+    this.selectedWorkingPositionId = undefined;
   }
 }
