@@ -14,7 +14,7 @@
     [required]="true"
     placeholder="Select employee"
     [dataSource]="users"
-    propertyToDisplay="first_name"
+    propertyToDisplay="full_name"
     propertyToSelect="id"
     [(inputModel)]="selectedUserId"
     (inputModelChange)="onUserChange()"
@@ -22,8 +22,8 @@
   <div class="benefits-container">
     <div
       *ngFor="let benefit of allBenefits"
-      class="benefit-box"
       (click)="onClick(benefit)"
+      class="benefit-box"
       [ngClass]="{ active: isBenefitActive(benefit) }"
     >
       <p>{{ benefit.name }}</p>
