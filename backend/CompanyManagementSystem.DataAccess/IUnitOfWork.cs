@@ -13,6 +13,7 @@ using CompanyManagementSystem.DataAccess.Repositories.UserStatuses;
 using CompanyManagementSystem.DataAccess.Repositories.VacationRequests;
 using CompanyManagementSystem.DataAccess.Repositories.Vacations;
 using CompanyManagementSystem.DataAccess.Repositories.WorkingPositions;
+using CompanyManagementSystem.DataAccess.Repositories.UserReligiousHolidays;
 
 namespace CompanyManagementSystem.DataAccess
 {
@@ -27,6 +28,7 @@ namespace CompanyManagementSystem.DataAccess
         IUserRepository userRepository{get;}
         IUserBenefitRepository userBenefitRepository{get;}
         IUserLanguageRepository userLanguageRepository{get;}
+        IUserReligiousHolidayRepository userReligiousHolidayRepository {get;}
         IRoleRepository roleRepository{get;}
         IUserSkillRepository userSkillRepository{get;}
         IUserStatusRepository userStatusRepository{get;}

@@ -1,5 +1,6 @@
 using CompanyManagementSystem.Data.Entities;
 using CompanyManagementSystem.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CompanyManagementSystem.DataAccess.Repositories.UserLanguages
 {
@@ -16,6 +17,40 @@ namespace CompanyManagementSystem.DataAccess.Repositories.UserLanguages
         {
             return context.UserLanguages.Where(userLanguage => userLanguage.UserId == userId 
             && userLanguage.LanguageId == languageId).SingleOrDefault();
+        }
+
+        public void AddUserLanguage(UserLanguage userLanguage)
+        {
+            var user = context.Users                          
+            .Include(user => user.UserLanguages)                  
+            .Single(user => user.Id == userLanguage.UserId);
+ 
+            var language = context.Languages                   
+            .Single(language => language.Id == userLanguage.LanguageId);
+ 
+            user.UserLanguages.Add(new UserLanguage
+            {
+                Language = language,
+                User = user,
+            });
+            context.SaveChanges();
+        }
+        
+        public void RemoveUserLanguage(UserLanguage userLanguageEntry)
+        {
+            var user = context.Users                          
+            .Include(user => user.UserLanguages)                  
+            .Single(user => user.Id == userLanguageEntry.UserId);
+ 
+            var language = context.Languages                   
+            .Single(language => language.Id == userLanguageEntry.LanguageId);
+
+            UserLanguage userLanguage = context.UserLanguages.Where(userLanguage => userLanguage.UserId == user.Id && userLanguage.LanguageId == language.Id)
+                                                                        .FirstOrDefault();
+            context.UserLanguages.Attach(userLanguage);
+            context.Entry(userLanguage).State = EntityState.Deleted;
+            user.UserLanguages.Remove(userLanguage);
+            context.SaveChanges();
         }
     }
 }

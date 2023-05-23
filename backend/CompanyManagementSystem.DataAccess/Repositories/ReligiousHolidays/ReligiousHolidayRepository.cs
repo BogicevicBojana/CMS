@@ -11,5 +11,10 @@ namespace CompanyManagementSystem.DataAccess.Repositories.ReligiousHolidays
         {
             this.context = _context;
         }
+
+        public ReligiousHoliday? GetByDate(DateOnly date)
+        {
+            return context.ReligiousHolidays.Where(holiday => holiday.Date == date).FirstOrDefault();
+        }
     }
 }
