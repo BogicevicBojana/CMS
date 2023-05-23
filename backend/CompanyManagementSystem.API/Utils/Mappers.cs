@@ -17,6 +17,7 @@ namespace CompanyManagementSystem.API.Utils
                 EmploymentDate = user.EmploymentDate,
                 Email = user.Email,
                 Address = user.Address,
+                FreeDays = user.FreeDays,
                 Skills = new List<Models.Skill> (),
                 Languages = new List<Models.Language>(),
                 Benefits = new List<Models.Benefit>(),
@@ -33,7 +34,8 @@ namespace CompanyManagementSystem.API.Utils
                     Name = user.WorkingPosition.Name
                 },
                 Vacations = new List<Models.BaseVacationRequest>(),
-                ReligiousHolidays = new List<Models.ReligiousHoliday>()
+                ReligiousHolidays = new List<Models.ReligiousHoliday>(),
+                FullName = user.FirstName + " " + user.LastName
             };
             
             foreach (var item in user.UserSkills)
@@ -116,11 +118,11 @@ namespace CompanyManagementSystem.API.Utils
                 LastName = user.LastName,
                 EmploymentDate = user.EmploymentDate,
                 Email = user.Email,
+                StatusId = (int)UserStatuses.Active,
                 UserSkills = new List<UserSkill> (),
                 UserLanguages = new List<UserLanguage>(),
                 UserBenefits = new List<UserBenefit>(),
                 RoleId = user.RoleId,
-                FreeDays = user.FreeDays,
                 WorkingPositionId = user.WorkingPositionId,
             };
             
@@ -143,6 +145,29 @@ namespace CompanyManagementSystem.API.Utils
                 Name = benefit.Name
             };
             return mapped;
+        }
+
+        public static UserSkill mapToUserSkillEntity(int userId, int skillId)
+        {
+            return new UserSkill{
+                SkillId = skillId,
+                UserId = userId
+            };
+        }
+        public static UserLanguage mapToUserLanguageEntity(int userId, int languageId)
+        {
+            return new UserLanguage{
+                LanguageId = languageId,
+                UserId = userId
+            };
+        }
+
+        public static UserReligiousHoliday mapToUserReligiousHoliday(int userId, int holidayId)
+        {
+            return new UserReligiousHoliday {
+                ReligiousHolidayId = holidayId,
+                UserId = userId
+            };
         }
     }
 }
