@@ -1,12 +1,17 @@
 <div class="configuration-page">
+  <!-- <app-generic-modal /> -->
   <div class="page-info">
-    <h1 class="page-title">Configuration</h1>
-    <div class="page-description">
-      <svg-icon src="assets/icons/info-icon.svg"></svg-icon>
-      <p>
-        Overview of available languages, skills, benefits and working positions.
-      </p>
+    <div class="left">
+      <h1 class="page-title">Configuration</h1>
+      <div class="page-description">
+        <svg-icon src="assets/icons/info-icon.svg"></svg-icon>
+        <p>
+          Overview of available languages, skills, benefits and working
+          positions.
+        </p>
+      </div>
     </div>
+    <app-icon-button buttonText="New item" [showIcon]="true" />
   </div>
   <div class="container">
     <app-accordion

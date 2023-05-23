@@ -7,6 +7,7 @@
 @use "./scss/reset";
 
 @import "ngx-toastr/toastr";
+@import "~@ng-select/ng-select/themes/material.theme.css";
 
 .toast-top-right {
   top: 65px !important;
@@ -36,31 +37,31 @@
   bottom: 13% !important;
 }
 
-@include mat.core();
+// @include mat.core();
 
-$web-primary: mat.define-palette(mat.$indigo-palette);
-$web-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+// $web-primary: mat.define-palette(mat.$indigo-palette);
+// $web-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
-$web-warn: mat.define-palette(mat.$red-palette);
+// $web-warn: mat.define-palette(mat.$red-palette);
 
-$web-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: $web-primary,
-      accent: $web-accent,
-      warn: $web-warn,
-    ),
-  )
-);
+// $web-theme: mat.define-light-theme(
+//   (
+//     color: (
+//       primary: $web-primary,
+//       accent: $web-accent,
+//       warn: $web-warn,
+//     ),
+//   )
+// );
 
-@include mat.all-component-themes($web-theme);
+// @include mat.all-component-themes($web-theme);
 
-html,
-body {
-  height: 100%;
-}
+// html,
+// body {
+//   height: 100%;
+// }
 
-body {
-  margin: 0;
-  font-family: "Inter", "Helvetica Neue", sans-serif;
-}
+// body {
+//   margin: 0;
+//   font-family: "Inter", "Helvetica Neue", sans-serif;
+// }

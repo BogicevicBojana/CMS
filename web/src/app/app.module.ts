@@ -22,6 +22,11 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { GenericModalComponent } from './components/generic-modal/generic-modal.component';
+import { IconButtonComponent } from './components/icon-button/icon-button.component';
+import { SingleSelectComponent } from './components/single-select/single-select.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,17 +45,27 @@ import { ToastrModule } from 'ngx-toastr';
     UserProfilePageComponent,
     UsersPageComponent,
     VacationsPageComponent,
+    GenericModalComponent,
+    IconButtonComponent,
+    SingleSelectComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule,
     HttpClientModule,
     AngularSvgIconModule.forRoot(),
-    AppRoutingModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({
+      maxOpened: 3,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      countDuplicates: true,
+    }),
+    NgSelectModule,
+    FormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

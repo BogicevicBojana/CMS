@@ -1,0 +1,11 @@
+@use "/src/scss/variables" as *;
+
+h3 {
+  font-size: 1.6rem;
+  font-weight: 500;
+
+  span {
+    color: rgb(170, 6, 6);
+    margin-left: 3px;
+  }
+}

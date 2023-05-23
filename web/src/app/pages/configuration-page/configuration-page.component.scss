@@ -2,12 +2,19 @@
 
 .configuration-page {
   color: #333;
+  position: relative;
 
   .page-info {
     display: flex;
-    flex-direction: column;
-    gap: 1.4rem;
+    justify-content: space-between;
     font-family: sans-serif;
+    align-items: center;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
 
     .page-title {
       font-family: "Inter", sans-serif;

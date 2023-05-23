@@ -1,0 +1,9 @@
+<h3 *ngIf="renderLabel">{{ label }}<span *ngIf="required">*</span></h3>
+<ng-select
+  [items]="dataSource"
+  [bindLabel]="propertyToDisplay"
+  [bindValue]="propertyToSelect"
+  [placeholder]="placeholder"
+  [(ngModel)]="inputModel"
+  (ngModelChange)="inputModelChange.emit(inputModel)"
+></ng-select>

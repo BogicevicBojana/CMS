@@ -1,1 +1,76 @@
-<p>register-user-page works!</p>
+<div class="flex-container">
+  <div class="column column-1">
+    <h1>Register New User</h1>
+    <div class="input-fields">
+      <div class="row">
+        <div class="input-group">
+          <h3>First Name<span>*</span></h3>
+          <input
+            type="text"
+            id="firstName"
+            tabindex="0"
+            [(ngModel)]="userFirstName"
+            placeholder="Enter first name"
+          />
+          <p class="error-info" *ngIf="emailError">{{ emailError }}</p>
+        </div>
+        <div class="input-group">
+          <h3>Last Name<span>*</span></h3>
+          <input
+            type="text"
+            id="lastName"
+            tabindex="0"
+            [(ngModel)]="userLastName"
+            placeholder="Enter last name"
+          />
+          <p class="error-info" *ngIf="emailError">{{ emailError }}</p>
+        </div>
+      </div>
+      <div class="input-group">
+        <h3>Email<span>*</span></h3>
+        <input
+          type="email"
+          id="email"
+          tabindex="0"
+          [(ngModel)]="userEmail"
+          placeholder="Enter email"
+        />
+        <p class="error-info" *ngIf="emailError">{{ emailError }}</p>
+      </div>
+      <div class="input-group">
+        <h3>Beginning of employment<span>*</span></h3>
+        <input type="date" id="date" [(ngModel)]="selectedDate" />
+        <p class="error-info" *ngIf="employmentDateError">
+          {{ employmentDateError }}
+        </p>
+      </div>
+      <div style="position: relative">
+        <app-single-select
+          label="Working position"
+          [required]="true"
+          placeholder="Select working position"
+          [dataSource]="workingPositions"
+          propertyToDisplay="name"
+          propertyToSelect="id"
+          [(inputModel)]="selectedWorkingPositionId"
+        ></app-single-select>
+        <p class="error-info" *ngIf="workingPositionError">
+          {{ workingPositionError }}
+        </p>
+      </div>
+      <div style="position: relative">
+        <app-single-select
+          label="User role"
+          placeholder="Select user role"
+          [required]="true"
+          [dataSource]="userRoles"
+          propertyToDisplay="name"
+          propertyToSelect="id"
+          [(inputModel)]="selectedUserRoleId"
+        ></app-single-select>
+        <p class="error-info" *ngIf="userRoleError">{{ userRoleError }}</p>
+      </div>
+      <a class="button" (click)="registerUser()">Submit</a>
+    </div>
+  </div>
+</div>

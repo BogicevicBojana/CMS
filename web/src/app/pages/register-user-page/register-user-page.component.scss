@@ -1,0 +1,120 @@
+@use "/src/scss/variables" as *;
+
+.flex-container {
+  display: flex;
+  gap: 10px;
+  padding: 0 300px;
+
+  .column {
+    display: flex;
+
+    &.column-1 {
+      background-color: #fff;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      flex: 1 0.2 600px;
+      display: flex;
+      flex-direction: column;
+
+      .input-fields {
+        margin-top: $s-32;
+        display: flex;
+        flex-direction: column;
+        gap: 3.6rem;
+        flex: 1 1 50%;
+
+        .row {
+          display: flex;
+          justify-content: space-between;
+          gap: 15px;
+
+          .input-group {
+            width: 100%;
+          }
+        }
+
+        .input-group {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+
+          h3 {
+            font-size: 1.6rem;
+            font-weight: 500;
+
+            span {
+              color: rgb(170, 6, 6);
+              margin-left: 3px;
+            }
+          }
+
+          input {
+            border: none;
+            background-color: #f4f4f4;
+            padding: 0.8rem 0.8rem;
+            // border-bottom: 1px solid #888;
+            outline: none;
+            color: $c-gray-2;
+            font-family: "Inter", sans-serif;
+            font-size: 1.4rem;
+          }
+
+          position: relative;
+        }
+      }
+
+      h1 {
+        color: $c-gray-2;
+        font-size: 2.4rem;
+        margin: 0 auto;
+      }
+    }
+
+    &.column-2 {
+      flex: 1 10 100%;
+    }
+  }
+}
+
+.button {
+  background-color: #22c55e;
+  font-weight: 500;
+  width: fit-content;
+  text-align: center;
+  width: 100%;
+  padding: 1.4rem 1.2rem;
+  font-size: 1.4rem;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  margin-left: auto;
+  margin: 0 auto;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.2s ease;
+  color: #fff;
+
+  &:hover {
+    box-shadow: 0 0 20px 10px rgba(80, 255, 124, 0.3);
+    transform: scale(1.01);
+  }
+}
+
+.error-info {
+  // padding-top: 10px;
+  color: rgb(168, 0, 0);
+  font-size: $fs-0;
+  transition: all 0.2s ease;
+  font-weight: $fw-default;
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+}
+
+// Disable chrome autocomplete highligh
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}

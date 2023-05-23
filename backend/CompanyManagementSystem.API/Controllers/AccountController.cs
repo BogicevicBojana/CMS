@@ -8,7 +8,7 @@ using CompanyManagementSystem.API.Services.Roles;
 
 namespace CompanyManagementSystem.API.Controllers
 {
-    #pragma warning disable CS8604
+#pragma warning disable CS8604
     [ApiController]
     [AllowAnonymous, Route("account")]
     public class AccountController : Controller
@@ -25,14 +25,22 @@ namespace CompanyManagementSystem.API.Controllers
             this.roleService = _roleService;
             this.userService = _userService;
             this.configuration = _configuration;
-            this.jwtGenerator = new JwtGenerator(configuration["JwtPrivateSigningKey"]);
+            this.jwtGenerator = new JwtGenerator(PRIVATE_KEY);
         }
 
-        [HttpGet("init")]
-        public IActionResult Init()
-        {
-            return Ok();
-        }
+        private const String PRIVATE_KEY = @"MIICXQIBAAKBgQCSWSt4T1v7y4qBfSm4raUwKmWpVv5JBgSu3L4XxWPlYIVvZouW
+        /YkEHzczdQBUb77aE2hsbWhpQ2mmQvF9YUQqOc11sb7y0JqiEFPDbVNwFgOoFJkk
+        ezCjHQ6X3VherzxEWe096FS9rO/YXnDZHi4jPzZw7gK6Ca2PKo5UKmuWHwIDAQAB
+        AoGAOcGHLkvjeVOyrbe/p2qgLooM5O+4GwmM/5WOT8NO0U9uWbCWllgoor/PATfD
+        kY8oOtg99cyX0DMSltMEiv6/721ITO65NkGSOaNUsNYXbS7ZaAW8px3LrgT4fHRh
+        /I4Xam6a4upBym7SWVEpBqhWwKuln9ZIKYUj/T7sBzvZtwECQQD0GImnEYhA3lvZ
+        D6B317/ZaqInQRWgyFFylW/x0z/ll0yXA6Nkd+8/YnqFYKzcnYlnX+pYOCE1S3k6
+        +PctEpQRAkEAmXxIsiswfhKhsmm1Gp4ZziadQU+yGuoQGHlM2bga6Ct+yeg+Dp/e
+        LeusNGrrO6bXbI+zhcvdqq2aYYQKUsb3LwJBAOeYpHpsiw+pKhIv3nv2q2N45jNC
+        cGflyElkehtC6RxISnX6ELwRg2FraX5FNJ35ptX7Tli3oOJ1IqgOck9EklECQFLj
+        pNrbqj+bzkls/wpV8be8cNaxtI0GdRTShWdbHuTdgIaH7uO1AKcqDIDucQVxEAwn
+        +xq5w4eGY8ZgKbcUjq8CQQDPz6zOTyrSpDvQWuFHx6y1awruCEAzjTfSh4j2Vqcl
+        yBwsG0v/NT/uq7q56ZvqhxC9YuTttEFpBQeGBKaBdof1";
 
         // * This endpoint will be called before calling secured endpoint
 
@@ -42,7 +50,7 @@ namespace CompanyManagementSystem.API.Controllers
             // GoogleJsonWebSignature ValidationSettings
             ValidationSettings settings = new ValidationSettings
             {
-                Audience = new List<string>() { configuration["Google:ClientId"] }
+                Audience = new List<string>() { "325021082664-8k11bcfrj1fpiakuc3131huntfsaiv12.apps.googleusercontent.com" }
             };
 
             // Validate incoming JWT and get payload information

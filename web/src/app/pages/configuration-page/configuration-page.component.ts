@@ -76,7 +76,9 @@ export class ConfigurationPageComponent implements OnInit {
         }
       },
       complete: () =>
-        this.toastr.success(`${itemType} successfully deleted!`, 'Success'),
+        this.toastr.success(`${itemType} successfully deleted!`, 'Success', {
+          progressBar: true,
+        }),
     });
   }
 }

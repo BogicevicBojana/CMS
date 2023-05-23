@@ -8,20 +8,24 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  logoutIcon: string = 'assets/icons/logout-icon.svg';
-  registerUserIcon: string = 'assets/icons/plus-icon.svg';
   hidden: boolean = true;
+  name: string = 'User name';
 
-  constructor(public router: Router, public service: AuthService, private _ngZone: NgZone) { }
+  constructor(
+    public router: Router,
+    public service: AuthService,
+    private _ngZone: NgZone
+  ) {}
 
   ngOnInit(): void {
     this.hidden = false;
+    this.name = String(localStorage.getItem('user_name')).split(' ')[0];
   }
 
   logout(): void {
-    // this.service.signOutExternal();
-    // this._ngZone.run(() => {
-    //   this.router.navigate(['/']).then(() => window.location.reload());
-    // })
+    this.service.signOut();
+    this._ngZone.run(() => {
+      this.router.navigate(['/']).then(() => window.location.reload());
+    });
   }
 }
