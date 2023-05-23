@@ -13,6 +13,8 @@ namespace CompanyManagementSystem.API.Response
         [Description("Configuration code is wrong or not present")]
         ConfigCodeMissingOrWrong = 4,
         [Description("User with that email already exists")]
-        UserAlreadyExists = 5
+        UserAlreadyExists = 5,
+        [Description("All field must contain value")]
+        ValidationError = 6
     }
 }
