@@ -13,6 +13,5 @@ namespace CompanyManagementSystem.API.Services.Users
         Response<Models.User> Update(Models.UserUpdate user);
         Response<List<Models.User>> GetAllNonDeletedUsers();
         Response<List<Models.Benefit>> UpdateUserBenefit(Models.UserBenefit userBenefitDTO, bool selected);
-        Response<Models.User?> SelfUpdate(Models.UserSelfUpdate user);
     }
 }

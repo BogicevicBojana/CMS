@@ -85,16 +85,6 @@ namespace CompanyManagementSystem.API.Controllers
             return BadRequest(response);
         }
 
-        [HttpPut("update/self")]
-        [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
-        public IActionResult UpdateSelf([FromBody] Models.UserSelfUpdate user)
-        {
-            var response = userService.SelfUpdate(user);
-            if (response.Code.Equals(200))
-                return Ok(response);
-            return BadRequest(response);
-        }
-
         [AuthorizeRoles(Roles.Administrator)]
         [HttpPut("update/benefit/{selected:bool}")]
         public IActionResult UpdateUserBenefit(

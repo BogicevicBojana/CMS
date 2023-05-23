@@ -95,7 +95,71 @@ namespace CompanyManagementSystem.API.Services.Users
                 var userToUpdate = unitOfWork.userRepository.GetUserById(user.Id);
                 var mapped = Mappers.MapToUserEntity(user);
                 mapped.FreeDays = userToUpdate.FreeDays;
-                unitOfWork.userRepository.Update(mapped);
+                if(user.DateOfBirth.isNull() || user.FirstName.isNullOrEmpty() || user.LastName.isNullOrEmpty() ||
+                user.MobileNumber.isNullOrEmpty() || user.Address.isNullOrEmpty() || user.Skills.isNullOrEmpty() || user.Languages.isNullOrEmpty())
+                    return new Response<Models.User?>(ResponseMessages.ValidationError.ToDescription(), null, (int) ResponseCodes.BadRequest);
+                List<int> existingSkills = new List<int>();
+                foreach (var item in userToUpdate.UserSkills)
+                {
+                    existingSkills.Add(item.SkillId);
+                }
+
+                List<int> existingLanguages = new List<int>();
+                foreach (var item in userToUpdate.UserLanguages)
+                {
+                    existingLanguages.Add(item.LanguageId);
+                }
+
+                var removalSkillDifference = existingSkills.Except(user.Skills).ToList();
+                foreach (var item in removalSkillDifference)
+                {
+                    unitOfWork.userSkillRepository.RemoveUserSkill(Mappers.mapToUserSkillEntity(user.Id, item));
+                }
+                var removalLanguageDifference = existingLanguages.Except(user.Languages).ToList();
+                foreach (var item in removalLanguageDifference)
+                {
+                    unitOfWork.userLanguageRepository.RemoveUserLanguage(Mappers.mapToUserLanguageEntity(user.Id, item));
+                }
+
+                var addSkillDifference = user.Skills.Except(existingSkills).ToList();
+                foreach (var item in addSkillDifference)
+                {
+                    unitOfWork.userSkillRepository.AddUserSkill(Mappers.mapToUserSkillEntity(user.Id, item));
+                }
+                var addLanguageDifference = user.Languages.Except(existingLanguages).ToList();
+                foreach (var item in addLanguageDifference)
+                {
+                    unitOfWork.userLanguageRepository.AddUserLanguage(Mappers.mapToUserLanguageEntity(user.Id, item));
+                }
+
+                List<DateOnly> existingReligiousHolidays = new List<DateOnly>();
+                foreach (var item in userToUpdate.UserReligiousHolidays)
+                {
+                    existingReligiousHolidays.Add(item.ReligiousHoliday.Date);
+                }
+
+                var removalReligiousHolidays = existingReligiousHolidays.Except(user.ReligiousHolidays).ToList();
+                foreach (var item in removalReligiousHolidays)
+                {
+                    unitOfWork.userReligiousHolidayRepository.RemoveUserReligiousHoliday(Mappers.mapToUserReligiousHoliday(user.Id, unitOfWork.religiousHolidayRepository.GetByDate(item).Id));
+                }
+                var addReligiousHolidays = user.ReligiousHolidays.Except(existingReligiousHolidays).ToList();
+                foreach (var item in addReligiousHolidays)
+                {
+                    var holiday = new ReligiousHoliday {
+                        Date = item
+                    };
+                    var inserted = unitOfWork.religiousHolidayRepository.Insert(holiday);
+                    unitOfWork.Complete();
+                    unitOfWork.userReligiousHolidayRepository.AddUserReligiousHoliday(Mappers.mapToUserReligiousHoliday(user.Id, inserted.Id));
+                }
+
+                userToUpdate.DateOfBirth = user.DateOfBirth;
+                userToUpdate.Address = user.Address;
+                userToUpdate.FirstName = user.FirstName;
+                userToUpdate.LastName = user.LastName;
+                userToUpdate.MobileNumber = user.MobileNumber;
+                unitOfWork.userRepository.Update(userToUpdate);
                 unitOfWork.Complete();
             } catch(NullReferenceException)
             {
@@ -139,81 +203,6 @@ namespace CompanyManagementSystem.API.Services.Users
             }
 
             return new Response<List<Models.Benefit>>(ResponseMessages.OK.ToDescription(), benefitsDTO, (int)ResponseCodes.OK);
-        }
-
-        public Response<Models.User?> SelfUpdate(Models.UserSelfUpdate user)
-        {
-            var userToUpdate = unitOfWork.userRepository.GetUserById(user.Id);
-
-            if(user.DateOfBirth.isNull() || user.FirstName.isNullOrEmpty() || user.LastName.isNullOrEmpty() ||
-            user.MobileNumber.isNullOrEmpty() || user.Address.isNullOrEmpty() || user.Skills.isNullOrEmpty() || user.Languages.isNullOrEmpty())
-                return new Response<Models.User?>(ResponseMessages.ValidationError.ToDescription(), null, (int) ResponseCodes.BadRequest);
-            List<int> existingSkills = new List<int>();
-            foreach (var item in userToUpdate.UserSkills)
-            {
-                existingSkills.Add(item.SkillId);
-            }
-
-            List<int> existingLanguages = new List<int>();
-            foreach (var item in userToUpdate.UserLanguages)
-            {
-                existingLanguages.Add(item.LanguageId);
-            }
-
-            var removalSkillDifference = existingSkills.Except(user.Skills).ToList();
-            foreach (var item in removalSkillDifference)
-            {
-                unitOfWork.userSkillRepository.RemoveUserSkill(Mappers.mapToUserSkillEntity(user.Id, item));
-            }
-            var removalLanguageDifference = existingLanguages.Except(user.Languages).ToList();
-            foreach (var item in removalLanguageDifference)
-            {
-                unitOfWork.userLanguageRepository.RemoveUserLanguage(Mappers.mapToUserLanguageEntity(user.Id, item));
-            }
-
-            var addSkillDifference = user.Skills.Except(existingSkills).ToList();
-            foreach (var item in addSkillDifference)
-            {
-                unitOfWork.userSkillRepository.AddUserSkill(Mappers.mapToUserSkillEntity(user.Id, item));
-            }
-            var addLanguageDifference = user.Languages.Except(existingLanguages).ToList();
-            foreach (var item in addLanguageDifference)
-            {
-                unitOfWork.userLanguageRepository.AddUserLanguage(Mappers.mapToUserLanguageEntity(user.Id, item));
-            }
-
-            List<DateOnly> existingReligiousHolidays = new List<DateOnly>();
-            foreach (var item in userToUpdate.UserReligiousHolidays)
-            {
-                existingReligiousHolidays.Add(item.ReligiousHoliday.Date);
-            }
-
-            var removalReligiousHolidays = existingReligiousHolidays.Except(user.ReligiousHolidays).ToList();
-            foreach (var item in removalReligiousHolidays)
-            {
-                unitOfWork.userReligiousHolidayRepository.RemoveUserReligiousHoliday(Mappers.mapToUserReligiousHoliday(user.Id, unitOfWork.religiousHolidayRepository.GetByDate(item).Id));
-            }
-            var addReligiousHolidays = user.ReligiousHolidays.Except(existingReligiousHolidays).ToList();
-            foreach (var item in addReligiousHolidays)
-            {
-                var holiday = new ReligiousHoliday {
-                    Date = item
-                };
-                var inserted = unitOfWork.religiousHolidayRepository.Insert(holiday);
-                unitOfWork.Complete();
-                unitOfWork.userReligiousHolidayRepository.AddUserReligiousHoliday(Mappers.mapToUserReligiousHoliday(user.Id, inserted.Id));
-            }
-
-            userToUpdate.DateOfBirth = user.DateOfBirth;
-            userToUpdate.Address = user.Address;
-            userToUpdate.FirstName = user.FirstName;
-            userToUpdate.LastName = user.LastName;
-            userToUpdate.MobileNumber = user.MobileNumber;
-
-            unitOfWork.userRepository.Update(userToUpdate);
-            unitOfWork.Complete();
-
-            return new Response<Models.User?>(ResponseMessages.OK.ToDescription(), Mappers.MapToUserDto(unitOfWork.userRepository.GetUserById(user.Id)), (int) ResponseCodes.OK);
         }
     }
 }

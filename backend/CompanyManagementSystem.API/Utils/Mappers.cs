@@ -169,5 +169,25 @@ namespace CompanyManagementSystem.API.Utils
                 UserId = userId
             };
         }
+
+        public static Models.VacationRequest mapToVacationRequestDTO(VacationRequest vacationRequest)
+        {
+            return new Models.VacationRequest {
+                Vacation = new Models.Vacation {
+                    StartDate = vacationRequest.Vacation.StartDate,
+                    EndDate = vacationRequest.Vacation.EndDate
+                },
+                Id = vacationRequest.Id,
+                User = new Models.BaseUser {
+                    Id = vacationRequest.RequestedById,
+                    FirstName = vacationRequest.RequestedBy.FirstName,
+                    LastName = vacationRequest.RequestedBy.LastName
+                },
+                RequestStatus = new Models.RequestStatus {
+                    Id = vacationRequest.RequestStatusId,
+                    Name = vacationRequest.RequestStatus.Name
+                }
+            };
+        }
     }
 }
