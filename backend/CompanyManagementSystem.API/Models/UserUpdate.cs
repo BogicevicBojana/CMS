@@ -6,7 +6,5 @@ namespace CompanyManagementSystem.API.Models
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
-        [JsonPropertyName("free_days")]
-        public int FreeDays {get;set;}
     }
 }

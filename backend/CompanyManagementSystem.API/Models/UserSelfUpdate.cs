@@ -14,5 +14,7 @@ namespace CompanyManagementSystem.API.Models
         public List<int> Skills { get; set; }
         [JsonPropertyName("languages")]
         public List<int> Languages {get; set; }
+        [JsonPropertyName("religious_holidays")]
+        public List<DateOnly> ReligiousHolidays { get; set; }
     }
 }
