@@ -28,6 +28,7 @@ import { SingleSelectComponent } from './components/single-select/single-select.
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     GenericModalComponent,
     IconButtonComponent,
     SingleSelectComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,

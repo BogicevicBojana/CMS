@@ -1,8 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ViewChildren,
+  ViewContainerRef,
+} from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
 import { ConfigurationType } from 'src/app/configuration.enum';
+import { AddConfigurationItemDTO } from 'src/app/data/AddConfigurationItemDTO.model';
 import { ConfigurationItem } from 'src/app/data/ConfigurationItem.model';
 import { ConfigurationService } from 'src/app/services/configuration.service';
+import { ModalService } from 'src/app/services/modal.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-configuration-page',
@@ -12,13 +22,41 @@ import { ConfigurationService } from 'src/app/services/configuration.service';
 export class ConfigurationPageComponent implements OnInit {
   constructor(
     private configurationService: ConfigurationService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private modalService: ModalService,
+    private notificationService: NotificationService
   ) {}
+
+  @ViewChild('modal', { read: ViewContainerRef })
+  entry!: ViewContainerRef;
+  sub!: Subscription;
 
   benefits: ConfigurationItem[] = [];
   skills: ConfigurationItem[] = [];
   workingPositions: ConfigurationItem[] = [];
   languages: ConfigurationItem[] = [];
+
+  selectedTypeId: number = 0;
+
+  configurationItemTypes: ConfigurationItem[] = [
+    new ConfigurationItem(0, ConfigurationType.LANGUAGE),
+    new ConfigurationItem(1, ConfigurationType.SKILL),
+    new ConfigurationItem(2, ConfigurationType.BENEFIT),
+    new ConfigurationItem(3, ConfigurationType.WORKING_POSITION),
+  ];
+
+  configurationItemTypesMap: Map<number, ConfigurationType> = new Map<
+    number,
+    ConfigurationType
+  >([
+    [0, ConfigurationType.LANGUAGE],
+    [1, ConfigurationType.SKILL],
+    [2, ConfigurationType.BENEFIT],
+    [3, ConfigurationType.WORKING_POSITION],
+  ]);
+
+  itemName: string = '';
+  itemType?: ConfigurationType;
 
   public get configurationType(): typeof ConfigurationType {
     return ConfigurationType;
@@ -80,5 +118,31 @@ export class ConfigurationPageComponent implements OnInit {
           progressBar: true,
         }),
     });
+  }
+
+  openModal(modalId: number) {
+    this.modalService.open(modalId);
+  }
+
+  addItem() {
+    const type: ConfigurationType = this.configurationItemTypesMap.get(
+      this.selectedTypeId
+    )!;
+    const item = new AddConfigurationItemDTO(this.itemName, type);
+
+    if (this.itemName) {
+      this.configurationService.addItem(item).subscribe(() => {
+        this.reloadItem(type);
+        this.itemName = '';
+      });
+
+      this.modalService.close(0);
+    } else {
+      this.notificationService.showWarningMessage(
+        'Invalid input',
+        `Item name can't be empty`,
+        4000
+      );
+    }
   }
 }

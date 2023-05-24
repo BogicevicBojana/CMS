@@ -34,7 +34,7 @@ export class ConfigurationService {
   */
   addItem(item: AddConfigurationItemDTO): Observable<CustomHttpResponse> {
     return this.http.post<CustomHttpResponse>(
-      this.baseUrl,
+      `${this.baseUrl}insertion/${item.type}`,
       item,
       this.httpOptions
     );

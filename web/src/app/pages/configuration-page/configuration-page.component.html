@@ -1,3 +1,20 @@
+<app-modal class="modal" [modalId]="0">
+  <h2 class="title">Add new configuration item</h2>
+  <div class="container">
+    <app-single-select
+      [(inputModel)]="selectedTypeId"
+      propertyToSelect="id"
+      propertyToDisplay="name"
+      class="select"
+      placeholder="Item type"
+      [dataSource]="configurationItemTypes"
+    ></app-single-select>
+    <input type="text" placeholder="Item name" [(ngModel)]="itemName" />
+    <div class="button" (click)="addItem()">
+      <p>Add Item</p>
+    </div>
+  </div>
+</app-modal>
 <div class="configuration-page">
   <div class="page-info">
     <div class="left">
@@ -10,7 +27,11 @@
         </p>
       </div>
     </div>
-    <app-icon-button buttonText="New item" [showIcon]="true" />
+    <app-icon-button
+      buttonText="New item"
+      [showIcon]="true"
+      (click)="openModal(0)"
+    />
   </div>
   <div class="container">
     <app-accordion
