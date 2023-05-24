@@ -32,8 +32,6 @@ namespace CompanyManagementSystem.API.Models
         public string Email { get; set; }
         [JsonPropertyName("free_days")]
         public int FreeDays { get; set; }
-        [JsonPropertyName("full_name")]
-        public string FullName {get;set;}
 
     }
 }
