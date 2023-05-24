@@ -1,5 +1,6 @@
 <h3 *ngIf="renderLabel">{{ label }}<span *ngIf="required">*</span></h3>
 <ng-select
+  [clearable]="clearable"
   [items]="dataSource"
   [bindLabel]="propertyToDisplay"
   [bindValue]="propertyToSelect"

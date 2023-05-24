@@ -29,6 +29,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ModalComponent } from './components/modal/modal.component';
+import { MultiSelectComponent } from './components/multi-select/multi-select.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ModalComponent } from './components/modal/modal.component';
     IconButtonComponent,
     SingleSelectComponent,
     ModalComponent,
+    MultiSelectComponent,
   ],
   imports: [
     BrowserModule,

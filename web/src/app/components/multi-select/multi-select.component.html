@@ -1,0 +1,32 @@
+<h3 *ngIf="renderLabel">{{ label }}<span *ngIf="required">*</span></h3>
+<ng-select
+  [items]="dataSource"
+  [multiple]="true"
+  [bindLabel]="propertyToDisplay"
+  [selectableGroup]="true"
+  [closeOnSelect]="false"
+  [bindValue]="propertyToSelect"
+  [placeholder]="placeholder"
+  [(ngModel)]="inputModel"
+  (ngModelChange)="inputModelChange.emit(inputModel)"
+  [ngClass]="{ 'ng-no-value': hideValue }"
+>
+  <ng-template
+    ng-optgroup-tmp
+    let-item="item"
+    let-item$="item$"
+    let-index="index"
+  >
+    <input id="item-{{ index }}" type="checkbox" [ngModel]="item$.selected" />
+    {{ item.gender | uppercase }}
+  </ng-template>
+  <ng-template
+    ng-option-tmp
+    let-item="item"
+    let-item$="item$"
+    let-index="index"
+  >
+    <input id="item-{{ index }}" type="checkbox" [ngModel]="item$.selected" />
+    {{ item.name == null ? item.first_name + " " + item.last_name : item.name }}
+  </ng-template>
+</ng-select>

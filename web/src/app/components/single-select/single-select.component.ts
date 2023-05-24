@@ -12,6 +12,7 @@ export class SingleSelectComponent implements OnInit {
   @Input() propertyToSelect: string = '';
   @Input() placeholder: string = '';
   @Input() required: boolean = false;
+  @Input() clearable: boolean = true;
 
   @Input() inputModel?: number;
   @Output() inputModelChange = new EventEmitter<number>();

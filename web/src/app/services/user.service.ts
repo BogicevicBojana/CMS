@@ -4,6 +4,7 @@ import { Observable, map, of } from 'rxjs';
 import { RegisterUserDTO } from '../data/RegisterUser.dto';
 import { environment } from 'src/environments/environment';
 import { User } from '../data/User.model';
+import { UpdateUserDTO } from '../data/UpdateUserDTO.model';
 
 @Injectable({
   providedIn: 'root',
@@ -22,9 +23,9 @@ export class UserService {
     return this.http.post<RegisterUserDTO>(endpoint, user, this.httpOptions);
   }
 
-  getUser(id: Number): Observable<User> {
+  getUser(id: Number): Observable<any> {
     const endpoint: string = `${this.baseUrl}/information/${id}`;
-    return this.http.get<User>(endpoint, this.httpOptions);
+    return this.http.get<any>(endpoint, this.httpOptions);
   }
 
   getAllUsers(): Observable<any> {
@@ -39,5 +40,10 @@ export class UserService {
       { user_id: userId, benefit_id: benefitId },
       this.httpOptions
     );
+  }
+
+  updateUser(user: UpdateUserDTO): Observable<any> {
+    const endpoint: string = `${this.baseUrl}/update`;
+    return this.http.put(endpoint, user, this.httpOptions);
   }
 }

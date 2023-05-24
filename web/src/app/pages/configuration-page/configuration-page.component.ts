@@ -93,7 +93,7 @@ export class ConfigurationPageComponent implements OnInit {
       .subscribe((data) => (this.workingPositions = data.data));
   }
 
-  reloadItem(itemType: ConfigurationType) {
+  reloadItem(itemType: ConfigurationType, operation: string = 'deleted') {
     this.configurationService.getItems(itemType).subscribe({
       next: (response) => {
         switch (itemType) {
@@ -114,9 +114,13 @@ export class ConfigurationPageComponent implements OnInit {
         }
       },
       complete: () =>
-        this.toastr.success(`${itemType} successfully deleted!`, 'Success', {
-          progressBar: true,
-        }),
+        this.toastr.success(
+          `${itemType} successfully ${operation}!`,
+          'Success',
+          {
+            progressBar: true,
+          }
+        ),
     });
   }
 
@@ -132,7 +136,7 @@ export class ConfigurationPageComponent implements OnInit {
 
     if (this.itemName) {
       this.configurationService.addItem(item).subscribe(() => {
-        this.reloadItem(type);
+        this.reloadItem(type, 'added');
         this.itemName = '';
       });
 
