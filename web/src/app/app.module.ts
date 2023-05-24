@@ -27,6 +27,7 @@ import { IconButtonComponent } from './components/icon-button/icon-button.compon
 import { SingleSelectComponent } from './components/single-select/single-select.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { FormsModule } from '@angular/forms';
     }),
     NgSelectModule,
     FormsModule,
+    NgxPaginationModule,
     AppRoutingModule,
   ],
   providers: [],

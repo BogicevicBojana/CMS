@@ -8,6 +8,7 @@
     flex-direction: column;
     gap: 1.4rem;
     font-family: sans-serif;
+    margin-bottom: 2rem;
 
     .page-title {
       font-family: "Inter", sans-serif;
@@ -30,6 +31,11 @@
         font-size: 1.4rem;
       }
     }
+  }
+
+  .select {
+    min-width: 30%;
+    max-width: 35%;
   }
 
   .benefits-container {

@@ -9,16 +9,18 @@
       </p>
     </div>
   </div>
-  <app-single-select
-    label="Employee"
-    [required]="true"
-    placeholder="Select employee"
-    [dataSource]="users"
-    propertyToDisplay="full_name"
-    propertyToSelect="id"
-    [(inputModel)]="selectedUserId"
-    (inputModelChange)="onUserChange()"
-  ></app-single-select>
+  <div class="select">
+    <app-single-select
+      label="Employee"
+      [required]="true"
+      placeholder="Select employee"
+      [dataSource]="users"
+      propertyToDisplay="full_name"
+      propertyToSelect="id"
+      [(inputModel)]="selectedUserId"
+      (inputModelChange)="onUserChange()"
+    ></app-single-select>
+  </div>
   <div class="benefits-container">
     <div
       *ngFor="let benefit of allBenefits"
