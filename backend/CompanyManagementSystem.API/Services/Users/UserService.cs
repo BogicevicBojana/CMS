@@ -97,7 +97,8 @@ namespace CompanyManagementSystem.API.Services.Users
                 var mapped = Mappers.MapToUserEntity(user);
                 mapped.FreeDays = userToUpdate.FreeDays;
                 if(user.DateOfBirth.isNull() || user.FirstName.isNullOrEmpty() || user.LastName.isNullOrEmpty() ||
-                user.MobileNumber.isNullOrEmpty() || user.Address.isNullOrEmpty() || user.Skills.isNullOrEmpty() || user.Languages.isNullOrEmpty())
+                user.MobileNumber.isNullOrEmpty() || user.Address.isNullOrEmpty() || user.Skills.isNullOrEmpty() || user.Languages.isNullOrEmpty()
+                || user.EmploymentDate.isNull())
                     return new Response<Models.User?>(ResponseMessages.ValidationError.ToDescription(), null, (int) ResponseCodes.BadRequest);
                 List<int> existingSkills = new List<int>();
                 foreach (var item in userToUpdate.UserSkills)
@@ -160,6 +161,7 @@ namespace CompanyManagementSystem.API.Services.Users
                 userToUpdate.FirstName = user.FirstName;
                 userToUpdate.LastName = user.LastName;
                 userToUpdate.MobileNumber = user.MobileNumber;
+                userToUpdate.EmploymentDate = user.EmploymentDate;
                 unitOfWork.userRepository.Update(userToUpdate);
                 unitOfWork.Complete();
             } catch(NullReferenceException)
