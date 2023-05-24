@@ -10,5 +10,8 @@ namespace CompanyManagementSystem.API.Models
         public string FirstName {get; set;}
         [JsonPropertyName("last_name")]
         public string LastName { get; set; }
+        [JsonPropertyName("full_name")]
+        public string FullName {get;set;}
+
     }
 }
