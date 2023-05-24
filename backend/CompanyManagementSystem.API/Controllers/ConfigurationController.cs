@@ -52,10 +52,10 @@ namespace CompanyManagementSystem.API.Controllers
 
             try 
             {
-                if(response.GetType().GetProperty("Code").Equals(201))
-                    return Ok(response);
+                if(response.GetType().GetProperty("Code").Equals(400))
+                    return BadRequest(response);
 
-                return BadRequest(response);
+                return Ok(response);
             } catch (NullReferenceException)
             {
                 return BadRequest(new Response<NameBaseDto>(ResponseMessages.ConfigCodeMissingOrWrong.ToDescription(), null, (int)ResponseCodes.BadRequest));
