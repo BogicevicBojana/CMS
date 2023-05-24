@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using CompanyManagementSystem.Data.Enums;
 using CompanyManagementSystem.Data.Entities;
@@ -8,6 +5,7 @@ using CompanyManagementSystem.Data.Extensions;
 
 namespace CompanyManagementSystem.Data
 {
+    #pragma warning disable
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(

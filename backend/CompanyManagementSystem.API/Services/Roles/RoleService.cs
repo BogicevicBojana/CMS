@@ -1,4 +1,3 @@
-using CompanyManagementSystem.Data.Entities;
 using CompanyManagementSystem.DataAccess;
 
 namespace CompanyManagementSystem.API.Services.Roles

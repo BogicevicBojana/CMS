@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CompanyManagementSystem.DataAccess.Repositories.UserLanguages
 {
+    #pragma warning disable
     public class UserLanguageRepository : GenericRepository<UserLanguage>, IUserLanguageRepository
     {
         private readonly ApplicationDbContext context;

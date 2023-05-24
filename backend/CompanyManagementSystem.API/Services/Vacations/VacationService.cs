@@ -5,6 +5,7 @@ using CompanyManagementSystem.DataAccess;
 
 namespace CompanyManagementSystem.API.Services.Vacations
 {
+    #pragma warning disable
     public class VacationService : IVacationService
     {
         private IUnitOfWork unitOfWork;

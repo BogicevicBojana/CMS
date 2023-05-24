@@ -1,11 +1,8 @@
-using System.Linq.Expressions;
-using CompanyManagementSystem.Data.Extensions;
-using System.Collections.Generic;
-using System;
 using Newtonsoft.Json;
 
 namespace CompanyManagementSystem.API.Response
 {
+    #pragma warning disable
     public class Response<T> where T : class
     {
         [JsonProperty(Order = 1)]

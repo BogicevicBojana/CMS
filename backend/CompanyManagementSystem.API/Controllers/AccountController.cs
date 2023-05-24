@@ -1,15 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations;
 using Google.Apis.Auth;
 using CompanyManagementSystem.API.Utils.Auth;
-using Microsoft.Extensions.Configuration;
-using System.Collections.Generic;
 using static Google.Apis.Auth.GoogleJsonWebSignature;
-using CompanyManagementSystem.API.Services;
-using CompanyManagementSystem.Data.Entities;
-using System;
 using CompanyManagementSystem.API.Services.Users;
 using CompanyManagementSystem.API.Services.Roles;
 

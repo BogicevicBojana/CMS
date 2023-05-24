@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using CompanyManagementSystem.DataAccess;
 using CompanyManagementSystem.Data.Entities;
-using Models = CompanyManagementSystem.API.Models;
 using CompanyManagementSystem.API.Response;
 using CompanyManagementSystem.Data.Extensions;
 

@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using CompanyManagementSystem.DataAccess;
-using CompanyManagementSystem.Data.Entities;
-using Models = CompanyManagementSystem.API.Models;
 using CompanyManagementSystem.API.Response;
 
 namespace CompanyManagementSystem.API.Services.Benefits
@@ -16,6 +11,5 @@ namespace CompanyManagementSystem.API.Services.Benefits
         Response<Models.Benefit> GetById(int id);
 
         Response<Models.Benefit> SoftDelete(int id);
-        Response<List<Models.Benefit>> GetAllWithUser(int id);
     }
 }

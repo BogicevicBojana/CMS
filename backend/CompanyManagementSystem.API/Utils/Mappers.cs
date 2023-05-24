@@ -1,9 +1,9 @@
-using Models = CompanyManagementSystem.API.Models;
 using CompanyManagementSystem.Data.Entities;
 using CompanyManagementSystem.Data.Enums;
 
 namespace CompanyManagementSystem.API.Utils
 {
+    #pragma warning disable
     public static class Mappers 
     {
         public static Models.User MapToUserDto(User user)

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CompanyManagementSystem.DataAccess.Repositories.Vacations
 {
+    #pragma warning disable
     public class VacationRepository : GenericRepository<Vacation>, IVacationRepository
     {
         private readonly ApplicationDbContext context;

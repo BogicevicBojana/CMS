@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CompanyManagementSystem.DataAccess.Repositories.UserReligiousHolidays
 {
+    #pragma warning disable
     public class UserReligiousHolidayRepository : GenericRepository<UserReligiousHoliday>, IUserReligiousHolidayRepository
     {
         private readonly ApplicationDbContext context;

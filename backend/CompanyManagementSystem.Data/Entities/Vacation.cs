@@ -1,10 +1,9 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CompanyManagementSystem.Data.Entities
 {
+    #pragma warning disable
     public class Vacation : TimeStamp
     {
 

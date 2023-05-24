@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CompanyManagementSystem.DataAccess.Repositories.UserSkills
 {
+    #pragma warning disable
     public class UserSkillRepository : GenericRepository<UserSkill>, IUserSkillRepository
     {
         private readonly ApplicationDbContext context;

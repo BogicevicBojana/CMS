@@ -1,11 +1,10 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using CompanyManagementSystem.Data.Enums;
 using CompanyManagementSystem.Data.Extensions;
 
 namespace CompanyManagementSystem.Data.Entities
 {
+    #pragma warning disable
     public class WorkingPosition : TimeStamp
     {
         public WorkingPosition(WorkingPositions positions)

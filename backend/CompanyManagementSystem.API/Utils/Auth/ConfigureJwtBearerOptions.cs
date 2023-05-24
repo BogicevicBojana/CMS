@@ -1,13 +1,11 @@
-using System;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
 namespace CompanyManagementSystem.API.Utils.Auth
 {
-    #pragma warning disable CS8604
+#pragma warning disable CS8604
     public class ConfigureJwtBearerOptions : IConfigureNamedOptions<JwtBearerOptions>
     {
         private readonly IConfiguration configuration;

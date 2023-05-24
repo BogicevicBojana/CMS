@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CompanyManagementSystem.DataAccess.Repositories.UserBenefits
 {
+    #pragma warning disable
     public class UserBenefitRepository : GenericRepository<UserBenefit>, IUserBenefitRepository
     {
         private readonly ApplicationDbContext context;

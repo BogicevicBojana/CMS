@@ -3,6 +3,7 @@ using CompanyManagementSystem.Data;
 
 namespace CompanyManagementSystem.DataAccess.Repositories
 {
+    #pragma warning disable
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private ApplicationDbContext context;

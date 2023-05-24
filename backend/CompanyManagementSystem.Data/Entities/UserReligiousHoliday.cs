@@ -1,8 +1,6 @@
-using System;
-using System.ComponentModel.DataAnnotations;
-
 namespace CompanyManagementSystem.Data.Entities
 {
+    #pragma warning disable
     public class UserReligiousHoliday : TimeStamp
     {
         public int Id { get; set; }

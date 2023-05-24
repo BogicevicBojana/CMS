@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CompanyManagementSystem.API.Controllers
 {
+    #pragma warning disable
     [ApiController]
     [Route("[controller]")]
     [AuthorizeRoles(Roles.Administrator, Roles.Employee)]

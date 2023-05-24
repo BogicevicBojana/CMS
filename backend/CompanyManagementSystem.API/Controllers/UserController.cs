@@ -1,19 +1,13 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
-using CompanyManagementSystem.API.Services.Benefits;
-using CompanyManagementSystem.API.Models;
-using CompanyManagementSystem.API.enums;
 using CompanyManagementSystem.API.Services.Users;
-using CompanyManagementSystem.API.Services.Languages;
-using CompanyManagementSystem.API.Services.WorkingPositions;
-using CompanyManagementSystem.API.Response;
-using CompanyManagementSystem.Data.Extensions;
 using CompanyManagementSystem.API.Utils.Auth;
 using CompanyManagementSystem.Data.Enums;
 using Microsoft.AspNetCore.Authorization;
 
 namespace CompanyManagementSystem.API.Controllers
 {
+    #pragma warning disable
     [ApiController]
     [Route("[controller]")]
     [AuthorizeRoles(Roles.Administrator, Roles.Employee)]

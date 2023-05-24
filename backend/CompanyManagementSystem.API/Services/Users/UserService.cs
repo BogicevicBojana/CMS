@@ -7,6 +7,7 @@ using CompanyManagementSystem.DataAccess;
 
 namespace CompanyManagementSystem.API.Services.Users
 {
+    #pragma warning disable
     public class UserService : IUserService
     {
         private IUnitOfWork unitOfWork;

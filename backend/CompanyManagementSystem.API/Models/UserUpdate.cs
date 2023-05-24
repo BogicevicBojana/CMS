@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace CompanyManagementSystem.API.Models
 {
+    #pragma warning disable
     public class UserUpdate : UserRegister 
     {
         [JsonPropertyName("id")]

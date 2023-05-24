@@ -1,11 +1,8 @@
-using System.ComponentModel.DataAnnotations;
-using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
-
-using System;
 
 namespace CompanyManagementSystem.Data.Entities
 {
+    #pragma warning disable
     public class UserSkill : TimeStamp
     {
         public int Id { get; set; }
