@@ -10,6 +10,7 @@ using CompanyManagementSystem.API.Services.WorkingPositions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using CompanyManagementSystem.API.Services.Users;
 using CompanyManagementSystem.API.Services.Roles;
+using CompanyManagementSystem.API.Services.Vacations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -62,6 +63,7 @@ builder.Services.AddTransient<IWorkingPositionService, WorkingPositionService>()
 builder.Services.AddTransient<ILanguageService, LanguageService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IRoleService, RoleService>();
+builder.Services.AddTransient<IVacationService, VacationService>();
 
 var app = builder.Build();
 

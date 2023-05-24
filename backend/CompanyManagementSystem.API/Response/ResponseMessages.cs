@@ -15,6 +15,10 @@ namespace CompanyManagementSystem.API.Response
         [Description("User with that email already exists")]
         UserAlreadyExists = 5,
         [Description("All field must contain value")]
-        ValidationError = 6
+        ValidationError = 6,
+        [Description("Start date cannot be after end date")]
+        StartDateError = 7,
+        [Description("Vacation between those dates already exists for the user")]
+        VacationAlreadyExists = 8
     }
 }
