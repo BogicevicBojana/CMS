@@ -92,8 +92,6 @@ namespace CompanyManagementSystem.API.Services.Users
             if(unitOfWork.userRepository.GetUserById(user.Id) is null)
                 return  new Response<Models.User>(ResponseMessages.DoesNotExist.ToDescription(), null, (int)ResponseCodes.BadRequest);
 
-            if(unitOfWork.userRepository.GetUserByEmail(user.Email).Id != user.Id)
-                    return new Response<Models.User>(ResponseMessages.UserAlreadyExists.ToDescription(), null, (int)ResponseCodes.BadRequest);
             try {
                 var userToUpdate = unitOfWork.userRepository.GetUserById(user.Id);
                 var mapped = Mappers.MapToUserEntity(user);
@@ -165,7 +163,6 @@ namespace CompanyManagementSystem.API.Services.Users
                 userToUpdate.MobileNumber = user.MobileNumber;
                 userToUpdate.EmploymentDate = user.EmploymentDate;
                 userToUpdate.WorkingPositionId = user.WorkingPositionId;
-                userToUpdate.Email = user.Email;
 
                 unitOfWork.userRepository.Update(userToUpdate);
                 unitOfWork.Complete();
