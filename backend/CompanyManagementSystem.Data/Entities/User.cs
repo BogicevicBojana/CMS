@@ -13,8 +13,6 @@ namespace CompanyManagementSystem.Data.Entities
             this.UserBenefits = new HashSet<UserBenefit>();
             this.UserLanguages = new HashSet<UserLanguage>();
             this.UserReligiousHolidays = new HashSet<UserReligiousHoliday>();
-            this.RequestedVacationRequests = new HashSet<VacationRequest>();
-            this.ProcessedVacationRequests = new HashSet<VacationRequest>();
         }
 
         public int Id { get; set; }
@@ -50,8 +48,7 @@ namespace CompanyManagementSystem.Data.Entities
         public ICollection<UserBenefit> UserBenefits { get; set; }
         public ICollection<UserLanguage> UserLanguages { get; set; }
         public ICollection<UserReligiousHoliday> UserReligiousHolidays { get; set; }
-        public ICollection<VacationRequest> RequestedVacationRequests { get; set; }
-        public ICollection<VacationRequest> ProcessedVacationRequests { get; set; }
+        public ICollection<Vacation> Vacations { get; set; }
 
     }
 }

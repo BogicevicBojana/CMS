@@ -119,6 +119,12 @@ namespace CompanyManagementSystem.Data
                 .WithOne(u => u.WorkingPosition)
                 .HasForeignKey(u => u.WorkingPositionId);
 
+            builder
+                .Entity<Vacation>()
+                .HasOne(vacation => vacation.User)
+                .WithMany(user => user.Vacations)
+                .HasForeignKey(vacation => vacation.UserId);
+
             // * DEFINING User Role
 
             builder
@@ -127,42 +133,12 @@ namespace CompanyManagementSystem.Data
                 .WithOne(u => u.Role)
                 .HasForeignKey(u => u.RoleId);
 
-            // ? RELATION: VACATION REQUEST and USER (Requested)
-            builder
-                .Entity<VacationRequest>()
-                .HasOne(vacationRequest => vacationRequest.RequestedBy)
-                .WithMany(user => user.RequestedVacationRequests)
-                .HasForeignKey(vacationRequest =>
-                    vacationRequest.RequestedById);
 
-            // ? RELATION: VACATION REQUEST and USER (Processed)
-            builder
-                .Entity<VacationRequest>()
-                .HasOne(vacationRequest => vacationRequest.ProcessedBy)
-                .WithMany(user => user.ProcessedVacationRequests)
-                .HasForeignKey(vacationRequest =>
-                    vacationRequest.ProcessedById);
-
-            // ? RELATION: VACATION REQUEST and VACATION
-            builder
-                .Entity<VacationRequest>()
-                .HasOne(vacationRequest => vacationRequest.Vacation)
-                .WithMany(vacationRequest => vacationRequest.VacationRequests)
-                .HasForeignKey(vacationRequest => vacationRequest.VacationId);
-
-            // * RELATION: REQUEST STATUS and VACATION REQUESTS
-            builder
-                .Entity<RequestStatus>()
-                .HasMany<VacationRequest>(requestStatus =>
-                    requestStatus.VacationRequests)
-                .WithOne(requestStatus => requestStatus.RequestStatus)
-                .HasForeignKey(requestStatus => requestStatus.RequestStatusId);
 
             // * Enum Seeding
             builder.SeedEnum<Benefit, Benefits>(e => e);
             builder.SeedEnum<Language, Languages>(e => e);
             builder.SeedEnum<Skill, Skills>(e => e);
-            builder.SeedEnum<RequestStatus, RequestStatuses>(e => e);
             builder.SeedEnum<Role, Roles>(e => e);
             builder.SeedEnum<UserStatus, UserStatuses>(e => e);
             builder.SeedEnum<WorkingPosition, WorkingPositions>(e => e);
@@ -203,7 +179,6 @@ namespace CompanyManagementSystem.Data
 
         public DbSet<ReligiousHoliday> ReligiousHolidays { get; set; }
 
-        public DbSet<RequestStatus> RequestStatuses { get; set; }
 
         public DbSet<Skill> Skills { get; set; }
 
@@ -225,6 +200,5 @@ namespace CompanyManagementSystem.Data
 
         public DbSet<Vacation> Vacations { get; set; }
 
-        public DbSet<VacationRequest> VacationRequests { get; set; }
     }
 }

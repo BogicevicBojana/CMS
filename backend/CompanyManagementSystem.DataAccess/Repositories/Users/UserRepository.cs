@@ -26,12 +26,7 @@ namespace CompanyManagementSystem.DataAccess.Repositories.Users
                                         .Include(user => user.UserReligiousHolidays)
                                             .ThenInclude(userHoliday => userHoliday.ReligiousHoliday)
                                         .Include(user => user.UserStatus)
-                                        .Include(user => user.RequestedVacationRequests)
-                                            .ThenInclude(userRequested => userRequested.Vacation)
-                                        .Include(user => user.RequestedVacationRequests)
-                                            .ThenInclude(userRequested => userRequested.RequestStatus)
-                                        .Include(user => user.ProcessedVacationRequests)
-                                            .ThenInclude(userProcessed => userProcessed.Vacation);
+                                        .Include(user => user.Vacations);
 
             return users.Where(user => user.Id == id).SingleOrDefault();
         }
@@ -49,12 +44,7 @@ namespace CompanyManagementSystem.DataAccess.Repositories.Users
                                         .Include(user => user.UserReligiousHolidays)
                                             .ThenInclude(userHoliday => userHoliday.ReligiousHoliday)
                                         .Include(user => user.UserStatus)
-                                        .Include(user => user.RequestedVacationRequests)
-                                            .ThenInclude(userRequested => userRequested.Vacation)
-                                        .Include(user => user.RequestedVacationRequests)
-                                            .ThenInclude(userRequested => userRequested.RequestStatus)
-                                        .Include(user => user.ProcessedVacationRequests)
-                                            .ThenInclude(userProcessed => userProcessed.Vacation);
+                                        .Include(user => user.Vacations);
                                         
             return users.ToList();
         }
@@ -72,12 +62,7 @@ namespace CompanyManagementSystem.DataAccess.Repositories.Users
                                         .Include(user => user.UserReligiousHolidays)
                                             .ThenInclude(userHoliday => userHoliday.ReligiousHoliday)
                                         .Include(user => user.UserStatus)
-                                        .Include(user => user.RequestedVacationRequests)
-                                            .ThenInclude(userRequested => userRequested.Vacation)
-                                        .Include(user => user.RequestedVacationRequests)
-                                            .ThenInclude(userRequested => userRequested.RequestStatus)
-                                        .Include(user => user.ProcessedVacationRequests)
-                                            .ThenInclude(userProcessed => userProcessed.Vacation);
+                                        .Include(user => user.Vacations);
                                         
             return users.Where(user => !user.IsDeleted).ToList();
         }
@@ -95,12 +80,7 @@ namespace CompanyManagementSystem.DataAccess.Repositories.Users
                                         .Include(user => user.UserReligiousHolidays)
                                             .ThenInclude(userHoliday => userHoliday.ReligiousHoliday)
                                         .Include(user => user.UserStatus)
-                                        .Include(user => user.RequestedVacationRequests)
-                                            .ThenInclude(userRequested => userRequested.Vacation)
-                                        .Include(user => user.RequestedVacationRequests)
-                                            .ThenInclude(userRequested => userRequested.RequestStatus)
-                                        .Include(user => user.ProcessedVacationRequests)
-                                            .ThenInclude(userProcessed => userProcessed.Vacation);
+                                        .Include(user => user.Vacations);
 
             return users.Where(user => user.Email == email).SingleOrDefault();
         }

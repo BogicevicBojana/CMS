@@ -1,9 +1,7 @@
 namespace CompanyManagementSystem.API.Models
 {
-    public class Vacation 
+    public class Vacation : BaseVacation
     {
-        public int Id {get; set;}
-        public DateOnly StartDate { get; set; }
-        public DateOnly EndDate { get; set; }
+        public BaseUser User {get;set;}
     }
 }

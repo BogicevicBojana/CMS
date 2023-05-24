@@ -25,7 +25,7 @@ namespace CompanyManagementSystem.API.Models
         [JsonPropertyName("user_status")]
         public UserStatus UserStatus { get; set; }
         [JsonPropertyName("vacations")]
-        public List<BaseVacationRequest> Vacations { get; set; }
+        public List<BaseVacation> Vacations { get; set; }
         [JsonPropertyName("religious_holidays")]
         public List<ReligiousHoliday> ReligiousHolidays { get; set; }
         [JsonPropertyName("email")]

@@ -33,7 +33,7 @@ namespace CompanyManagementSystem.API.Utils
                     Id = user.WorkingPositionId,
                     Name = user.WorkingPosition.Name
                 },
-                Vacations = new List<Models.BaseVacationRequest>(),
+                Vacations = new List<Models.BaseVacation>(),
                 ReligiousHolidays = new List<Models.ReligiousHoliday>(),
                 FullName = user.FirstName + " " + user.LastName
             };
@@ -62,19 +62,12 @@ namespace CompanyManagementSystem.API.Utils
                 };
                 mapped.Languages.Add(language);
             }
-            foreach (var item in user.RequestedVacationRequests)
+            foreach (var item in user.Vacations)
             {
-                var vacation = new Models.BaseVacationRequest {
+                var vacation = new Models.BaseVacation {
                     Id = item.Id,
-                    Vacation = new Models.Vacation {
-                        Id = item.VacationId,
-                        StartDate = item.Vacation.StartDate,
-                        EndDate = item.Vacation.EndDate
-                    },
-                    RequestStatus = new Models.RequestStatus {
-                        Id = item.RequestStatusId,
-                        Name = item.RequestStatus.Name
-                    }
+                    StartDate = item.StartDate,
+                    EndDate = item.EndDate
                 };
                 mapped.Vacations.Add(vacation);
             }
@@ -103,8 +96,7 @@ namespace CompanyManagementSystem.API.Utils
                 FreeDays = 20,
                 StatusId = (int)UserStatuses.Active,
                 WorkingPositionId = user.WorkingPositionId,
-                RequestedVacationRequests = new List<VacationRequest>(),
-                ProcessedVacationRequests = new List<VacationRequest>(),
+                Vacations = new List<Vacation>(),
                 UserReligiousHolidays = new List<UserReligiousHoliday>()
             };
             
@@ -170,23 +162,26 @@ namespace CompanyManagementSystem.API.Utils
             };
         }
 
-        public static Models.VacationRequest mapToVacationRequestDTO(VacationRequest vacationRequest)
+        public static Models.Vacation mapToVacationDTO(Vacation vacation)
         {
-            return new Models.VacationRequest {
-                Vacation = new Models.Vacation {
-                    StartDate = vacationRequest.Vacation.StartDate,
-                    EndDate = vacationRequest.Vacation.EndDate
-                },
-                Id = vacationRequest.Id,
+            return new Models.Vacation {
+                StartDate = vacation.StartDate,
+                EndDate = vacation.EndDate,
+                Id = vacation.Id,
                 User = new Models.BaseUser {
-                    Id = vacationRequest.RequestedById,
-                    FirstName = vacationRequest.RequestedBy.FirstName,
-                    LastName = vacationRequest.RequestedBy.LastName
-                },
-                RequestStatus = new Models.RequestStatus {
-                    Id = vacationRequest.RequestStatusId,
-                    Name = vacationRequest.RequestStatus.Name
+                    Id = vacation.UserId,
+                    FirstName = vacation.User.FirstName,
+                    LastName = vacation.User.LastName,
+                    FullName = vacation.User.FirstName + " " + vacation.User.LastName
                 }
+            };
+        }
+        public static Vacation mapToVacationEntity(Models.InsertVacation vacation)
+        {
+            return new Vacation {
+                StartDate = vacation.StartDate,
+                EndDate = vacation.EndDate,
+                UserId = vacation.UserId
             };
         }
     }
