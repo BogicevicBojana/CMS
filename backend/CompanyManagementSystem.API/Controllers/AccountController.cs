@@ -63,7 +63,7 @@ namespace CompanyManagementSystem.API.Controllers
             }
 
             var userId = user.Id.ToString();
-            var roleName = roleService.GetRoleNameById(user.Id);
+            var roleName = roleService.GetRoleNameById(user.RoleId);
             var positionName = user.WorkingPosition.Name;
 
             // constructing new jwt
