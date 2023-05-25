@@ -46,4 +46,9 @@ export class UserService {
     const endpoint: string = `${this.baseUrl}/update`;
     return this.http.put(endpoint, user, this.httpOptions);
   }
+
+  deleteUser(userId: number): Observable<any> {
+    const endpoint: string = `${this.baseUrl}/deletion/${userId}`;
+    return this.http.delete(endpoint, this.httpOptions);
+  }
 }

@@ -118,6 +118,13 @@
               text-align: center;
             }
 
+            &.clickable p {
+              cursor: pointer;
+              background-color: initial;
+              color: initial;
+              text-align: initial;
+            }
+
             &.active p {
               text-align: center;
               background-color: rgb(211, 255, 211);

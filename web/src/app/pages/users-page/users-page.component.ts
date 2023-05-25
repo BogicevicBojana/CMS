@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { merge, Observable, of as observableOf } from 'rxjs';
 import { catchError, map, startWith, switchMap } from 'rxjs/operators';
 import { User } from 'src/app/data/User.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -17,7 +19,11 @@ export class UsersPageComponent implements OnInit {
   sortByNameASC: Boolean = true;
   userSearch: String = '';
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.getUsers();
@@ -39,6 +45,16 @@ export class UsersPageComponent implements OnInit {
     } else {
       this.filteredUsers = this.users;
     }
+  }
+
+  loadUserProfile(userId: number) {
+    this.authService.getUserId().subscribe((response) => {
+      if (response == userId) {
+        this.router.navigate(['app/my-profile']);
+      } else {
+        this.router.navigate(['app/user-profile', userId]);
+      }
+    });
   }
 
   public sortByName() {

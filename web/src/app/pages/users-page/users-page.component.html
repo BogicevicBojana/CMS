@@ -33,7 +33,6 @@
         <th>Phone</th>
         <th>Status</th>
         <th>Role</th>
-        <!-- <th>Action</th> -->
       </thead>
       <tbody>
         <tr
@@ -42,8 +41,8 @@
               | paginate : { itemsPerPage: 10, currentPage: p }
           "
         >
-          <td>
-            {{ user.first_name + " " + user.last_name }}
+          <td (click)="loadUserProfile(user.id)" class="clickable">
+            <p>{{ user.first_name + " " + user.last_name }}</p>
           </td>
           <td>{{ user.working_position.name }}</td>
           <td>{{ user.employment_date }}</td>

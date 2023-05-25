@@ -9,7 +9,7 @@ export interface User {
   working_position: WorkingPosition;
   role: Role;
   user_status: UserStatus;
-  vacations: any[];
+  vacations: any[] | Vacation[];
   religious_holidays: any[];
   email: string;
   free_days: number;
@@ -32,4 +32,10 @@ export interface Role {
 export interface UserStatus {
   id: number;
   name: string;
+}
+
+export interface Vacation {
+  id: number;
+  start_date: Date;
+  end_date: Date;
 }
