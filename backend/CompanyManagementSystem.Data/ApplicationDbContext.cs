@@ -141,6 +141,8 @@ namespace CompanyManagementSystem.Data
             builder.SeedEnum<UserStatus, UserStatuses>(e => e);
             builder.SeedEnum<WorkingPosition, WorkingPositions>(e => e);
 
+            builder.SeedData();
+
         }
 
         // Override of SaveChanges() method for automatic setting of TimeStamp properties in each entity
