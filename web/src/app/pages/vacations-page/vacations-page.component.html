@@ -44,7 +44,7 @@
           <tr
             *ngFor="
               let vacation of userVacations
-                | paginate : { itemsPerPage: 5, currentPage: p }
+                | paginate : { itemsPerPage: 4, currentPage: p1, id: 'first' }
             "
           >
             <td>{{ vacation.start_date }}</td>
@@ -62,7 +62,10 @@
         </tbody>
       </table>
       <div class="pagination">
-        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        <pagination-controls
+          (pageChange)="p1 = $event"
+          id="first"
+        ></pagination-controls>
       </div>
     </div>
   </div>
@@ -83,7 +86,7 @@
         <tr
           *ngFor="
             let vacation of allVacations
-              | paginate : { itemsPerPage: 10, currentPage: p }
+              | paginate : { itemsPerPage: 7, currentPage: p2, id: 'second' }
           "
         >
           <td>{{ vacation.user.full_name }}</td>
@@ -93,7 +96,10 @@
       </tbody>
     </table>
     <div class="pagination">
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      <pagination-controls
+        (pageChange)="p2 = $event"
+        id="second"
+      ></pagination-controls>
     </div>
   </div>
 </div>

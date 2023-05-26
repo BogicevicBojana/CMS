@@ -23,7 +23,8 @@ export class VacationsPageComponent {
   startDate?: Date;
   endDate?: Date;
 
-  p: number = 0;
+  p1: number = 1;
+  p2: number = 1;
 
   constructor(
     private userService: UserService,
