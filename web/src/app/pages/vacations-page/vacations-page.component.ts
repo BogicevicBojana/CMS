@@ -47,9 +47,13 @@ export class VacationsPageComponent {
   }
 
   private loadAllVacations() {
-    this.vacationService
-      .getAllVacations()
-      .subscribe((response) => (this.allVacations = response.data));
+    this.vacationService.getAllVacations().subscribe((response) => {
+      this.allVacations = response.data;
+
+      this.allVacations.sort((a, b) =>
+        a.start_date > b.start_date ? 1 : b.start_date > a.start_date ? -1 : 0
+      );
+    });
   }
 
   private loadUserVacations() {
