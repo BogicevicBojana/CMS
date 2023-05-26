@@ -1,23 +1,20 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CompanyManagementSystem.Data.Models
+namespace CompanyManagementSystem.Data.Entities
 {
+    #pragma warning disable
     public class Vacation : TimeStamp
     {
-        public Vacation()
-        {
-            this.VacationRequests = new HashSet<VacationRequest>();
-        }
 
         public int Id { get; set; }
         [Required]
-        public DateTime StartDate { get; set; }
+        public DateOnly StartDate { get; set; }
         [Required]
-        public DateTime EndDate { get; set; }
-
-        // * Navigation Properties
-        public ICollection<VacationRequest> VacationRequests { get; set; }
+        public DateOnly EndDate { get; set; }
+        [ForeignKey("UserId")]
+        [InverseProperty("Vacations")]
+        public User User {get;set;}
+        public int UserId {get;set;}
     }
 }

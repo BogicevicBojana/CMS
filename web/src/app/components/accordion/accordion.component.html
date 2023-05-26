@@ -11,6 +11,7 @@
     <ul>
       <div *ngFor="let item of items">
         <app-configuration-item
+          (deleteItemEvent)="onItemDeleted()"
           [item]="item"
           [type]="this.configurationItemType!"
         ></app-configuration-item>

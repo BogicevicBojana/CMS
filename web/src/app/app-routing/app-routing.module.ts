@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from '../pages/login-page/login-page.component';
 import { ConfigurationPageComponent } from '../pages/configuration-page/configuration-page.component';
-import { BenefitsPageComponent } from '../pages/benefits-page/benefits-page.component';
+import BenefitsPageComponent from '../pages/benefits-page/benefits-page.component';
 import { RegisterUserPageComponent } from '../pages/register-user-page/register-user-page.component';
 import { UserProfilePageComponent } from '../pages/user-profile-page/user-profile-page.component';
 import { UsersPageComponent } from '../pages/users-page/users-page.component';

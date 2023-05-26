@@ -1,1 +1,6 @@
-<p>configuration-item works!</p>
+<div class="item">
+  <p>{{ item.name }}</p>
+  <div class="icon-box" (click)="deleteItem(item)">
+    <svg-icon class="icon" src="assets/icons/delete-icon.svg" />
+  </div>
+</div>

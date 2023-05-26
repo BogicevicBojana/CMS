@@ -4,13 +4,18 @@ import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import jwt_decode from 'jwt-decode';
 import { AuthUser } from '../data/AuthUser.model';
+import { NotificationService } from './notification.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor(private httpClient: HttpClient, private router: Router, private _ngZone: NgZone) { }
+  constructor(
+    private notificationService: NotificationService,
+    private httpClient: HttpClient,
+    private router: Router,
+    private _ngZone: NgZone
+  ) {}
 
   private readonly TOKEN_NAME = 'token';
   header = new HttpHeaders({ 'Content-Type': 'application/json' });
@@ -18,15 +23,19 @@ export class AuthService {
   loginWithGoogle(googleToken: string) {
     this.authenticateUser(googleToken).subscribe({
       error: (responseBody) => {
-        alert("Greska")
+        this.notificationService.showErrorMessage(
+          'User not registered',
+          "This account isn't registered on the system",
+          5000
+        );
       },
 
       next: (authToken) => {
-        const user: { name: string, picture: string } = jwt_decode(googleToken);
+        const user: { name: string; picture: string } = jwt_decode(googleToken);
 
         localStorage.setItem('profile_img_url', user.picture);
         localStorage.setItem('user_name', user.name),
-          localStorage.setItem(this.TOKEN_NAME, authToken)
+          localStorage.setItem(this.TOKEN_NAME, authToken);
       },
 
       complete: () => {
@@ -35,25 +44,33 @@ export class AuthService {
         if (isAdmin) {
           this._ngZone.run(() => {
             this.router.navigate(['app/users']);
-          })
+          });
         } else {
-          this.router.navigate(['app/my-prifle']);
+          this.router.navigate(['app/my-profile']);
         }
-      }
+      },
     });
   }
 
   public authenticateUser(IdToken: any): Observable<string> {
     return this.httpClient.post<string>(
-      'https://localhost:5001/account/authenticate',
+      'http://localhost:5173/account/authenticate',
       {
         id_token: IdToken,
       },
       {
         headers: this.header,
         responseType: 'text' as 'json',
-      },
+      }
     );
+  }
+
+  public signOut() {
+    localStorage.clear();
+
+    this._ngZone.run(() => {
+      this.router.navigate(['/login']).then(() => window.location.reload());
+    });
   }
 
   private decodeJWT(token: string): any {
@@ -92,7 +109,7 @@ export class AuthService {
       userDecoded.nameid,
       userDecoded.name,
       userDecoded.WorkingPosition,
-      userDecoded.role,
+      userDecoded.role
     );
   }
 

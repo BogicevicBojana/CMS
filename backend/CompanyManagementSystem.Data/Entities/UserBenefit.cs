@@ -1,8 +1,6 @@
-using System;
-using System.ComponentModel.DataAnnotations;
-
-namespace CompanyManagementSystem.Data.Models
+namespace CompanyManagementSystem.Data.Entities
 {
+    #pragma warning disable
     public class UserBenefit : TimeStamp
     {
         public int Id { get; set; }

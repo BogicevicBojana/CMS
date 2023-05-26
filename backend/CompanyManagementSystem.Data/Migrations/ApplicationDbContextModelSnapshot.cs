@@ -22,7 +22,7 @@ namespace CompanyManagementSystem.Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.Benefit", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.Benefit", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,6 +36,9 @@ namespace CompanyManagementSystem.Data.Migrations
                     b.Property<DateTime>("DateModified")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -48,76 +51,86 @@ namespace CompanyManagementSystem.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8540),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8540),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8370),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8380),
+                            IsDeleted = false,
                             Name = "Private health insurance"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8560),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8560),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8400),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8400),
+                            IsDeleted = false,
                             Name = "Foreign language lessons"
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8580),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8580),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8410),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8410),
+                            IsDeleted = false,
                             Name = "Remote work"
                         },
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8590),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8590),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8430),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8430),
+                            IsDeleted = false,
                             Name = "Employee learning and advancement"
                         },
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8610),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8610),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8450),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8450),
+                            IsDeleted = false,
                             Name = "Paid courses and literature for professional development"
                         },
                         new
                         {
                             Id = 6,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8630),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8630),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8460),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8460),
+                            IsDeleted = false,
                             Name = "Additional day off for one year of experience (+1 day)"
                         },
                         new
                         {
                             Id = 7,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8640),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8640),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8480),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8480),
+                            IsDeleted = false,
                             Name = "Additional days off for more than three years of experience (+2 days)"
                         },
                         new
                         {
                             Id = 8,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8660),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8660),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8490),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8490),
+                            IsDeleted = false,
                             Name = "Paid sports activities"
                         },
                         new
                         {
                             Id = 9,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8670),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8670),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8510),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8510),
+                            IsDeleted = false,
                             Name = "Parents day off (+1 day)"
                         },
                         new
                         {
                             Id = 10,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8690),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8690),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8530),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8530),
+                            IsDeleted = false,
                             Name = "Courses for team-leader positions"
                         });
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.Language", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.Language", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -146,86 +159,86 @@ namespace CompanyManagementSystem.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8880),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8880),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8700),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8700),
                             IsDeleted = false,
                             Name = "English"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8890),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8890),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8730),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8740),
                             IsDeleted = false,
                             Name = "German"
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8910),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8910),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8750),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8750),
                             IsDeleted = false,
                             Name = "Russian"
                         },
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8930),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8930),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8770),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8770),
                             IsDeleted = false,
                             Name = "French"
                         },
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8940),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8940),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8780),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8780),
                             IsDeleted = false,
                             Name = "Turkish"
                         },
                         new
                         {
                             Id = 6,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8960),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8960),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8800),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8800),
                             IsDeleted = false,
                             Name = "Italian"
                         },
                         new
                         {
                             Id = 7,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8970),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8970),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8810),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8810),
                             IsDeleted = false,
                             Name = "Spanish"
                         },
                         new
                         {
                             Id = 8,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8990),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(8990),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8830),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8830),
                             IsDeleted = false,
                             Name = "Polish"
                         },
                         new
                         {
                             Id = 9,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9000),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9000),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8840),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8840),
                             IsDeleted = false,
                             Name = "Dutch"
                         },
                         new
                         {
                             Id = 10,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9020),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9020),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8860),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(8860),
                             IsDeleted = false,
                             Name = "Serbian"
                         });
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.Note", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.PublicHoliday", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -233,187 +246,18 @@ namespace CompanyManagementSystem.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AssignedToId")
-                        .HasColumnType("integer");
+                    b.Property<DateOnly>("EndDate")
+                        .HasColumnType("date");
 
-                    b.Property<int>("CreatedById")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("DateModified")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Value")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AssignedToId");
-
-                    b.HasIndex("CreatedById");
-
-                    b.ToTable("Notes");
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.Project", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("DateModified")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<bool>("IsCompanys")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Projects");
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.ProjectDeveloper", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("DateModified")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("ProjectId")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProjectId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("ProjectDevelopers");
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.ProjectDeveloperSkill", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("DateModified")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("ProjectDeveloperId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("ProjectSkillId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProjectDeveloperId");
-
-                    b.HasIndex("ProjectSkillId");
-
-                    b.ToTable("ProjectDeveloperSkills");
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.ProjectSkill", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("DateModified")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("ProjectId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("SkillId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProjectId");
-
-                    b.HasIndex("SkillId");
-
-                    b.ToTable("ProjectSkills");
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.PublicHoliday", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("StartDate")
+                        .HasColumnType("date");
 
                     b.HasKey("Id");
 
                     b.ToTable("PublicHolidays");
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.ReligiousHoliday", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.ReligiousHoliday", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -421,8 +265,8 @@ namespace CompanyManagementSystem.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("date");
 
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("timestamp with time zone");
@@ -435,7 +279,7 @@ namespace CompanyManagementSystem.Data.Migrations
                     b.ToTable("ReligiousHolidays");
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.RequestStatus", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.Role", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -449,32 +293,22 @@ namespace CompanyManagementSystem.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RequestStatuses");
+                    b.ToTable("Roles");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Name = "Pending acceptance"
+                            Name = "Administrator"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Pending"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Rejected"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Accepted"
+                            Name = "Employee"
                         });
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.Skill", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.Skill", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -503,299 +337,246 @@ namespace CompanyManagementSystem.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9180),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9180),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9010),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9010),
                             IsDeleted = false,
                             Name = "JavaScript"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9190),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9190),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9030),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9030),
                             IsDeleted = false,
                             Name = "AngularJS"
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9210),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9210),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9040),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9040),
                             IsDeleted = false,
                             Name = "TypeScript"
                         },
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9230),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9230),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9060),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9060),
                             IsDeleted = false,
                             Name = "Angular"
                         },
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9240),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9240),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9080),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9080),
                             IsDeleted = false,
                             Name = "ReactJS"
                         },
                         new
                         {
                             Id = 6,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9260),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9260),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9090),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9090),
                             IsDeleted = false,
                             Name = "CSS"
                         },
                         new
                         {
                             Id = 7,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9270),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9270),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9120),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9120),
                             IsDeleted = false,
                             Name = "Ruby (Ruby on Rails)"
                         },
                         new
                         {
                             Id = 8,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9290),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9290),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9130),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9130),
                             IsDeleted = false,
                             Name = "Python"
                         },
                         new
                         {
                             Id = 9,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9340),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9340),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9150),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9150),
                             IsDeleted = false,
                             Name = "Java"
                         },
                         new
                         {
                             Id = 10,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9360),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9360),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9160),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9160),
                             IsDeleted = false,
                             Name = "SQL"
                         },
                         new
                         {
                             Id = 11,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9380),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9380),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9180),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9180),
                             IsDeleted = false,
                             Name = "PostgreSQL"
                         },
                         new
                         {
                             Id = 12,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9390),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9390),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9190),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9190),
                             IsDeleted = false,
                             Name = "MongoDB"
                         },
                         new
                         {
                             Id = 13,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9410),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9410),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9210),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9210),
                             IsDeleted = false,
                             Name = "GitHub"
                         },
                         new
                         {
                             Id = 14,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9420),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9420),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9220),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9220),
                             IsDeleted = false,
                             Name = "Jira"
                         },
                         new
                         {
                             Id = 15,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9440),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9440),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9240),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9240),
                             IsDeleted = false,
                             Name = "Kotlin"
                         },
                         new
                         {
                             Id = 16,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9450),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9450),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9250),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9250),
                             IsDeleted = false,
                             Name = "Object C"
                         },
                         new
                         {
                             Id = 17,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9470),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9470),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9260),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9260),
                             IsDeleted = false,
                             Name = "Swift"
                         },
                         new
                         {
                             Id = 18,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9510),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9510),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9280),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9280),
                             IsDeleted = false,
                             Name = "Xmpp"
                         },
                         new
                         {
                             Id = 19,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9520),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9520),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9290),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9290),
                             IsDeleted = false,
                             Name = "Flutter"
                         },
                         new
                         {
                             Id = 20,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9540),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9540),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9310),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9310),
                             IsDeleted = false,
                             Name = "C#"
                         },
                         new
                         {
                             Id = 21,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9550),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9550),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9320),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9320),
                             IsDeleted = false,
                             Name = "C"
                         },
                         new
                         {
                             Id = 22,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9570),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9570),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9340),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9340),
                             IsDeleted = false,
                             Name = "C++"
                         },
                         new
                         {
                             Id = 23,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9580),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9580),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9350),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9350),
                             IsDeleted = false,
                             Name = "Haskell"
                         },
                         new
                         {
                             Id = 24,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9600),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9600),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9370),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9370),
                             IsDeleted = false,
                             Name = "Hardware Design / Embedded"
                         },
                         new
                         {
                             Id = 25,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9610),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9610),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9400),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9400),
                             IsDeleted = false,
                             Name = "PHP"
                         },
                         new
                         {
                             Id = 26,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9630),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9630),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9420),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9420),
                             IsDeleted = false,
                             Name = "Dart"
                         },
                         new
                         {
                             Id = 27,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9640),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9640),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9430),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9430),
                             IsDeleted = false,
                             Name = "Selenium"
                         },
                         new
                         {
                             Id = 28,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9660),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9660),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9440),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9440),
                             IsDeleted = false,
                             Name = "Appium"
                         },
                         new
                         {
                             Id = 29,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9670),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9670),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9460),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9460),
                             IsDeleted = false,
                             Name = "TestNG"
                         },
                         new
                         {
                             Id = 30,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9690),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 925, DateTimeKind.Utc).AddTicks(9690),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9470),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9470),
                             IsDeleted = false,
                             Name = "xUnit"
                         });
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.SkillRating", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SkillRatings");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Doesn't have knowledge.",
-                            Name = "R0"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Can't work on a commercial project, doesn't have enough knowledge.",
-                            Name = "R1"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Can work on a commercial project but it needs help (mentoring, monitoring).It will need more time for each task and someone experienced must be available during the project.",
-                            Name = "R2"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "Can work on a commercial project independently, but it cannot adapt the work to different contexts or unusual situations, and for complicated cases it will need help.",
-                            Name = "R3"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Description = "Works completely independently on a commercial project, adapts work to different contexts, introduces innovations, solves complicated cases.",
-                            Name = "R4"
-                        });
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.User", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -804,7 +585,6 @@ namespace CompanyManagementSystem.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("DateCreated")
@@ -813,24 +593,21 @@ namespace CompanyManagementSystem.Data.Migrations
                     b.Property<DateTime>("DateModified")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime?>("DateOfBirth")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly?>("DateOfBirth")
+                        .HasColumnType("date");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("EmploymentDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("EmploymentDate")
+                        .HasColumnType("date");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("FreeDaysLastYear")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("FreeDaysThisYear")
+                    b.Property<int>("FreeDays")
                         .HasColumnType("integer");
 
                     b.Property<bool>("IsDeleted")
@@ -841,7 +618,6 @@ namespace CompanyManagementSystem.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("MobileNumber")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("RoleId")
@@ -865,9 +641,263 @@ namespace CompanyManagementSystem.Data.Migrations
                     b.HasIndex("WorkingPositionId");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Vojvode Putnika 34",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(2000, 2, 1),
+                            Email = "nikola.nikolic@gmail.com",
+                            EmploymentDate = new DateOnly(2022, 1, 1),
+                            FirstName = "Nikola",
+                            FreeDays = 14,
+                            IsDeleted = false,
+                            LastName = "Nikolić",
+                            MobileNumber = "0601112233",
+                            RoleId = 1,
+                            StatusId = 1,
+                            WorkingPositionId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "Heroja Maričića 12",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(2000, 5, 17),
+                            Email = "jovan.jovanovic@gmail.com",
+                            EmploymentDate = new DateOnly(2020, 12, 20),
+                            FirstName = "Jovan",
+                            FreeDays = 7,
+                            IsDeleted = false,
+                            LastName = "Jovanović",
+                            MobileNumber = "0601112222",
+                            RoleId = 1,
+                            StatusId = 1,
+                            WorkingPositionId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "Zlatarska BB",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(1988, 2, 1),
+                            Email = "jelena.matic@gmail.com",
+                            EmploymentDate = new DateOnly(2012, 1, 1),
+                            FirstName = "Jelena",
+                            FreeDays = 13,
+                            IsDeleted = false,
+                            LastName = "Matić",
+                            MobileNumber = "0612233234",
+                            RoleId = 2,
+                            StatusId = 1,
+                            WorkingPositionId = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "Svetozara Markovića 21",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(1998, 2, 13),
+                            Email = "stefan.jovanovic@gmail.com",
+                            EmploymentDate = new DateOnly(2018, 3, 17),
+                            FirstName = "Stefan",
+                            FreeDays = 17,
+                            IsDeleted = false,
+                            LastName = "Jovanović",
+                            MobileNumber = "0667811223",
+                            RoleId = 2,
+                            StatusId = 1,
+                            WorkingPositionId = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "Beogradska 117",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(2000, 2, 13),
+                            Email = "nemanja.novakovic@gmail.com",
+                            EmploymentDate = new DateOnly(2017, 1, 1),
+                            FirstName = "Nemanja",
+                            FreeDays = 20,
+                            IsDeleted = false,
+                            LastName = "Novaković",
+                            MobileNumber = "0652221112",
+                            RoleId = 2,
+                            StatusId = 2,
+                            WorkingPositionId = 1
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Address = "Cara Dušana 12",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(1999, 5, 19),
+                            Email = "jovana.nikolic@gmail.com",
+                            EmploymentDate = new DateOnly(2016, 10, 1),
+                            FirstName = "Jovana",
+                            FreeDays = 15,
+                            IsDeleted = false,
+                            LastName = "Nikolić",
+                            MobileNumber = "0630001123",
+                            RoleId = 2,
+                            StatusId = 1,
+                            WorkingPositionId = 2
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Address = "Cara Lazara 92",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(1995, 8, 14),
+                            Email = "vladimir.vasic@gmail.com",
+                            EmploymentDate = new DateOnly(2013, 7, 1),
+                            FirstName = "Vladimir",
+                            FreeDays = 20,
+                            IsDeleted = false,
+                            LastName = "Vasić",
+                            MobileNumber = "0645566123",
+                            RoleId = 2,
+                            StatusId = 1,
+                            WorkingPositionId = 1
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Address = "Vojvode Stepe 51",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(1997, 2, 1),
+                            Email = "jakov.jovic@gmail.com",
+                            EmploymentDate = new DateOnly(2014, 1, 1),
+                            FirstName = "Jakov",
+                            FreeDays = 10,
+                            IsDeleted = false,
+                            LastName = "Jović",
+                            MobileNumber = "0665647999",
+                            RoleId = 1,
+                            StatusId = 2,
+                            WorkingPositionId = 2
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Address = "Stefana Prvovenčanog 45",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(1990, 4, 15),
+                            Email = "natasa.lotic@gmail.com",
+                            EmploymentDate = new DateOnly(2012, 1, 1),
+                            FirstName = "Nataša",
+                            FreeDays = 20,
+                            IsDeleted = false,
+                            LastName = "Lotić",
+                            MobileNumber = "0667800123",
+                            RoleId = 1,
+                            StatusId = 1,
+                            WorkingPositionId = 1
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Address = "Dositejeva 41",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(1975, 2, 14),
+                            Email = "nikola.stefanovic@gmail.com",
+                            EmploymentDate = new DateOnly(2010, 1, 1),
+                            FirstName = "Nikola",
+                            FreeDays = 17,
+                            IsDeleted = false,
+                            LastName = "Stefanović",
+                            MobileNumber = "0656661123",
+                            RoleId = 2,
+                            StatusId = 1,
+                            WorkingPositionId = 2
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Address = "Cara Lazara 17",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(1995, 5, 19),
+                            Email = "petar.petrovic@gmail.com",
+                            EmploymentDate = new DateOnly(2021, 1, 1),
+                            FirstName = "Petar",
+                            FreeDays = 20,
+                            IsDeleted = false,
+                            LastName = "Petrović",
+                            MobileNumber = "0617788931",
+                            RoleId = 2,
+                            StatusId = 1,
+                            WorkingPositionId = 1
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Address = "Vojvode Mišića 31",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(1996, 5, 22),
+                            Email = "nevena.matijevic@gmail.com",
+                            EmploymentDate = new DateOnly(2019, 1, 1),
+                            FirstName = "Nevena",
+                            FreeDays = 20,
+                            IsDeleted = false,
+                            LastName = "Matijević",
+                            MobileNumber = "0645412345",
+                            RoleId = 2,
+                            StatusId = 2,
+                            WorkingPositionId = 1
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Address = "Dimitrija Tucovića 45",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(1978, 8, 15),
+                            Email = "milos.milosevic@gmail.com",
+                            EmploymentDate = new DateOnly(2012, 1, 1),
+                            FirstName = "Miloš",
+                            FreeDays = 20,
+                            IsDeleted = false,
+                            LastName = "Milošević",
+                            MobileNumber = "0656612342",
+                            RoleId = 2,
+                            StatusId = 1,
+                            WorkingPositionId = 1
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Address = "Sinđelićeva 21",
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(1997, 10, 2),
+                            Email = "jana.petrovic@gmail.com",
+                            EmploymentDate = new DateOnly(2020, 5, 1),
+                            FirstName = "Jana",
+                            FreeDays = 20,
+                            IsDeleted = false,
+                            LastName = "Petrović",
+                            MobileNumber = "0641237634",
+                            RoleId = 1,
+                            StatusId = 2,
+                            WorkingPositionId = 1
+                        });
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.UserBenefit", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.UserBenefit", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -894,9 +924,235 @@ namespace CompanyManagementSystem.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserBenefits");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BenefitId = 6,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BenefitId = 5,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BenefitId = 6,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BenefitId = 2,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BenefitId = 7,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BenefitId = 1,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BenefitId = 6,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 8,
+                            BenefitId = 2,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 9,
+                            BenefitId = 6,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 10,
+                            BenefitId = 3,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 11,
+                            BenefitId = 4,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 12,
+                            BenefitId = 7,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 13,
+                            BenefitId = 2,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 14,
+                            BenefitId = 2,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 15,
+                            BenefitId = 4,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 16,
+                            BenefitId = 1,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 17,
+                            BenefitId = 5,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 18,
+                            BenefitId = 1,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 19,
+                            BenefitId = 4,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 20,
+                            BenefitId = 7,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 21,
+                            BenefitId = 4,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 22,
+                            BenefitId = 6,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 23,
+                            BenefitId = 1,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 24,
+                            BenefitId = 2,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 25,
+                            BenefitId = 6,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 13
+                        },
+                        new
+                        {
+                            Id = 26,
+                            BenefitId = 6,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 13
+                        },
+                        new
+                        {
+                            Id = 27,
+                            BenefitId = 3,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 14
+                        },
+                        new
+                        {
+                            Id = 28,
+                            BenefitId = 2,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 14
+                        });
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.UserLanguage", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.UserLanguage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -923,9 +1179,235 @@ namespace CompanyManagementSystem.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserLanguages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 1,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 4,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 4,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 9,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 3,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 5,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 7,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 2,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 8,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 2,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 9,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 9,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 10,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 1,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 11,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 8,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 12,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 2,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 13,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 7,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 14,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 2,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 15,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 1,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 16,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 9,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 17,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 1,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 18,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 3,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 19,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 1,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 20,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 3,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 21,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 8,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 22,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 4,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 23,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 2,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 24,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 1,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 25,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 7,
+                            UserId = 13
+                        },
+                        new
+                        {
+                            Id = 26,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 3,
+                            UserId = 13
+                        },
+                        new
+                        {
+                            Id = 27,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 2,
+                            UserId = 14
+                        },
+                        new
+                        {
+                            Id = 28,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LanguageId = 9,
+                            UserId = 14
+                        });
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.UserReligiousHoliday", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.UserReligiousHoliday", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -954,36 +1436,7 @@ namespace CompanyManagementSystem.Data.Migrations
                     b.ToTable("UserReligiousHolidays");
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.UserRole", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UserRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Administrator"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Employee"
-                        });
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.UserSkill", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.UserSkill", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1000,22 +1453,229 @@ namespace CompanyManagementSystem.Data.Migrations
                     b.Property<int>("SkillId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("SkillRatingId")
-                        .HasColumnType("integer");
-
                     b.Property<int>("UserId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SkillRatingId");
+                    b.HasIndex("SkillId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("UserSkills");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 16,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 20,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 4,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 7,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 5,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 28,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 6,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 13,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 7,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 22,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 8,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 13,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 9,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 11,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 10,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 21,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 11,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 8,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 12,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 28,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 13,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 5,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 14,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 23,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 15,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 8,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 16,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 3,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 17,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 16,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 18,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 26,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 19,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 21,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 20,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 10,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 21,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 22,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 22,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 15,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 23,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 22,
+                            UserId = 13
+                        },
+                        new
+                        {
+                            Id = 24,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 20,
+                            UserId = 13
+                        },
+                        new
+                        {
+                            Id = 25,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 20,
+                            UserId = 13
+                        },
+                        new
+                        {
+                            Id = 26,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SkillId = 1,
+                            UserId = 14
+                        });
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.UserStatus", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.UserStatus", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1035,21 +1695,16 @@ namespace CompanyManagementSystem.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Pending"
-                        },
-                        new
-                        {
-                            Id = 2,
                             Name = "Active"
                         },
                         new
                         {
-                            Id = 3,
+                            Id = 2,
                             Name = "Inactive"
                         });
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.UserWorkingPosition", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.Vacation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1062,6 +1717,302 @@ namespace CompanyManagementSystem.Data.Migrations
 
                     b.Property<DateTime>("DateModified")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateOnly>("EndDate")
+                        .HasColumnType("date");
+
+                    b.Property<DateOnly>("StartDate")
+                        .HasColumnType("date");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Vacations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 6, 4),
+                            StartDate = new DateOnly(2023, 6, 3),
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 4, 17),
+                            StartDate = new DateOnly(2023, 4, 15),
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 9, 10),
+                            StartDate = new DateOnly(2023, 9, 8),
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 2, 27),
+                            StartDate = new DateOnly(2023, 2, 24),
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 8, 15),
+                            StartDate = new DateOnly(2023, 8, 13),
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 7, 8),
+                            StartDate = new DateOnly(2023, 7, 7),
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 7,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 4, 3),
+                            StartDate = new DateOnly(2023, 4, 1),
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 8,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 10, 24),
+                            StartDate = new DateOnly(2023, 10, 21),
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 9,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 8, 17),
+                            StartDate = new DateOnly(2023, 8, 16),
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 10,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 11, 4),
+                            StartDate = new DateOnly(2023, 11, 3),
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 11,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 3, 4),
+                            StartDate = new DateOnly(2023, 3, 1),
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 12,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 11, 17),
+                            StartDate = new DateOnly(2023, 11, 14),
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 13,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 10, 21),
+                            StartDate = new DateOnly(2023, 10, 18),
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 14,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 6, 15),
+                            StartDate = new DateOnly(2023, 6, 14),
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 15,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 7, 21),
+                            StartDate = new DateOnly(2023, 7, 18),
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 16,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 3, 25),
+                            StartDate = new DateOnly(2023, 3, 23),
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 17,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 3, 10),
+                            StartDate = new DateOnly(2023, 3, 7),
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 18,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 5, 8),
+                            StartDate = new DateOnly(2023, 5, 5),
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 19,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 10, 7),
+                            StartDate = new DateOnly(2023, 10, 5),
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 20,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 2, 11),
+                            StartDate = new DateOnly(2023, 2, 8),
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 21,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 9, 10),
+                            StartDate = new DateOnly(2023, 9, 8),
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 22,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 10, 14),
+                            StartDate = new DateOnly(2023, 10, 13),
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 23,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 11, 9),
+                            StartDate = new DateOnly(2023, 11, 8),
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 24,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 4, 2),
+                            StartDate = new DateOnly(2023, 4, 1),
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 25,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 9, 4),
+                            StartDate = new DateOnly(2023, 9, 3),
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 26,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 7, 10),
+                            StartDate = new DateOnly(2023, 7, 8),
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 27,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 9, 25),
+                            StartDate = new DateOnly(2023, 9, 22),
+                            UserId = 13
+                        },
+                        new
+                        {
+                            Id = 28,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 3, 9),
+                            StartDate = new DateOnly(2023, 3, 6),
+                            UserId = 13
+                        },
+                        new
+                        {
+                            Id = 29,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateOnly(2023, 9, 22),
+                            StartDate = new DateOnly(2023, 9, 19),
+                            UserId = 14
+                        });
+                });
+
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.WorkingPosition", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime>("DateModified")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -1069,202 +2020,63 @@ namespace CompanyManagementSystem.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserWorkingPositions");
+                    b.ToTable("WorkingPositions");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 926, DateTimeKind.Utc).AddTicks(420),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 926, DateTimeKind.Utc).AddTicks(420),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9830),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9830),
+                            IsDeleted = false,
                             Name = "Software developer"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2023, 4, 13, 20, 3, 14, 926, DateTimeKind.Utc).AddTicks(430),
-                            DateModified = new DateTime(2023, 4, 13, 20, 3, 14, 926, DateTimeKind.Utc).AddTicks(430),
+                            DateCreated = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9850),
+                            DateModified = new DateTime(2023, 5, 25, 15, 37, 52, 89, DateTimeKind.Utc).AddTicks(9850),
+                            IsDeleted = false,
                             Name = "Designer"
                         });
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.Vacation", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.User", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("DateModified")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Vacations");
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.VacationRequest", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("DateModified")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int?>("ProcessedById")
-                        .IsRequired()
-                        .HasColumnType("integer");
-
-                    b.Property<int>("RequestStatusId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("RequestedById")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("VacationId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProcessedById");
-
-                    b.HasIndex("RequestStatusId");
-
-                    b.HasIndex("RequestedById");
-
-                    b.HasIndex("VacationId");
-
-                    b.ToTable("VacationRequests");
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.Note", b =>
-                {
-                    b.HasOne("CompanyManagementSystem.Data.Models.User", "AssignedTo")
-                        .WithMany("AssignedNotes")
-                        .HasForeignKey("AssignedToId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CompanyManagementSystem.Data.Models.User", "CreatedBy")
-                        .WithMany("CreatedNotes")
-                        .HasForeignKey("CreatedById")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AssignedTo");
-
-                    b.Navigation("CreatedBy");
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.ProjectDeveloper", b =>
-                {
-                    b.HasOne("CompanyManagementSystem.Data.Models.Project", "Project")
-                        .WithMany("ProjectDevelopers")
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CompanyManagementSystem.Data.Models.User", "User")
-                        .WithMany("ProjectDevelopers")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Project");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.ProjectDeveloperSkill", b =>
-                {
-                    b.HasOne("CompanyManagementSystem.Data.Models.ProjectDeveloper", "ProjectDeveloper")
-                        .WithMany("DeveloperSkills")
-                        .HasForeignKey("ProjectDeveloperId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CompanyManagementSystem.Data.Models.ProjectSkill", "ProjectSkill")
-                        .WithMany("DeveloperSkills")
-                        .HasForeignKey("ProjectSkillId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ProjectDeveloper");
-
-                    b.Navigation("ProjectSkill");
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.ProjectSkill", b =>
-                {
-                    b.HasOne("CompanyManagementSystem.Data.Models.Project", "Project")
-                        .WithMany("ProjectSkills")
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CompanyManagementSystem.Data.Models.Skill", "Skill")
-                        .WithMany("ProjectSkills")
-                        .HasForeignKey("SkillId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Project");
-
-                    b.Navigation("Skill");
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.User", b =>
-                {
-                    b.HasOne("CompanyManagementSystem.Data.Models.UserRole", "UserRole")
+                    b.HasOne("CompanyManagementSystem.Data.Entities.Role", "Role")
                         .WithMany("Users")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CompanyManagementSystem.Data.Models.UserStatus", "UserStatus")
+                    b.HasOne("CompanyManagementSystem.Data.Entities.UserStatus", "UserStatus")
                         .WithMany("Users")
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CompanyManagementSystem.Data.Models.UserWorkingPosition", "UserWorkingPosition")
+                    b.HasOne("CompanyManagementSystem.Data.Entities.WorkingPosition", "WorkingPosition")
                         .WithMany("Users")
                         .HasForeignKey("WorkingPositionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("UserRole");
+                    b.Navigation("Role");
 
                     b.Navigation("UserStatus");
 
-                    b.Navigation("UserWorkingPosition");
+                    b.Navigation("WorkingPosition");
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.UserBenefit", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.UserBenefit", b =>
                 {
-                    b.HasOne("CompanyManagementSystem.Data.Models.Benefit", "Benefit")
+                    b.HasOne("CompanyManagementSystem.Data.Entities.Benefit", "Benefit")
                         .WithMany("UserBenefits")
                         .HasForeignKey("BenefitId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CompanyManagementSystem.Data.Models.User", "User")
+                    b.HasOne("CompanyManagementSystem.Data.Entities.User", "User")
                         .WithMany("UserBenefits")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1275,15 +2087,15 @@ namespace CompanyManagementSystem.Data.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.UserLanguage", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.UserLanguage", b =>
                 {
-                    b.HasOne("CompanyManagementSystem.Data.Models.Language", "Language")
+                    b.HasOne("CompanyManagementSystem.Data.Entities.Language", "Language")
                         .WithMany("UserLanguages")
                         .HasForeignKey("LanguageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CompanyManagementSystem.Data.Models.User", "User")
+                    b.HasOne("CompanyManagementSystem.Data.Entities.User", "User")
                         .WithMany("UserLanguages")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1294,15 +2106,15 @@ namespace CompanyManagementSystem.Data.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.UserReligiousHoliday", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.UserReligiousHoliday", b =>
                 {
-                    b.HasOne("CompanyManagementSystem.Data.Models.ReligiousHoliday", "ReligiousHoliday")
+                    b.HasOne("CompanyManagementSystem.Data.Entities.ReligiousHoliday", "ReligiousHoliday")
                         .WithMany("UserReligiousHolidays")
                         .HasForeignKey("ReligiousHolidayId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CompanyManagementSystem.Data.Models.User", "User")
+                    b.HasOne("CompanyManagementSystem.Data.Entities.User", "User")
                         .WithMany("UserReligiousHolidays")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1313,21 +2125,15 @@ namespace CompanyManagementSystem.Data.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.UserSkill", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.UserSkill", b =>
                 {
-                    b.HasOne("CompanyManagementSystem.Data.Models.Skill", "Skill")
+                    b.HasOne("CompanyManagementSystem.Data.Entities.Skill", "Skill")
                         .WithMany("UserSkills")
-                        .HasForeignKey("SkillRatingId")
+                        .HasForeignKey("SkillId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CompanyManagementSystem.Data.Models.SkillRating", "SkillRating")
-                        .WithMany("UserSkills")
-                        .HasForeignKey("SkillRatingId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CompanyManagementSystem.Data.Models.User", "User")
+                    b.HasOne("CompanyManagementSystem.Data.Entities.User", "User")
                         .WithMany("UserSkills")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1335,107 +2141,47 @@ namespace CompanyManagementSystem.Data.Migrations
 
                     b.Navigation("Skill");
 
-                    b.Navigation("SkillRating");
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.Vacation", b =>
+                {
+                    b.HasOne("CompanyManagementSystem.Data.Entities.User", "User")
+                        .WithMany("Vacations")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.VacationRequest", b =>
-                {
-                    b.HasOne("CompanyManagementSystem.Data.Models.User", "ProcessedBy")
-                        .WithMany("ProcessedVacationRequests")
-                        .HasForeignKey("ProcessedById")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CompanyManagementSystem.Data.Models.RequestStatus", "RequestStatus")
-                        .WithMany("VacationRequests")
-                        .HasForeignKey("RequestStatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CompanyManagementSystem.Data.Models.User", "RequestedBy")
-                        .WithMany("RequestedVacationRequests")
-                        .HasForeignKey("RequestedById")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CompanyManagementSystem.Data.Models.Vacation", "Vacation")
-                        .WithMany("VacationRequests")
-                        .HasForeignKey("VacationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ProcessedBy");
-
-                    b.Navigation("RequestStatus");
-
-                    b.Navigation("RequestedBy");
-
-                    b.Navigation("Vacation");
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.Benefit", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.Benefit", b =>
                 {
                     b.Navigation("UserBenefits");
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.Language", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.Language", b =>
                 {
                     b.Navigation("UserLanguages");
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.Project", b =>
-                {
-                    b.Navigation("ProjectDevelopers");
-
-                    b.Navigation("ProjectSkills");
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.ProjectDeveloper", b =>
-                {
-                    b.Navigation("DeveloperSkills");
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.ProjectSkill", b =>
-                {
-                    b.Navigation("DeveloperSkills");
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.ReligiousHoliday", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.ReligiousHoliday", b =>
                 {
                     b.Navigation("UserReligiousHolidays");
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.RequestStatus", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.Role", b =>
                 {
-                    b.Navigation("VacationRequests");
+                    b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.Skill", b =>
-                {
-                    b.Navigation("ProjectSkills");
-
-                    b.Navigation("UserSkills");
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.SkillRating", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.Skill", b =>
                 {
                     b.Navigation("UserSkills");
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.User", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.User", b =>
                 {
-                    b.Navigation("AssignedNotes");
-
-                    b.Navigation("CreatedNotes");
-
-                    b.Navigation("ProcessedVacationRequests");
-
-                    b.Navigation("ProjectDevelopers");
-
-                    b.Navigation("RequestedVacationRequests");
-
                     b.Navigation("UserBenefits");
 
                     b.Navigation("UserLanguages");
@@ -1443,26 +2189,18 @@ namespace CompanyManagementSystem.Data.Migrations
                     b.Navigation("UserReligiousHolidays");
 
                     b.Navigation("UserSkills");
+
+                    b.Navigation("Vacations");
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.UserRole", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.UserStatus", b =>
                 {
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.UserStatus", b =>
+            modelBuilder.Entity("CompanyManagementSystem.Data.Entities.WorkingPosition", b =>
                 {
                     b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.UserWorkingPosition", b =>
-                {
-                    b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("CompanyManagementSystem.Data.Models.Vacation", b =>
-                {
-                    b.Navigation("VacationRequests");
                 });
 #pragma warning restore 612, 618
         }

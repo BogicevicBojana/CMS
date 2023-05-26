@@ -1,11 +1,10 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using CompanyManagementSystem.Data.Enums;
 using CompanyManagementSystem.Data.Extensions;
 
-namespace CompanyManagementSystem.Data.Models
+namespace CompanyManagementSystem.Data.Entities
 {
+    #pragma warning disable
     public class UserStatus
     {
         public UserStatus(UserStatuses statuses)

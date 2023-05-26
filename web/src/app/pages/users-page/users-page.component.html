@@ -1,12 +1,63 @@
 <div class="users-page">
-      <div class="page-info">
+  <div class="page-info">
     <h1 class="page-title">Employees</h1>
     <div class="page-description">
       <svg-icon src="assets/icons/info-icon.svg"></svg-icon>
       <p>List of all employees including inactive ones.</p>
     </div>
   </div>
-
+  <div class="input-group">
+    <input
+      type="email"
+      id="email"
+      tabindex="0"
+      [(ngModel)]="userSearch"
+      placeholder="Search employee by name"
+      (input)="filterUsers()"
+    />
+  </div>
   <div class="table-container">
+    <table>
+      <thead>
+        <th (click)="sortByName()" class="sortable">
+          Name<svg-icon
+            class="icon"
+            [ngClass]="{ 'point-up': this.sortByNameASC }"
+            src="assets/icons/sort-up-icon.svg"
+          />
+        </th>
+        <th>Working position</th>
+        <th>Employment date</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Status</th>
+        <th>Role</th>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let user of filteredUsers
+              | paginate : { itemsPerPage: 10, currentPage: p }
+          "
+        >
+          <td (click)="loadUserProfile(user.id)" class="clickable">
+            <p>{{ user.first_name + " " + user.last_name }}</p>
+          </td>
+          <td>{{ user.working_position.name }}</td>
+          <td>{{ user.employment_date }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.address }}</td>
+          <td>{{ user.mobile_number }}</td>
+          <td [ngClass]="{ active: user.user_status.name === 'Active' }">
+            <p>{{ user.user_status.name }}</p>
+          </td>
+          <td>{{ user.role.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { ConfigurationType } from 'src/app/configuration.enum';
 import { ConfigurationItem } from 'src/app/data/ConfigurationItem.model';
 import { ConfigurationService } from 'src/app/services/configuration.service';
@@ -12,9 +13,16 @@ export class ConfigurationItemComponent {
   @Input() item: any;
   @Input() type!: ConfigurationType;
 
-  constructor(private configurationService: ConfigurationService) {}
+  @Output() deleteItemEvent = new EventEmitter<any>();
+
+  constructor(
+    private configurationService: ConfigurationService,
+    private toastr: ToastrService
+  ) {}
 
   deleteItem(item: ConfigurationItem) {
-    // this.configurationService.deleteItem(this.type, item);
+    this.configurationService
+      .deleteItem(this.type, item)
+      .subscribe({ next: () => this.deleteItemEvent.emit() });
   }
 }

@@ -1,12 +1,9 @@
 using System.ComponentModel;
-using System.Collections.Generic;
-using System;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders; 
 
 namespace CompanyManagementSystem.Data.Extensions
 {
+    #pragma warning disable
     public static class EnumExtensions
     {
         // *Generic method for getting Description Attribute

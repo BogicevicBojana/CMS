@@ -4,12 +4,10 @@ namespace CompanyManagementSystem.Data.Enums
 {
     public enum UserStatuses
     {
-        [Description("Pending")]
-        Pending = 1,
         [Description("Active")]
-        Active = 2,
+        Active = 1,
         [Description("Inactive")]
-        Inactive = 3
+        Inactive = 2
     }
 
 }

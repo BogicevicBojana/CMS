@@ -1,8 +1,7 @@
-using System;
-using System.Collections.Generic;
+
 using System.ComponentModel.DataAnnotations; 
 
-namespace CompanyManagementSystem.Data.Models
+namespace CompanyManagementSystem.Data.Entities
 {
     public class ReligiousHoliday : TimeStamp
     {
@@ -12,7 +11,7 @@ namespace CompanyManagementSystem.Data.Models
         }
         public int Id { get; set; }
         [Required]
-        public DateTime Date { get; set; }
+        public DateOnly Date { get; set; }
 
         // * Navigation Properties
         public ICollection<UserReligiousHoliday> UserReligiousHolidays { get; set; }

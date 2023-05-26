@@ -1,1 +1,203 @@
-<p>my-profile-page works!</p>
+<div class="configuration-page">
+  <div class="grid-container">
+    <div class="left">
+      <img [src]="imageUrl" alt="" />
+      <div class="user-info">
+        <h2>{{ user?.full_name }}</h2>
+        <p>{{ user?.working_position?.name }}</p>
+      </div>
+    </div>
+    <div class="right">
+      <h1 class="title">My Profile</h1>
+      <p class="info">View and manage your profile data.</p>
+
+      <!-- GENRAL INFORMATION -->
+      <div class="group-heading">
+        <svg-icon
+          class="icon"
+          src="assets/icons/user-filled-icon.svg"
+        ></svg-icon>
+        <h2>General information</h2>
+      </div>
+      <div class="group">
+        <div class="row">
+          <div class="input-group">
+            <h3>First name</h3>
+            <input
+              type="text"
+              tabindex="0"
+              value="{{ user?.first_name }}"
+              [(ngModel)]="newFirstName"
+            />
+          </div>
+          <div class="input-group">
+            <h3>Last name</h3>
+            <input
+              type="text"
+              tabindex="0"
+              value="{{ user?.last_name }}"
+              [(ngModel)]="newLastName"
+            />
+          </div>
+          <div class="input-group">
+            <h3>Email</h3>
+            <input
+              disabled="true"
+              type="email"
+              tabindex="0"
+              value="{{ user?.email }}"
+              [(ngModel)]="newEmail"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-group">
+            <h3>Address</h3>
+            <input
+              type="text"
+              tabindex="0"
+              value="{{ user?.address }}"
+              [(ngModel)]="newAddress"
+            />
+          </div>
+          <div class="input-group">
+            <h3>Phone number</h3>
+            <input
+              type="text"
+              tabindex="0"
+              value="{{ user?.mobile_number }}"
+              [(ngModel)]="newPhoneNumber"
+            />
+          </div>
+          <div class="input-group">
+            <h3>Date of birth</h3>
+            <input
+              type="date"
+              value="{{ user?.date_of_birth }}"
+              [(ngModel)]="newDateOfBirth"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- EMPLOYEE STATUS -->
+      <div class="group-heading">
+        <svg-icon
+          class="icon"
+          src="assets/icons/briefcase-filled-icon.svg"
+        ></svg-icon>
+        <h2>Employee status</h2>
+      </div>
+      <div class="group">
+        <div class="row">
+          <div class="input-group">
+            <h3>Role</h3>
+            <input type="text" value="{{ user?.role?.name }}" disabled />
+          </div>
+          <div class="input-group">
+            <h3>Employment date</h3>
+            <input
+              type="date"
+              value="{{ user?.employment_date }}"
+              [(ngModel)]="newEmploymentDate"
+            />
+          </div>
+          <div class="input-group" style="margin-top: 0.8rem">
+            <app-single-select
+              [clearable]="false"
+              label="Working position"
+              [dataSource]="allWorkingPosition"
+              propertyToSelect="id"
+              [(inputModel)]="currentWorkingPositionId"
+              propertyToDisplay="name"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- LANGUAGES & SKILLS -->
+      <div class="group-heading">
+        <svg-icon
+          class="icon"
+          src="assets/icons/check-circle-filled-icon.svg"
+        ></svg-icon>
+        <h2>Languages & skills</h2>
+      </div>
+      <div class="group">
+        <div class="row" style="margin-top: 0.8rem">
+          <div class="input-group">
+            <h3>Languages</h3>
+            <ng-select
+              [clearable]="false"
+              [items]="allLanguages"
+              [multiple]="true"
+              bindLabel="name"
+              [selectableGroup]="true"
+              [closeOnSelect]="false"
+              bindValue="id"
+              [(ngModel)]="userLanguages"
+              [placeholder]="getPlaceholder(user?.languages!)"
+            >
+              <ng-template ng-multi-label-tmp>{{
+                getPlaceholder(user?.languages!)
+              }}</ng-template>
+
+              <ng-template
+                ng-option-tmp
+                let-item="item"
+                let-item$="item$"
+                let-index="index"
+              >
+                <input
+                  id="item-{{ index }}"
+                  type="checkbox"
+                  [ngModel]="item$.selected"
+                />
+                {{ item.name }}
+              </ng-template>
+            </ng-select>
+          </div>
+
+          <!-- SKILLS -->
+          <div class="input-group">
+            <h3>Skills</h3>
+            <ng-select
+              [clearable]="false"
+              [items]="allSkills"
+              [multiple]="true"
+              bindLabel="name"
+              [selectableGroup]="true"
+              [closeOnSelect]="false"
+              bindValue="id"
+              [(ngModel)]="userSkills"
+              [placeholder]="getPlaceholder(user?.skills!)"
+            >
+              <ng-template ng-multi-label-tmp>{{
+                getPlaceholder(user?.skills!)
+              }}</ng-template>
+              <ng-template
+                ng-option-tmp
+                let-item="item"
+                let-item$="item$"
+                let-index="index"
+              >
+                <input
+                  id="item-{{ index }}"
+                  type="checkbox"
+                  [ngModel]="item$.selected"
+                />
+                {{ item.name }}
+              </ng-template>
+            </ng-select>
+          </div>
+          <div class="input-group"></div>
+        </div>
+      </div>
+
+      <!-- CONTROLS -->
+      <div class="controls">
+        <div class="button" (click)="updateProfile()">Save changes</div>
+      </div>
+    </div>
+  </div>
+</div>

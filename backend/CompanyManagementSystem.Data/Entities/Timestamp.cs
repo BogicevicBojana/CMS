@@ -1,6 +1,6 @@
 using System;
 
-namespace CompanyManagementSystem.Data.Models
+namespace CompanyManagementSystem.Data.Entities
 {
     public class TimeStamp
     {

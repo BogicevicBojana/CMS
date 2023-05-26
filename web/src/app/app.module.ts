@@ -8,7 +8,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarButtonComponent } from './components/sidebar/sidebar-button/sidebar-button.component';
-import { BenefitsPageComponent } from './pages/benefits-page/benefits-page.component';
+import BenefitsPageComponent from './pages/benefits-page/benefits-page.component';
 import { ConfigurationPageComponent } from './pages/configuration-page/configuration-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { MyProfilePageComponent } from './pages/my-profile-page/my-profile-page.component';
@@ -21,6 +21,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { GenericModalComponent } from './components/generic-modal/generic-modal.component';
+import { IconButtonComponent } from './components/icon-button/icon-button.component';
+import { SingleSelectComponent } from './components/single-select/single-select.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ModalComponent } from './components/modal/modal.component';
+import { MultiSelectComponent } from './components/multi-select/multi-select.component';
 
 @NgModule({
   declarations: [
@@ -39,16 +48,30 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserProfilePageComponent,
     UsersPageComponent,
     VacationsPageComponent,
+    GenericModalComponent,
+    IconButtonComponent,
+    SingleSelectComponent,
+    ModalComponent,
+    MultiSelectComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule,
     HttpClientModule,
     AngularSvgIconModule.forRoot(),
-    AppRoutingModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      maxOpened: 3,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      countDuplicates: true,
+    }),
+    NgSelectModule,
+    FormsModule,
+    NgxPaginationModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ConfigurationType } from 'src/app/configuration.enum';
 
 @Component({
@@ -12,6 +12,8 @@ export class AccordionComponent {
   @Input() openedByDefault: boolean = false;
   @Input() configurationItemType: ConfigurationType | undefined;
 
+  @Output() itemDeletedEvent = new EventEmitter<any>();
+
   expanded: boolean = false;
 
   ngOnInit(): void {
@@ -20,5 +22,9 @@ export class AccordionComponent {
 
   onClick(): void {
     this.expanded = !this.expanded;
+  }
+
+  onItemDeleted() {
+    this.itemDeletedEvent.emit();
   }
 }

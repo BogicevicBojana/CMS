@@ -1,13 +1,78 @@
 @use "/src/scss/_variables.scss" as *;
 
+.modal {
+  .title {
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    .select {
+      width: 100%;
+    }
+
+    input {
+      margin-top: 1rem;
+      width: 100%;
+      padding: 1.2rem 1rem;
+      font-size: 1.4rem;
+      border: none;
+      background-color: #fff;
+      box-shadow: 0 0 10px 5px rgba(1, 1, 1, 0.03);
+      border-radius: 3px;
+      color: #333;
+      outline: none;
+    }
+
+    .button {
+      cursor: pointer;
+      text-align: center;
+      color: #fff;
+      background-color: #fff;
+      font-size: 1.4rem;
+      margin-top: 1rem;
+      width: 100%;
+      padding: 1.3rem 1rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 10px 5px rgba(1, 1, 1, 0.03);
+      background-color: #22c55e;
+
+      &:hover {
+        background-color: #22c55e;
+        color: #fff;
+        transform: scale(1.02);
+        box-shadow: 0 0 20px 0 rgba(#22c55e, 0.5),
+          0 0 10px 0 rgba(246, 246, 246, 0.3) inset;
+        border: none;
+      }
+    }
+  }
+}
+
 .configuration-page {
   color: #333;
+  position: relative;
 
   .page-info {
     display: flex;
-    flex-direction: column;
-    gap: 1.4rem;
+    justify-content: space-between;
     font-family: sans-serif;
+    align-items: center;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
 
     .page-title {
       font-family: "Inter", sans-serif;

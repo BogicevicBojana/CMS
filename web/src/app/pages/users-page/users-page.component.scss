@@ -1,38 +1,148 @@
 @use "/src/scss/_variables.scss" as *;
 
 .users-page {
-    color: #333;
+  color: #333;
 
-    .page-info {
-        display: flex;
-        flex-direction: column;
-        gap: 1.4rem;
-        font-family: sans-serif;
+  .page-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    font-family: sans-serif;
 
-        .page-title {
-            font-family: "Inter", sans-serif;
-            font-size: 2.4rem;
-        }
+    .page-title {
+      font-family: "Inter", sans-serif;
+      font-size: 2.4rem;
+    }
 
-        .page-description {
+    .page-description {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      svg {
+        width: 16px;
+        height: 16px;
+        fill: $accent-color;
+      }
+
+      p {
+        color: #555;
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  .input-group {
+    margin-top: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    input {
+      border: none;
+      background-color: #f0f0f0;
+      padding: 0.9rem 0.8rem;
+      // border-bottom: 1px solid #888;
+      outline: none;
+      color: $c-gray-2;
+      font-family: "Inter", sans-serif;
+      font-size: 1.4rem;
+      min-width: 17%;
+      max-width: 23%;
+    }
+
+    position: relative;
+  }
+
+  .table-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    height: 100%;
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 1.2rem;
+
+      thead {
+        background-color: #333;
+        color: #fff;
+        user-select: none;
+
+        th {
+          padding: 1rem;
+          font-weight: 500;
+          text-align: left;
+          font-size: 1.4rem;
+
+          &.sortable {
+            cursor: pointer;
             display: flex;
+            gap: 7px;
             align-items: center;
-            gap: 5px;
+
+            .icon {
+              &.point-up {
+                transform: rotate(180deg);
+              }
+            }
 
             svg {
-                width: 16px;
-                height: 16px;
-                fill: $accent-color;
+              height: 18px;
+              width: 18px;
+              stroke: #f4f4f4da;
             }
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          background-color: #fff;
+
+          td {
+            // text-align: center;
+            padding: 1rem;
+            border: 1px solid #a9a9a9;
+            // line-height: 1.2;
+            font-size: 1.4rem;
 
             p {
-                color: #555;
-                font-size: 1.4rem;
+              background-color: rgb(254, 221, 211);
+              color: rgb(235, 66, 57);
+              padding: 0.4rem 0.6rem;
+              border-radius: 3px;
+              text-align: center;
             }
+
+            &.clickable p {
+              cursor: pointer;
+              background-color: initial;
+              color: initial;
+              text-align: initial;
+            }
+
+            &.active p {
+              text-align: center;
+              background-color: rgb(211, 255, 211);
+              color: rgb(64, 215, 50);
+              padding: 0.5rem 0.8rem;
+              border-radius: 3px;
+            }
+          }
+
+          &:nth-child(even) {
+            background-color: #ededed9c;
+          }
         }
+      }
     }
 
-    .table-container {
-        // box-shadow: 0 5px 10px 5px rgba(1, 1, 1, 0.05);
+    .pagination {
+      margin-top: 1rem;
     }
+  }
 }
