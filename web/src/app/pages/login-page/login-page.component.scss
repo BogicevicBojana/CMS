@@ -5,83 +5,56 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f4f4f4;
-  backdrop-filter: blur(10px);
-  background: linear-gradient(0deg, rgb(43, 99, 195), rgba(58, 163, 248, 1));
-  // background: linear-gradient(0deg, rgb(171, 171, 171)rgb(238, 238, 238)1);
-  // url("https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80");
-  // background-size: cover;
+  background: url("../../../assets/back.svg") no-repeat center center/cover
+    #eff3fd;
   background-position: center center;
   user-select: none;
 
   .login-box {
-    // width: 40rem;
-    text-align: center;
-    margin-top: -100px;
-    background-color: rgba(255, 255, 255, 1);
-    padding: 36px;
+    margin-top: -7rem;
+    background-color: rgba(255, 255, 255, 0.4);
     display: flex;
-    flex-direction: column;
-    // gap: 35px;
     justify-content: center;
     align-items: center;
     border-radius: 9px;
-    box-shadow: 0 7px 30px 0 rgba(0, 0, 0, 0.05);
-    position: relative;
+    box-shadow: 0 7px 30px 0 rgba(0, 0, 0, 0.075);
+    backdrop-filter: blur(1px);
 
-    backdrop-filter: blur(3px);
+    .left {
+      padding: 3rem 0rem 3rem 3rem;
+      // flex: 1.2;
+      height: 100%;
+      // width: 100%;
 
-    .user-box {
-      position: absolute;
-      width: 80px;
-      height: 80px;
-      background-color: #fff;
-      top: 0;
-      transform: translateY(-50%);
-      border-radius: 7px;
-      padding: 20px;
-      box-shadow: 0 7px 30px 0 rgba(0, 0, 0, 0.1);
-      transition: 0.3s;
-
-      &:hover {
-        box-shadow: 0 7px 30px 0 rgba(61, 140, 251, 0.458);
-      }
-
-      svg {
-        stroke: $accent-color;
-        fill: $accent-color;
+      img {
+        height: 40rem;
+        object-fit: contain;
+        // object-fit: cover;
       }
     }
 
-    .logo {
-      margin-top: 3.2rem;
-      z-index: 2;
-      color: #343434;
-      font-size: 2.7rem;
-      // text-transform: uppercase;
-      text-align: center;
-      letter-spacing: 0.5px;
+    .right {
+      // flex: 1;
+      // width: 100%;
+      // height: 100%;
+
       display: flex;
-      align-items: flex-start;
-      gap: 4px;
-      margin-bottom: 2rem;
+      flex-direction: column;
+      align-items: center;
 
-      span {
-        font-size: 1.7rem;
-        font-weight: 500;
-        background-color: $accent-color;
-        color: #fff;
-        padding: 2px 3px;
-        border-radius: 3px;
-        letter-spacing: 1;
+      .logo {
+        width: 12rem;
+        margin-bottom: 1rem;
       }
-    }
 
-    .subheading {
-      font-size: 1.5rem;
-      color: #373737;
-      line-height: 1.4;
-      margin-bottom: 1.5rem;
+      .subheading {
+        font-size: 1.5rem;
+        line-height: 1.5;
+        color: #373737;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        max-width: 60%;
+      }
     }
   }
 }

@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CompanyManagementSystem.API.Controllers
 {
-    #pragma warning disable
+#pragma warning disable
     [ApiController]
     [Route("[controller]")]
     [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
-    [AllowAnonymous]
+    // [AllowAnonymous]
     public class UserController : ControllerBase
     {
         private IUserService userService;
@@ -22,35 +22,37 @@ namespace CompanyManagementSystem.API.Controllers
         }
 
         [HttpGet("information/{id:int}")]
-        [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
+        [Authorize]
         public IActionResult GetById(int id)
         {
             var response = userService.GetById(id);
-            if(response.Code.Equals(200))
+            if (response.Code.Equals(200))
                 return Ok(response);
             return BadRequest(response);
         }
+
         [HttpGet("information")]
-        [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
+        [Authorize]
         public IActionResult GetAllUsers()
         {
             var response = userService.GetAllUsers();
-            if(response.Code.Equals(200))
+            if (response.Code.Equals(200))
                 return Ok(response);
             return BadRequest(response);
         }
+
         [HttpGet("information/active")]
-        [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
+        [Authorize]
         public IActionResult GetAllNonDeletedUsers()
         {
             var response = userService.GetAllNonDeletedUsers();
-            if(response.Code.Equals(200))
+            if (response.Code.Equals(200))
                 return Ok(response);
             return BadRequest(response);
         }
 
         [HttpDelete("deletion/{id:int}")]
-        [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
+        [Authorize]
         public IActionResult SoftDelete(int id)
         {
             var response = userService.SoftDelete(id);
@@ -60,7 +62,7 @@ namespace CompanyManagementSystem.API.Controllers
         }
 
         [HttpPost("insertion")]
-        [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
+        [Authorize]
         public IActionResult Insert([FromBody] Models.UserRegister user)
         {
             var response = userService.Insert(user);
@@ -70,7 +72,7 @@ namespace CompanyManagementSystem.API.Controllers
         }
 
         [HttpPut("update")]
-        [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
+        [Authorize]
         public IActionResult Update([FromBody] Models.UserUpdate user)
         {
             var response = userService.Update(user);
@@ -79,7 +81,7 @@ namespace CompanyManagementSystem.API.Controllers
             return BadRequest(response);
         }
 
-        [AuthorizeRoles(Roles.Administrator)]
+        [Authorize]
         [HttpPut("update/benefit/{selected:bool}")]
         public IActionResult UpdateUserBenefit(
             [FromBody] Models.UserBenefit userBenefitDTO,

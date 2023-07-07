@@ -11,7 +11,7 @@ namespace RBT.CompanyManagementSystem.API.Controllers
     [ApiController]
     [Route("[controller]")]
     [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
-    [AllowAnonymous]
+    // [AllowAnonymous]
     public class VacationController : ControllerBase
     {
         private IVacationService vacationService;
@@ -32,7 +32,7 @@ namespace RBT.CompanyManagementSystem.API.Controllers
         public IActionResult Insert([FromBody] Models.InsertVacation vacation)
         {
             var response = vacationService.Insert(vacation);
-            if ( response.Code.Equals(201))
+            if (response.Code.Equals(201))
                 return Ok(response);
             return BadRequest(response);
         }
@@ -41,7 +41,7 @@ namespace RBT.CompanyManagementSystem.API.Controllers
         public IActionResult Remove(int id)
         {
             var response = vacationService.RemoveVacation(id);
-            if(response.Code.Equals(400))
+            if (response.Code.Equals(400))
                 return BadRequest(response);
             return Ok(response);
         }

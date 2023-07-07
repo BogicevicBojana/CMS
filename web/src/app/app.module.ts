@@ -30,6 +30,7 @@ import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ModalComponent } from './components/modal/modal.component';
 import { MultiSelectComponent } from './components/multi-select/multi-select.component';
+import { AuthInterceptorProvider } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,7 @@ import { MultiSelectComponent } from './components/multi-select/multi-select.com
     NgxPaginationModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

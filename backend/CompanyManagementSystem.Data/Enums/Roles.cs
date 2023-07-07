@@ -6,6 +6,7 @@ namespace CompanyManagementSystem.Data.Enums
     {
         [Description("Administrator")]
         Administrator = 1,
+
         [Description("Employee")]
         Employee = 2
     }

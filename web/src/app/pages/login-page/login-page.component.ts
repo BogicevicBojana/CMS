@@ -10,7 +10,11 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./login-page.component.scss'],
 })
 export class LoginPageComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router, private _ngZone: NgZone) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private _ngZone: NgZone
+  ) {}
 
   ngOnInit(): void {
     // @ts-ignore
@@ -27,12 +31,12 @@ export class LoginPageComponent implements OnInit {
       // @ts-ignore
       google.accounts.id.renderButton(
         // @ts-ignore
-        document.getElementById("buttonDiv"),
-        { theme: 'outline', size: "large", width: "100%" }
+        document.getElementById('buttonDiv'),
+        { theme: 'outline', size: 'large' }
       );
       // @ts-ignore
-      google.accounts.id.prompt((notification: PromptMomentNotification) => { });
-    }
+      google.accounts.id.prompt((notification: PromptMomentNotification) => {});
+    };
   }
 
   handleGoogleResponse(response: CredentialResponse) {

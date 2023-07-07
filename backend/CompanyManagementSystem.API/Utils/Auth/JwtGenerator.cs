@@ -2,6 +2,7 @@ using System.Security.Cryptography;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Text;
 
 namespace CompanyManagementSystem.API.Utils.Auth
 {
@@ -31,17 +32,16 @@ namespace CompanyManagementSystem.API.Utils.Auth
             // describe token payload and signature
             var tokenDescription = new SecurityTokenDescriptor
             {
-                Audience = "cmsApi",
-                Issuer = "CompanyManagementSystem",
+                Audience = "myAudience",
+                Issuer = "BogdanMilojevic",
                 Subject = new ClaimsIdentity(new List<Claim>
                 {
                     new Claim(ClaimTypes.NameIdentifier, userId),
                     new Claim(ClaimTypes.Email, userEmail),
-                    new Claim(ClaimTypes.Role, userRole),
                     new Claim("WorkingPosition", userPosition)
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(60),
-                SigningCredentials = new SigningCredentials(key, SecurityAlgorithms.RsaSha256)
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.ASCII.GetBytes("This is a sample secret key - please don't use in production environment.")), SecurityAlgorithms.HmacSha512Signature)
             };
 
             var jsonWebToken = tokenHandler.CreateToken(tokenDescription);

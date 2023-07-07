@@ -1,6 +1,8 @@
 <div class="app-sidebar">
-  <h1 class="logo">Workforce <span>360</span></h1>
+  <!-- <h1 class="logo">DevTrack <span>PRO</span></h1> -->
+  <img class="logo" src="../assets/logo-horizontal.svg" alt="" />
   <nav>
+    <h3 class="nav-header">settings</h3>
     <app-sidebar-button
       iconSrc="assets/icons/user-icon.svg"
       buttonText="My Profile"
@@ -16,6 +18,8 @@
       [passedRoutes]="['/app/configuration']"
       *ngIf="isAdmin"
     ></app-sidebar-button>
+
+    <h3 class="nav-header">employee management</h3>
 
     <app-sidebar-button
       iconSrc="assets/icons/users-icon.svg"
@@ -33,6 +37,7 @@
       *ngIf="isAdmin"
     ></app-sidebar-button>
 
+    <h3 class="nav-header">benefits & vacations</h3>
     <app-sidebar-button
       iconSrc="assets/icons/vacations-icon.svg"
       buttonText="Vacations"
@@ -57,4 +62,5 @@
       *ngIf="false"
     ></app-sidebar-button>
   </nav>
+  <footer>Kadrovska 1.0 | By Bogdan Milojević</footer>
 </div>

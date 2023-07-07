@@ -11,6 +11,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using CompanyManagementSystem.API.Services.Users;
 using CompanyManagementSystem.API.Services.Roles;
 using CompanyManagementSystem.API.Services.Vacations;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Cryptography;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,7 +46,24 @@ builder.Services.AddAuthentication(options =>
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddJwtBearer();
+            .AddJwtBearer(
+                o =>
+                {
+
+                    o.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("This is a sample secret key - please don't use in production environment.")),
+                        ValidateIssuer = true,
+                        ValidIssuer = "BogdanMilojevic",
+                        ValidateAudience = true,
+                        ValidAudience = "myAudience",
+                        ValidateLifetime = false
+                    };
+                }
+            );
+
+builder.Services.AddAuthorization();
 
 builder.Services.AddCors(options =>
     {
@@ -81,7 +101,7 @@ if (app.Environment.IsDevelopment())
 }
 
 //app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

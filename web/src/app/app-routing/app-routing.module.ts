@@ -10,6 +10,7 @@ import { UsersPageComponent } from '../pages/users-page/users-page.component';
 import { VacationsPageComponent } from '../pages/vacations-page/vacations-page.component';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { MyProfilePageComponent } from '../pages/my-profile-page/my-profile-page.component';
+import { AccessGuard } from '../access.guard';
 
 const routes: Routes = [
   {
@@ -28,41 +29,75 @@ const routes: Routes = [
 
   {
     path: 'app',
+    canActivate: [AccessGuard],
     component: DashboardComponent,
+
+    data: {
+      requiresLogin: true,
+    },
+
     children: [
       {
         path: 'my-profile',
+        canActivate: [AccessGuard],
         component: MyProfilePageComponent,
+        data: {
+          requiresLogin: true,
+        },
       },
 
       {
         path: 'configuration',
+        canActivate: [AccessGuard],
         component: ConfigurationPageComponent,
+        data: {
+          requiresLogin: true,
+        },
       },
 
       {
         path: 'users',
+        canActivate: [AccessGuard],
         component: UsersPageComponent,
+        data: {
+          requiresLogin: true,
+        },
       },
 
       {
         path: 'vacations',
+        canActivate: [AccessGuard],
         component: VacationsPageComponent,
+        data: {
+          requiresLogin: true,
+        },
       },
 
       {
         path: 'benefits',
+        canActivate: [AccessGuard],
         component: BenefitsPageComponent,
+        data: {
+          requiresLogin: true,
+        },
       },
 
       {
         path: 'register-user',
+        canActivate: [AccessGuard],
         component: RegisterUserPageComponent,
+        data: {
+          requiresLogin: true,
+        },
       },
 
       {
         path: 'user-profile/:id',
+        canActivate: [AccessGuard],
         component: UserProfilePageComponent,
+        data: {
+          requiresLogin: true,
+        },
       },
     ],
   },

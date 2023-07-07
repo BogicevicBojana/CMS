@@ -14,11 +14,11 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CompanyManagementSystem.API.Controllers
 {
-    #pragma warning disable
+#pragma warning disable
     [ApiController]
     [Route("[controller]")]
     [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
-    [AllowAnonymous]
+    // [AllowAnonymous]
     public class ConfigurationController : ControllerBase
     {
         private IBenefitService benefitService;
@@ -42,39 +42,40 @@ namespace CompanyManagementSystem.API.Controllers
         public IActionResult InsertIntoConfiguration([FromBody] NameBaseDto nameBase, string code)
         {
             var response = new Object();
-            if(code.ToLower() == ConfigurationCodes.Benefit.ToString().ToLower())
-                response =  benefitService.Insert(nameBase);
-            else if(code.ToLower() == ConfigurationCodes.Skill.ToString().ToLower())
+            if (code.ToLower() == ConfigurationCodes.Benefit.ToString().ToLower())
+                response = benefitService.Insert(nameBase);
+            else if (code.ToLower() == ConfigurationCodes.Skill.ToString().ToLower())
                 response = skillService.Insert(nameBase);
-            else if(code.ToLower() == ConfigurationCodes.Language.ToString().ToLower())
-                response =  languageService.Insert(nameBase);
-            else if(code.ToLower() == ConfigurationCodes.Position.ToString().ToLower())
+            else if (code.ToLower() == ConfigurationCodes.Language.ToString().ToLower())
+                response = languageService.Insert(nameBase);
+            else if (code.ToLower() == ConfigurationCodes.Position.ToString().ToLower())
                 response = workingPositionService.Insert(nameBase);
 
-            try 
+            try
             {
-                if(response.GetType().GetProperty("Code").Equals(400))
+                if (response.GetType().GetProperty("Code").Equals(400))
                     return BadRequest(response);
 
                 return Ok(response);
-            } catch (NullReferenceException)
+            }
+            catch (NullReferenceException)
             {
                 return BadRequest(new Response<NameBaseDto>(ResponseMessages.ConfigCodeMissingOrWrong.ToDescription(), null, (int)ResponseCodes.BadRequest));
-            }    
-            
+            }
+
         }
 
         [HttpGet("information/{code}")]
         [AuthorizeRoles(Roles.Administrator, Roles.Employee)]
         public IActionResult GetAll(string code)
         {
-            if(code.ToLower() == ConfigurationCodes.Benefit.ToString().ToLower())
+            if (code.ToLower() == ConfigurationCodes.Benefit.ToString().ToLower())
                 return Ok(benefitService.GetAllBenefits());
-            else if(code.ToLower() == ConfigurationCodes.Skill.ToString().ToLower())
+            else if (code.ToLower() == ConfigurationCodes.Skill.ToString().ToLower())
                 return Ok(skillService.GetAllSkills());
-            else if(code.ToLower() == ConfigurationCodes.Language.ToString().ToLower())
+            else if (code.ToLower() == ConfigurationCodes.Language.ToString().ToLower())
                 return Ok(languageService.GetAllLanguages());
-            else if(code.ToLower() == ConfigurationCodes.Position.ToString().ToLower())
+            else if (code.ToLower() == ConfigurationCodes.Position.ToString().ToLower())
                 return Ok(workingPositionService.GetAllPositions());
 
             return BadRequest(new Response<NameBaseDto>(ResponseMessages.ConfigCodeMissingOrWrong.ToDescription(), null, (int)ResponseCodes.BadRequest));
@@ -85,23 +86,24 @@ namespace CompanyManagementSystem.API.Controllers
         public IActionResult GetById(string code, int id)
         {
             var response = new Object();
-            if(code.ToLower() == ConfigurationCodes.Benefit.ToString().ToLower())
+            if (code.ToLower() == ConfigurationCodes.Benefit.ToString().ToLower())
                 response = benefitService.GetById(id);
-            else if(code.ToLower() == ConfigurationCodes.Skill.ToString().ToLower())
+            else if (code.ToLower() == ConfigurationCodes.Skill.ToString().ToLower())
                 response = skillService.GetById(id);
-            else if(code.ToLower() == ConfigurationCodes.Language.ToString().ToLower())
+            else if (code.ToLower() == ConfigurationCodes.Language.ToString().ToLower())
                 response = languageService.GetById(id);
-            else if(code.ToLower() == ConfigurationCodes.Position.ToString().ToLower())
+            else if (code.ToLower() == ConfigurationCodes.Position.ToString().ToLower())
                 response = workingPositionService.GetById(id);
 
             try
             {
-                if(response.GetType().GetProperty("Code").Equals(200))
+                if (response.GetType().GetProperty("Code").Equals(200))
                     return Ok(response);
                 return BadRequest(response);
-            } catch(NullReferenceException)
+            }
+            catch (NullReferenceException)
             {
-                 return BadRequest(new Response<NameBaseDto>(ResponseMessages.ConfigCodeMissingOrWrong.ToDescription(), null, (int)ResponseCodes.BadRequest));
+                return BadRequest(new Response<NameBaseDto>(ResponseMessages.ConfigCodeMissingOrWrong.ToDescription(), null, (int)ResponseCodes.BadRequest));
             }
         }
 
@@ -110,13 +112,13 @@ namespace CompanyManagementSystem.API.Controllers
         public IActionResult SoftDelete(string code, int id)
         {
             var response = new Object();
-            if(code.ToLower() == ConfigurationCodes.Benefit.ToString().ToLower())
+            if (code.ToLower() == ConfigurationCodes.Benefit.ToString().ToLower())
                 response = benefitService.SoftDelete(id);
-            else if(code.ToLower() == ConfigurationCodes.Skill.ToString().ToLower())
+            else if (code.ToLower() == ConfigurationCodes.Skill.ToString().ToLower())
                 response = skillService.SoftDelete(id);
-            else if(code.ToLower() == ConfigurationCodes.Language.ToString().ToLower())
+            else if (code.ToLower() == ConfigurationCodes.Language.ToString().ToLower())
                 response = languageService.SoftDelete(id);
-            else if(code.ToLower() == ConfigurationCodes.Position.ToString().ToLower())
+            else if (code.ToLower() == ConfigurationCodes.Position.ToString().ToLower())
                 response = workingPositionService.SoftDelete(id);
 
             try
@@ -124,7 +126,8 @@ namespace CompanyManagementSystem.API.Controllers
                 if (response.GetType().GetProperty("Code").Equals(400))
                     return BadRequest(response);
                 return Ok(response);
-            } catch(NullReferenceException)
+            }
+            catch (NullReferenceException)
             {
                 return BadRequest(new Response<NameBaseDto>(ResponseMessages.ConfigCodeMissingOrWrong.ToDescription(), null, (int)ResponseCodes.BadRequest));
             }
